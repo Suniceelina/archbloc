@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presence 方案 — 被找到、被点击、被信任 | Archbloc</title>
+<meta name="description" content="Archbloc Presence 主力方案：SEO持续优化 + GEO内容 + 媒体软文发稿，¥8,800/月，适合全面建立搜索存在感的成长型企业。">
+<link rel="canonical" href="https://archbloc.com/presence">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.cnpmjs.org/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--bg2:#fafafa;--border:#f0f0f0;--border-mid:#e5e5e5;--text:#0f172a;--muted:#475569;--aux:#aaaaaa;--accent:#f97316;--accent-light:rgba(249,115,22,0.08);--accent-border:rgba(249,115,22,0.25);--dark:#111;--sans:'Inter',system-ui,sans-serif;--rc:12px;--rcta:10px;--rbtn:6px}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nl{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.nm{display:flex;gap:28px;list-style:none}.nm a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .18s}.nm a:hover{color:var(--text)}
+.nc{font-size:12px;font-weight:600;color:#fff;background:var(--dark);border:none;padding:8px 18px;border-radius:var(--rbtn);cursor:pointer;transition:opacity .18s;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}.nc:hover{opacity:.82}
+.nmb{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text)}
+.pt{margin-top:60px}.w{max-width:1100px;margin:0 auto;padding:0 40px}
+.st{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aux);margin-bottom:14px}
+.sh{font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--text)}.sh em{font-style:normal;color:var(--accent)}
+.la{font-size:14px;font-weight:500;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .18s}.la:hover{gap:10px}
+.bp{font-size:15px;font-weight:600;color:#fff;background:var(--accent);border:none;padding:16px 32px;border-radius:var(--rcta);cursor:pointer;transition:opacity .18s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}.bp:hover{opacity:.88}
+.bg{font-size:14px;font-weight:500;color:var(--muted);background:none;border:1.5px solid var(--border-mid);padding:15px 24px;border-radius:var(--rcta);cursor:pointer;transition:border-color .18s,color .18s;text-decoration:none;display:inline-flex;align-items:center}.bg:hover{border-color:var(--accent);color:var(--text)}
+.sec{padding:80px 0;border-bottom:1px solid var(--border)}
+.hero{padding:72px 0 88px;border-bottom:1px solid var(--border)}
+.hg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.badge{font-size:11px;font-weight:600;color:#fff;background:var(--accent);padding:4px 12px;border-radius:4px;display:inline-block;margin-bottom:16px;letter-spacing:.04em}
+.ti{display:flex;align-items:center;gap:12px;margin-bottom:20px}.tl{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--aux)}.td{display:flex;gap:6px}.dot{width:8px;height:8px;border-radius:50%;background:var(--border-mid)}.dot.on{background:var(--accent)}
+.ey{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.hh{font-size:clamp(34px,4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--text);margin-bottom:20px}.hh em{font-style:normal;color:var(--accent)}
+.hs{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:32px}
+.ha{display:flex;gap:14px;flex-wrap:wrap}
+.hr{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rc);padding:40px;text-align:center}
+.pm{font-size:52px;font-weight:700;color:var(--text);line-height:1;letter-spacing:-.03em}.pm span{font-size:.42em;color:var(--accent);font-weight:600}
+.pu{font-size:14px;color:var(--muted);margin-top:6px}.pmin{font-size:13px;color:var(--aux);margin-top:4px;margin-bottom:28px}
+.pc{width:100%;font-size:15px;font-weight:600;color:#fff;background:var(--accent);border:none;padding:16px;border-radius:var(--rcta);cursor:pointer;transition:opacity .18s;text-decoration:none;display:block;text-align:center;margin-bottom:12px}.pc:hover{opacity:.88}
+.pa{font-size:13px;color:var(--aux)}.pa a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border-mid)}.pa a:hover{color:var(--text)}
+/* vs signal */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--rc);overflow:hidden;margin-top:44px}
+.vs-col{padding:36px 32px}.vs-col:first-child{border-right:1px solid var(--border);background:var(--bg2)}
+.vs-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--aux);margin-bottom:20px;display:flex;align-items:center;gap:8px}.vs-label.new{color:var(--accent)}
+.vs-list{list-style:none}.vs-list li{padding:10px 0;border-top:1px solid var(--border);font-size:14px;color:var(--text);display:flex;align-items:center;gap:12px;line-height:1.5}
+.vs-list li .icon{font-size:13px;flex-shrink:0}.vs-list li .icon.old{color:var(--border-mid)}.vs-list li .icon.new{color:var(--accent);font-weight:600}
+/* del rows */
+.del-rows{margin-top:44px}
+.dr{display:grid;grid-template-columns:60px 1fr 1fr;gap:32px;padding:40px 0;border-top:1px solid var(--border);align-items:start}
+.drn{font-size:36px;font-weight:700;color:var(--border-mid);line-height:1;letter-spacing:-.03em}
+.drtag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.drt{font-size:19px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3}
+.drb{font-size:14px;color:var(--muted);line-height:1.7}
+.dro{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rc);padding:24px}
+.drol{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--aux);margin-bottom:14px}
+.droi{list-style:none}.droi li{font-size:13px;color:var(--text);padding:7px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}.droi li:last-child{border-bottom:none}.droi li::before{content:'→';color:var(--accent);font-size:12px;flex-shrink:0}
+/* media types */
+.mt-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.mtc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rc);padding:24px}
+.mtl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.mtt{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+.mtb{font-size:13px;color:var(--muted);line-height:1.6}
+.media-note{margin-top:20px;padding:18px 22px;border-left:3px solid var(--accent);background:var(--bg2);border-radius:0 var(--rc) var(--rc) 0;font-size:14px;color:var(--muted);line-height:1.75}
+.media-note strong{color:var(--text);font-weight:500}
+.pbox{background:var(--bg2);border:1.5px solid var(--accent-border);border-radius:var(--rc);padding:52px;display:grid;grid-template-columns:1fr auto;gap:52px;align-items:center;margin-top:44px}
+.ptag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent);padding:4px 12px;border-radius:4px;display:inline-block;margin-bottom:18px}
+.ph{font-size:clamp(20px,2.8vw,30px);font-weight:700;line-height:1.25;color:var(--text);margin-bottom:14px;letter-spacing:-.02em}.ph em{font-style:normal;color:var(--accent)}
+.pb{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:18px}
+.gua{font-size:13px;color:var(--muted);line-height:1.8;padding-left:16px;border-left:3px solid var(--accent)}
+.pr{text-align:right;flex-shrink:0}.pbig{font-size:clamp(36px,4.5vw,56px);font-weight:700;color:var(--text);line-height:1;letter-spacing:-.03em}.pbig span{font-size:.42em;color:var(--accent)}
+.psub{font-size:14px;color:var(--muted);margin-top:8px}.pac{display:flex;flex-direction:column;align-items:flex-end;gap:12px;margin-top:22px}
+.fl{margin-top:44px}.fi{padding:26px 0;border-top:1px solid var(--border);cursor:pointer}
+.fq{font-size:17px;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;line-height:1.4}.fq::after{content:'+';font-size:22px;color:var(--aux);flex-shrink:0;transition:transform .2s,color .2s}
+.fi.open .fq::after{transform:rotate(45deg);color:var(--accent)}
+.fa{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .3s ease,padding-top .3s}.fi.open .fa{max-height:300px;padding-top:14px}
+.ct{width:100%;border-collapse:collapse;margin-top:44px;border:1px solid var(--border);border-radius:var(--rc);overflow:hidden}
+.ct th{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:14px 18px;background:var(--bg2);border-bottom:1px solid var(--border);border-right:1px solid var(--border);text-align:left}.ct th:last-child{border-right:none}.ct th.ac{color:var(--accent)}
+.ct td{padding:13px 18px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:13px;color:var(--muted);vertical-align:middle}.ct td:last-child{border-right:none}.ct tr:last-child td{border-bottom:none}
+.ct td.feat{font-size:14px;color:var(--text);font-weight:500}.ct td.ac{background:rgba(249,115,22,.04)}.ct td.yes{color:var(--accent);font-weight:600}.ct td.no{color:var(--aux)}
+.ct td.pl a{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}.ct td.dim a{color:var(--aux)}.ct td.dim a:hover{color:var(--muted)}
+.fw{border-top:1px solid var(--border)}
+footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.flinks{display:flex;gap:28px;list-style:none}.flinks a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .18s}.flinks a:hover{color:var(--text)}
+.fcopy{font-size:12px;color:var(--aux)}
+@media(max-width:900px){
+  nav{padding:0 20px}.nm{display:none}.nmb{display:flex}.w{padding:0 20px}
+  .hero{padding:56px 0 64px}.hg{grid-template-columns:1fr;gap:36px}.sec{padding:56px 0}
+  .vs-grid{grid-template-columns:1fr}.vs-col:first-child{border-right:none;border-bottom:1px solid var(--border)}
+  .dr{grid-template-columns:1fr;gap:20px}.mt-grid{grid-template-columns:1fr}
+  .pbox{grid-template-columns:1fr;padding:32px 24px;gap:28px}.pr{text-align:left}.pac{align-items:flex-start}
+  .ct{display:block;overflow-x:auto}.ha{flex-direction:column;align-items:stretch}.ha .bp,.ha .bg{width:100%;justify-content:center}
+  footer{flex-direction:column;gap:16px;text-align:center;padding:32px 20px}.flinks{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nl"><svg height="28" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg></a>
+  <ul class="nm"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
+  <a class="nc" href="/geo-diagnostic.html">免费诊断 →</a>
+  <button class="nmb"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+</nav>
+<div class="pt"></div>
+
+<section class="hero">
+  <div class="w"><div class="hg">
+    <div>
+      <div class="ti"><span class="tl">方案层级 02/03</span><div class="td"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+      <div class="badge">推荐方案</div>
+      <div class="ey">Presence · 主力方案</div>
+      <h1 class="hh">被找到，被点击，<br>然后<em>被选择</em></h1>
+      <p class="hs">光有排名不够。Presence 方案在 SEO 基础上叠加媒体背书和 GEO 内容矩阵，让你不只出现在搜索结果里，还能让点进来的人有理由选择你。</p>
+      <div class="ha"><a class="bp" href="/geo-diagnostic.html">先获取免费诊断 →</a><a class="bg" href="#del">查看服务清单</a></div>
+    </div>
+    <div class="hr">
+      <div class="pm">¥8,800<span>/月</span></div>
+      <div class="pu">含税 · 月结</div><div class="pmin">最少合作 3 个月</div>
+      <a class="pc" href="/geo-diagnostic.html">先获取免费诊断 →</a>
+      <div class="pa">或 <a href="/cdn-cgi/l/email-protection#3c54595050537c5d4e5f545e50535f125f5351">发邮件询问</a></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="st">与入门方案的区别</div>
+    <h2 class="sh">Presence 在 Signal 基础上<em>多做了什么</em></h2>
+    <div class="vs-grid">
+      <div class="vs-col">
+        <div class="vs-label">Signal 已有的基础</div>
+        <ul class="vs-list">
+          <li><span class="icon old">✓</span>技术 SEO 优化（月度维护）</li>
+          <li><span class="icon old">✓</span>核心关键词布局</li>
+          <li><span class="icon old">✓</span>GEO 结构化内容 1 篇/月</li>
+          <li><span class="icon old">✓</span>Schema 标注维护</li>
+          <li><span class="icon old">✓</span>AI 引用基线监测</li>
+          <li><span class="icon old">✓</span>月度数据报告</li>
+        </ul>
+      </div>
+      <div class="vs-col">
+        <div class="vs-label new">Presence 新增内容</div>
+        <ul class="vs-list">
+          <li><span class="icon new">+</span>GEO 内容扩展至 2 篇/月</li>
+          <li><span class="icon new">+</span>媒体软文发稿 2 篇/月</li>
+          <li><span class="icon new">+</span>关键词覆盖扩展至 30–50 个</li>
+          <li><span class="icon new">+</span>竞品内容缺口持续追踪</li>
+          <li><span class="icon new">+</span>自媒体内容策略指导</li>
+          <li><span class="icon new">+</span>外链建设（媒体来源）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="del" class="sec">
+  <div class="w">
+    <div class="st">每月交付内容</div>
+    <h2 class="sh">你每个月<em>确切收到什么</em></h2>
+    <div class="del-rows">
+      <div class="dr"><div class="drn">01</div><div><div class="drtag">SEO 持续优化</div><div class="drt">技术 + 内容双线并行</div><div class="drb">技术问题月度修复，同时持续扩展关键词覆盖。Presence 阶段的关键词策略从核心词延伸到长尾词簇，覆盖客户搜索的完整决策链路。</div></div><div class="dro"><div class="drol">交付物</div><ul class="droi"><li>技术修复月度清单</li><li>30–50 个关键词排名追踪</li><li>长尾词机会报告</li><li>竞品内容缺口地图（月更新）</li></ul></div></div>
+      <div class="dr"><div class="drn">02</div><div><div class="drtag">GEO 内容</div><div class="drt">每月 2 篇 AI 友好内容</div><div class="drb">针对 AI 推荐系统优化的长文或专题页，有结构、有数据来源、有权威引用。让你在 ChatGPT、Kimi、文心一言等 AI 系统回答用户问题时，成为被引用的来源。</div></div><div class="dro"><div class="drol">交付物</div><ul class="droi"><li>GEO 优化长文 2 篇/月（含 Schema）</li><li>AI 引用率月度变化追踪</li><li>内容主题策略规划（季度）</li></ul></div></div>
+      <div class="dr"><div class="drn">03</div><div><div class="drtag">媒体软文发稿</div><div class="drt">每月 2 篇媒体背书</div><div class="drb">在行业媒体或垂类平台发布署名文章或品牌报道，建立搜索引擎和 AI 系统都认可的外部权威信号。媒体来源全部有明确的编辑标准，不是 SEO 农场。</div></div><div class="dro"><div class="drol">交付物</div><ul class="droi"><li>媒体文章 2 篇/月（含发稿渠道）</li><li>发稿链接存档报告</li><li>外链权重追踪</li></ul></div></div>
+      <div class="dr"><div class="drn">04</div><div><div class="drtag">自媒体策略</div><div class="drt">内容复用策略指导</div><div class="drb">把每月的 GEO 内容和媒体稿件拆解成适合自媒体平台的格式，给你清晰的操作脚本。不直接执行，但让你的团队能高效复用内容。</div></div><div class="dro"><div class="drol">交付物</div><ul class="droi"><li>月度内容分发策略文档</li><li>各平台内容拆解框架</li><li>发布时间表建议</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+      <div>
+        <div class="st">关于媒体发稿</div>
+        <h2 class="sh">为什么<em>媒体背书</em><br>在 AI 时代更重要</h2>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px">AI 系统在决定推荐哪个品牌时，高度依赖"这个品牌是否被可信来源提及过"。媒体发稿不只是传统 PR，它是 AI 搜索时代的权威信号基础设施。</p>
+        <div class="media-note">我们发稿的媒体平台都有真实的编辑流程和读者基础。<strong>我们不发 SEO 农场、不发付费收录站</strong>，因为 AI 系统已经能识别并忽略这类内容。</div>
+      </div>
+      <div>
+        <div class="st">我们覆盖的媒体类型</div>
+        <div class="mt-grid">
+          <div class="mtc"><div class="mtl">行业垂类</div><div class="mtt">行业媒体 / 专业平台</div><div class="mtb">覆盖你目标客户实际阅读的专业内容平台，权重高，精准度高</div></div>
+          <div class="mtc"><div class="mtl">财经商业</div><div class="mtt">商业财经类媒体</div><div class="mtb">适合需要在 B2B 决策者群体中建立可信度的品牌</div></div>
+          <div class="mtc"><div class="mtl">内容平台</div><div class="mtt">知乎 / 36kr / 虎嗅</div><div class="mtb">高权重内容平台，AI 系统引用频率高，适合建立行业观点</div></div>
+          <div class="mtc"><div class="mtl">本地媒体</div><div class="mtt">地区性商业媒体</div><div class="mtb">如有本地业务需求，配合地域性关键词策略精准投放</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="st">定价</div>
+    <h2 class="sh">搜索基础 + 媒体背书，<em>双线并行</em></h2>
+    <div class="pbox">
+      <div>
+        <div class="ptag">PRESENCE · 推荐方案</div>
+        <div class="ph">每个月的投入，<br>都在为<em>下个月创造更好的基础</em></div>
+        <p class="pb">Presence 是大多数有一定基础的中小企业的首选方案。媒体发稿带来的外链权重会持续积累，GEO 内容的 AI 引用会随时间增加。</p>
+        <div class="gua">我们选择媒体平台的标准和选择服务客户的标准一样：有效果、可追踪、结果对双方都公平。不适合的客户，我们宁愿不接。</div>
+      </div>
+      <div class="pr">
+        <div class="pbig">¥8,800<span>/月</span></div>
+        <div class="psub">含税 · 最少 3 个月</div>
+        <div class="pac"><a class="bp" href="/geo-diagnostic.html">先获取免费诊断 →</a><a class="bg" href="/cdn-cgi/l/email-protection#1c74797070735c7d6e7f747e70737f327f7371">询问定制方案</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="st">常见问题</div>
+    <h2 class="sh">关于 Presence 方案的<em>常见疑问</em></h2>
+    <div class="fl">
+      <div class="fi"><div class="fq">媒体发稿的"2 篇/月"具体发在哪里？</div><div class="fa">发稿平台根据你的行业和目标受众定制，在合同里会明确列出。通常包括 1–2 个行业垂类媒体，以及 36kr、虎嗅或知乎等高权重内容平台。每次发稿前你会确认内容和平台，发布后提供链接存档。</div></div>
+      <div class="fi"><div class="fq">如果我的行业比较小众，还能找到合适的媒体吗？</div><div class="fa">可以。小众行业往往反而更容易在细分媒体上建立权威，因为竞争者少。我们会在启动阶段评估你的行业媒体资源，如果垂类媒体选项有限，会推荐更合适的替代方案并提前沟通。</div></div>
+      <div class="fi"><div class="fq">自媒体策略指导是什么意思？我自己要做什么？</div><div class="fa">我们负责策略输出：把每月的长文和媒体稿件拆解成适合公众号、微博、小红书的内容框架，给你具体的标题建议和发布时间建议。你或你的内部团队负责最终发布执行。如果你没有内部团队，可以升级到 Authority 方案，我们全部执行。</div></div>
+      <div class="fi"><div class="fq">Presence 和 Authority 的核心差异是什么？</div><div class="fa">Presence 是"做内容、建背书、给策略"，Authority 是"全部交给我们执行"——自媒体内容由我们产出和发布，媒体发稿升级到头部媒体，配备专属策略师，并提供季度 ROI 复盘。如果你有内部团队可以执行自媒体，Presence 通常已经足够。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-bottom:none">
+  <div class="w">
+    <div class="st">方案对比</div>
+    <h2 class="sh">三套方案<em>一眼看清</em></h2>
+    <table class="ct">
+      <thead><tr><th>服务内容</th><th>Signal ¥3,800</th><th class="ac">Presence ¥8,800</th><th>Authority ¥18,800起</th></tr></thead>
+      <tbody>
+        <tr><td class="feat">技术 SEO 优化</td><td class="yes">✓</td><td class="ac yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td class="feat">关键词布局</td><td>10–15个/月</td><td class="ac">30–50个/月</td><td>全量覆盖</td></tr>
+        <tr><td class="feat">GEO 结构化内容</td><td>1篇/月</td><td class="ac">2篇/月</td><td>4篇/月</td></tr>
+        <tr><td class="feat">媒体软文发稿</td><td class="no">—</td><td class="ac">2篇/月</td><td>4篇/月（头部）</td></tr>
+        <tr><td class="feat">自媒体矩阵</td><td class="no">—</td><td class="ac">策略指导</td><td>全量执行</td></tr>
+        <tr><td class="feat">专属策略师</td><td class="no">—</td><td class="ac no">—</td><td class="yes">✓</td></tr>
+        <tr><td></td><td class="pl dim"><a href="/signal.html">查看 Signal →</a></td><td class="pl ac"><a href="/presence.html">当前方案</a></td><td class="pl dim"><a href="/authority.html">查看 Authority →</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="fw"><footer>
+  <svg height="22" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg>
+  <ul class="flinks"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
+  <div class="fcopy">© 2025 Archbloc · 整合搜索增长服务</div>
+</footer></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.querySelectorAll('.fi').forEach(el=>{el.addEventLi

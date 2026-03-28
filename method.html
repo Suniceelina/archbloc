@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方法论 — AUDIT · BUILD · AMPLIFY · MEASURE | Archbloc</title>
+<meta name="description" content="Archbloc 四步增长框架：AUDIT诊断、BUILD建设、AMPLIFY扩散、MEASURE量化——每步都有明确交付物，结果可追踪、可验证。">
+<link rel="canonical" href="https://archbloc.com/method">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.cnpmjs.org/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--bg2:#fafafa;--border:#f0f0f0;--border-mid:#e5e5e5;--text:#0f172a;--muted:#475569;--aux:#aaaaaa;--accent:#f97316;--accent-light:rgba(249,115,22,0.08);--accent-border:rgba(249,115,22,0.25);--dark:#111;--sans:'Inter',system-ui,sans-serif;--rc:12px;--rcta:10px;--rbtn:6px}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nl{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.nm{display:flex;gap:28px;list-style:none}.nm a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .18s}.nm a:hover,.nm a.cur{color:var(--text)}
+.nc{font-size:12px;font-weight:600;color:#fff;background:var(--dark);border:none;padding:8px 18px;border-radius:var(--rbtn);cursor:pointer;transition:opacity .18s;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}.nc:hover{opacity:.82}
+.nmb{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text)}
+.pt{margin-top:60px}.w{max-width:1100px;margin:0 auto;padding:0 40px}
+.st{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aux);margin-bottom:14px}
+.sh{font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--text)}.sh em{font-style:normal;color:var(--accent)}
+.la{font-size:14px;font-weight:500;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .18s}.la:hover{gap:10px}
+.bp{font-size:15px;font-weight:600;color:#fff;background:var(--accent);border:none;padding:16px 32px;border-radius:var(--rcta);cursor:pointer;transition:opacity .18s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}.bp:hover{opacity:.88}
+.bg{font-size:14px;font-weight:500;color:var(--muted);background:none;border:1.5px solid var(--border-mid);padding:15px 24px;border-radius:var(--rcta);cursor:pointer;transition:border-color .18s,color .18s;text-decoration:none;display:inline-flex;align-items:center}.bg:hover{border-color:var(--accent);color:var(--text)}
+.sec{padding:80px 0;border-bottom:1px solid var(--border)}
+/* hero */
+.hero{padding:72px 0 80px;border-bottom:1px solid var(--border)}
+.fwbar{display:flex;gap:0;margin-top:48px}
+.fwstep{padding:12px 20px;border:1px solid var(--border);border-right:none;text-align:center;min-width:90px;background:var(--bg2)}.fwstep:last-child{border-right:1px solid var(--border)}
+.fwnum{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--aux);display:block;margin-bottom:4px}
+.fwname{font-size:13px;font-weight:700;color:var(--accent);display:block;letter-spacing:.06em}
+/* philosophy */
+.phg{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.phq{font-size:clamp(18px,2.5vw,24px);font-weight:600;line-height:1.45;color:var(--text);margin-bottom:16px;padding-left:20px;border-left:3px solid var(--accent)}
+.pha{font-size:13px;color:var(--aux);padding-left:20px}
+.phb{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:18px}.phb strong{color:var(--text);font-weight:500}
+.plist{list-style:none;margin-top:28px}.plist li{padding:14px 0;border-top:1px solid var(--border);font-size:14px;color:var(--text);display:flex;align-items:start;gap:14px;line-height:1.6}.plist li .icon{font-size:18px;color:var(--accent);flex-shrink:0}
+/* step blocks */
+.steps{margin-top:44px}
+.step{display:grid;grid-template-columns:72px 1fr;gap:36px;padding:56px 0;border-top:1px solid var(--border);align-items:start}
+.stepn{font-size:52px;font-weight:700;color:var(--border-mid);line-height:1;letter-spacing:-.04em}
+.steptag{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.stept{font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--text);margin-bottom:14px;line-height:1.15;letter-spacing:-.02em}
+.stepb{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px}.stepb strong{color:var(--text);font-weight:500}
+.stepg{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.stepcol{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rc);padding:24px}
+.stepcol-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--aux);margin-bottom:14px}
+.stepcol-items{list-style:none}.stepcol-items li{font-size:14px;color:var(--text);padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:start;gap:10px;line-height:1.6}.stepcol-items li:last-child{border-bottom:none}.stepcol-items li::before{content:'→';color:var(--accent);font-size:13px;flex-shrink:0;margin-top:1px}
+/* signals */
+.sig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:var(--rc);overflow:hidden;margin-top:44px}
+.sigc{padding:32px 24px;border-right:1px solid var(--border)}.sigc:last-child{border-right:none}
+.sigm{font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--accent);line-height:1;letter-spacing:-.03em;margin-bottom:10px}
+.sigl{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px}
+.sign{font-size:13px;color:var(--muted);line-height:1.7}
+/* transparency */
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--rc);overflow:hidden;margin-top:44px}
+.tc{padding:48px 40px}.tc:first-child{border-right:1px solid var(--border)}
+.tcl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--aux);margin-bottom:16px}
+.tct{font-size:clamp(20px,2.5vw,26px);font-weight:700;color:var(--text);margin-bottom:14px;line-height:1.2}
+.tcb{font-size:14px;color:var(--muted);line-height:1.8}.tcb strong{color:var(--text);font-weight:500}
+.tclist{list-style:none;margin-top:20px}.tclist li{padding:10px 0;border-top:1px solid var(--border);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px}.tclist li::before{content:'·';color:var(--accent);font-size:18px}
+/* cta */
+.ctabox{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rc);padding:60px;display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;margin-top:44px}
+.cta-actions{display:flex;flex-direction:column;gap:12px;flex-shrink:0}
+.fw{border-top:1px solid var(--border)}
+footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.flinks{display:flex;gap:28px;list-style:none}.flinks a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .18s}.flinks a:hover{color:var(--text)}
+.fcopy{font-size:12px;color:var(--aux)}
+@media(max-width:900px){
+  nav{padding:0 20px}.nm{display:none}.nmb{display:flex}.w{padding:0 20px}
+  .hero{padding:56px 0 64px}.sec{padding:56px 0}.phg{grid-template-columns:1fr;gap:36px}
+  .fwbar{display:grid;grid-template-columns:1fr 1fr}.fwstep{border-right:1px solid var(--border);border-bottom:none}
+  .step{grid-template-columns:1fr;gap:16px}.stepn{font-size:36px}.stepg{grid-template-columns:1fr}
+  .sig-grid{grid-template-columns:1fr 1fr}.sigc:nth-child(2n){border-right:none}.sigc:nth-child(n+3){border-top:1px solid var(--border)}
+  .tg{grid-template-columns:1fr}.tc:first-child{border-right:none;border-bottom:1px solid var(--border)}
+  .ctabox{grid-template-columns:1fr;padding:36px 24px;gap:28px}.cta-actions{flex-direction:row;flex-wrap:wrap}
+  footer{flex-direction:column;gap:16px;text-align:center;padding:32px 20px}.flinks{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nl"><svg height="28" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg></a>
+  <ul class="nm"><li><a href="/#services">服务方案</a></li><li><a href="/method.html" class="cur">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
+  <a class="nc" href="/geo-diagnostic.html">免费诊断 →</a>
+  <button class="nmb"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+</nav>
+<div class="pt"></div>
+
+<section class="hero"><div class="w">
+  <div class="st">方法论 · 四步增长框架</div>
+  <h1 class="sh" style="font-size:clamp(32px,5vw,56px)">方法<em>公开透明</em>，<br>结果可以验证</h1>
+  <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-top:20px;max-width:600px">我们不靠信任感接项目。你可以在这里看清楚我们每一步做什么、交付什么、怎么衡量效果——然后再决定要不要合作。</p>
+  <div class="fwbar">
+    <div class="fwstep"><span class="fwnum">01</span><span class="fwname">AUDIT</span></div>
+    <div class="fwstep"><span class="fwnum">02</span><span class="fwname">BUILD</span></div>
+    <div class="fwstep"><span class="fwnum">03</span><span class="fwname">AMPLIFY</span></div>
+    <div class="fwstep"><span class="fwnum">04</span><span class="fwname">MEASURE</span></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="w">
+  <div class="phg">
+    <div>
+      <div class="st">我们的起点</div>
+      <div class="phq">"搜索增长不是一个单一的技术问题，是一个系统工程。"</div>
+      <div class="pha">— Archbloc 方法论基础</div>
+    </div>
+    <div>
+      <p class="phb">大多数 SEO 项目失败，不是因为缺少执行，而是因为缺少系统。关键词优化做了，但技术问题没修复；内容写了，但 AI 无法解析；媒体发了，但没有配套的内容权威度。<strong>每一个单点的努力，因为缺少其他环节的配合而无法形成复利。</strong></p>
+      <p class="phb">我们的框架从诊断开始，按顺序建设，最后用数据验证——每一步都有明确的交付物，每一步的价值都可以在下一步中得到量化。</p>
+      <ul class="plist">
+        <li><span class="icon">◻</span><div>先诊断，再执行。没有清晰的基线数据，所有执行都是在黑暗中开枪。</div></li>
+        <li><span class="icon">◻</span><div>内容质量优先于数量。1 篇 AI 引用率高的内容，价值远超 10 篇没人读的文章。</div></li>
+        <li><span class="icon">◻</span><div>方法论公开，才值得被信任。我们把框架全部写出来，因为真正理解的人才会执行好。</div></li>
+        <li><span class="icon">◻</span><div>数据可追踪，结论你来判断。我们提供数字，你来决定值不值得继续投入。</div></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="framework" class="sec"><div class="w">
+  <div class="st">四步框架</div>
+  <h2 class="sh">每一步都有<em>明确交付物</em></h2>
+  <div class="steps">
+    <div class="step" id="step-01">
+      <div class="stepn">01</div>
+      <div>
+        <div class="steptag">AUDIT</div>
+        <h3 class="stept">现状诊断与机会识别</h3>
+        <p class="stepb">用数据摸清你现在在哪。不是洋洋洒洒的报告——是有优先级的行动清单。我们想知道：<strong>哪些问题正在流失客户？</strong>哪些机会窗口还没有竞争者占领？AI 系统现在对你的认知是什么？</p>
+        <div class="stepg">
+          <div class="stepcol"><div class="stepcol-label">我们检查什么</div><ul class="stepcol-items"><li>技术 SEO 健康度（抓取、索引、速度、结构）</li><li>关键词覆盖现状与缺口分析</li><li>竞品内容地图与排名差距</li><li>AI 引用基线（主流 AI 系统对你的认知）</li><li>Schema 标注完整性审计</li></ul></div>
+          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>技术问题清单（按影响优先级排序）</li><li>关键词机会地图（含搜索量和竞争度）</li><li>竞品内容缺口报告</li><li>GEO 可见度基线报告</li><li>90 天优先行动清单</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="step" id="step-02">
+      <div class="stepn">02</div>
+      <div>
+        <div class="steptag">BUILD</div>
+        <h3 class="stept">内容与结构建设</h3>
+        <p class="stepb">修复技术基础，产出 AI 友好的内容。<strong>AI 系统青睐有结构、有数据来源、有权威背书的内容</strong>——这和传统 SEO 内容的写法有本质区别。我们让搜索引擎和 AI 都能准确理解你的业务。</p>
+        <div class="stepg">
+          <div class="stepcol"><div class="stepcol-label">我们做什么</div><ul class="stepcol-items"><li>修复高优先级技术 SEO 问题</li><li>核心页面内容优化（Title/H 标签/结构）</li><li>GEO 结构化内容撰写（含 Schema 标注）</li><li>FAQ / HowTo / Service Schema 部署</li><li>Topic Cluster 内容架构规划</li></ul></div>
+          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>结构化内容页面（每月按方案数量）</li><li>Schema 标注部署记录</li><li>技术修复执行清单</li><li>Topic Cluster 内容架构图</li><li>媒体发稿（建立权威外链）</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="step" id="step-03">
+      <div class="stepn">03</div>
+      <div>
+        <div class="steptag">AMPLIFY</div>
+        <h3 class="stept">多渠道声量扩散</h3>
+        <p class="stepb">好内容需要被看见。<strong>同一套内容，在不同格式和平台上出现，形成的是品牌记忆而非简单曝光。</strong>媒体软文建立权威信号，自媒体矩阵持续触达，让潜在客户在决策前已经多次接触过你的品牌。</p>
+        <div class="stepg">
+          <div class="stepcol"><div class="stepcol-label">我们做什么</div><ul class="stepcol-items"><li>媒体软文发稿（行业/头部媒体）</li><li>内容拆解与自媒体平台适配</li><li>公众号 / 知乎 / 小红书 / 微博内容框架</li><li>发布节奏规划与内容日历</li><li>渠道覆盖数据追踪</li></ul></div>
+          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>媒体发稿文章 + 链接存档</li><li>自媒体内容策略文档（月度）</li><li>各平台内容分发框架</li><li>渠道触达追踪报告</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="step" id="step-04">
+      <div class="stepn">04</div>
+      <div>
+        <div class="steptag">MEASURE</div>
+        <h3 class="stept">量化证明，持续迭代</h3>
+        <p class="stepb"><strong>ROI 可追踪，才值得持续投入。</strong>每个月你都能看到数字在变——AI 引用次数、自然流量、线索量、覆盖关键词数。数据透明，结论你来判断，不值得继续就直说。</p>
+        <div class="stepg">
+          <div class="stepcol"><div class="stepcol-label">我们追踪什么</div><ul class="stepcol-items"><li>关键词排名变化（逐词追踪）</li><li>自然搜索流量趋势</li><li>AI 引用频次（多平台交叉测试）</li><li>媒体发稿外链权重积累</li><li>搜索带来的线索量</li></ul></div>
+          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>月度增长数据报告（PDF）</li><li>AI 引用率趋势追踪图表</li><li>关键词排名变化明细</li><li>下月策略调整建议</li><li>季度 ROI 复盘（旗舰方案）</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="w">
+  <div class="st">可量化的指标</div>
+  <h2 class="sh">你可以<em>直接验证</em>的数字</h2>
+  <div class="sig-grid">
+    <div class="sigc"><div class="sigm">50+</div><div class="sigl">关键词排名追踪</div><div class="sign">每月追踪不少于 50 个目标关键词排名变化，数据来自第三方 SEO 工具，你可以自行核验</div></div>
+    <div class="sigc"><div class="sigm">5+</div><div class="sigl">AI 系统引用测试</div><div class="sign">每月测试文心一言、Kimi、ChatGPT、Perplexity 等主流 AI 系统对你品牌的引用情况</div></div>
+    <div class="sigc"><div class="sigm">月报</div><div class="sigl">数据报告准时送达</div><div class="sign">每月固定日期发送，包含上月执行内容、数据变化、下月计划，不需要你追问</div></div>
+    <div class="sigc"><div class="sigm">0</div><div class="sigl">数据来源造假</div><div class="sign">所有数据均来自 Google Search Console、百度站长工具或第三方工具，不做任何数据美化</div></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="w">
+  <div class="st">透明度承诺</div>
+  <h2 class="sh">我们<em>做</em>什么，<em>不做</em>什么</h2>
+  <div class="tg">
+    <div class="tc">
+      <div class="tcl">我们做</div>
+      <div class="tct">公开方法，建立信任</div>
+      <div class="tcb">这个网站本身就是按照我们服务客户的同一套方法论搭建的——Schema 标注、GEO 内容结构、关键词布局——所有实现方式都可以通过审查源代码和 Google Search Console 数据验证。</div>
+      <ul class="tclist"><li>博客公开完整框架文章，方法论可自行复现</li><li>诊断工具免费开放，第一步无需付费</li><li>数据来源全部透明标注</li><li>合作不适合直接说，不硬推</li></ul>
+    </div>
+    <div class="tc">
+      <div class="tcl">我们不做</div>
+      <div class="tct">拒绝不透明的承诺</div>
+      <div class="tcb">我们不承诺"排名第一"，不承诺"一个月见效"，不发 SEO 农场链接，不做数据注水。<strong>能把方法说清楚的人，才真正理解它；愿意公开方法的人，才不需要靠信息不对称赚钱。</strong></div>
+      <ul class="tclist"><li>不保证具体排名位置</li><li>不承诺不切实际的时间周期</li><li>不接自己做不好的客户</li><li>不用低质量外链冒充效果</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" style="border-bottom:none"><div class="w">
+  <div class="st">下一步</div>
+  <h2 class="sh">先做一次<em>免费 GEO 诊断</em></h2>
+  <div class="ctabox">
+    <div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-top:10px">填入你的网址，5 分钟获得初步评估：AI 引用情况、内容结构缺口、三条优先修复建议。不需要付费，也不需要承诺任何合作。</p>
+    </div>
+    <div class="cta-actions">
+      <a class="bp" href="/geo-diagnostic.html">获取免费 GEO 诊断 →</a>
+      <a class="bg" href="/cdn-cgi/l/email-protection#264e434a4a49664754454e444a49450845494b">预约策略通话</a>
+    </div>
+  </div>
+</div></section>
+
+<div class="fw"><footer>
+  <svg height="22" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg>
+  <ul class="flinks"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
+  <div class="fcopy">© 2025 Archbloc · 整合搜索增长服
