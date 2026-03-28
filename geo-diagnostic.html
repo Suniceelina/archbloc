@@ -151,7 +151,7 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
     <div class="fcard">
       <div class="ftitle">获取免费 GEO 诊断报告</div>
       <div class="fsub">免费 · 1 个工作日内发到邮箱 · 不发垃圾邮件</div>
-      <form name="geo-diagnostic" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="diagForm">
+      <form name="geo-diagnostic" method="POST" netlify netlify-honeypot="bot-field" id="diagForm">
         <input type="hidden" name="form-name" value="geo-diagnostic">
         <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
         <div class="field"><label class="field-label" for="website">你的网址 <span>*</span></label><input class="field-input" type="url" id="website" name="website" placeholder="https://www.yourcompany.com" required></div>
@@ -283,12 +283,12 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
   <ul class="flinks"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
   <div class="fcopy">© 2025 Archbloc · 整合搜索增长服务</div>
 </footer></div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const form=document.getElementById('diagForm');
 const success=document.getElementById('formSuccess');
 const submitBtn=document.getElementById('submitBtn');
-form.addEventListener('submit',async function(e){
-  e.preventDefault();submitBtn.disabled=true;submitBtn.textContent='提交中…';
-  try{
-    const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});
-    if(r.ok){form.style.display='none';success.classList.
+form.addEventListener('submit',function(e){
+  submitBtn.disabled=true;submitBtn.textContent='提交中…';
+});
+</script>
+ </body></html>
