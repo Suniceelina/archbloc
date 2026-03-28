@@ -44,13 +44,3 @@
   </url>
 
 </urlset>
-```
-
----
-
-**robots.txt**
-```
-User-agent: *
-Allow: /
-
-Sitemap: https://archbloc.com/sitemap.xml
