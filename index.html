@@ -23,7 +23,6 @@
 <meta name="twitter:description" content="SEO + GEO + 自媒体矩阵 + 媒体发稿整合服务。帮助国内中小企业在传统搜索和AI推荐中同时建立可见度。">
 <meta name="twitter:image" content="https://archbloc.com/og-image.png">
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <script type="application/ld+json">
@@ -75,213 +74,11 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ██ 组件加载器 — 注入全局CSS / 统计 / 导航 / 页脚 ██ -->
+<script src="/components/loader.js"></script>
+
+<!-- 页面专属样式 -->
 <style>
-@import url('https://fonts.googleapis.cnpmjs.org/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #ffffff;
-  --bg2: #fafafa;
-  --border: #f0f0f0;
-  --border-mid: #e5e5e5;
-  --text: #0f172a;
-  --muted: #475569;
-  --aux: #aaaaaa;
-  --accent: #f97316;
-  --accent-light: rgba(249,115,22,0.08);
-  --accent-border: rgba(249,115,22,0.25);
-  --dark: #111111;
-  --sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --radius-btn: 6px;
-  --radius-cta: 10px;
-  --radius-card: 12px;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 40px;
-  height: 60px;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  display: flex; align-items: center; gap: 8px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.nav-logo-img { height: 28px; width: auto; display: block; }
-.nav-links {
-  display: flex; gap: 4px; list-style: none; align-items: center;
-}
-.nav-links > li {
-  position: relative;
-}
-.nav-links > li > a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  transition: color 0.18s;
-  padding: 6px 12px;
-  border-radius: 6px;
-  display: flex; align-items: center; gap: 4px;
-}
-.nav-links > li > a:hover { color: var(--text); background: var(--bg2); }
-.nav-links > li > a.active { color: var(--text); font-weight: 600; }
-
-/* dropdown arrow */
-.nav-links .has-dropdown > a::after {
-  content: '';
-  display: inline-block;
-  width: 8px; height: 5px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M1 1l3 3 3-3' stroke='%23aaa' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: transform 0.18s;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.nav-links .has-dropdown:hover > a::after { transform: rotate(180deg); }
-
-/* dropdown panel */
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;          /* flush — no gap */
-  left: 0;
-  min-width: 200px;
-  background: #fff;
-  border: 1px solid var(--border-mid);
-  border-radius: 10px;
-  padding: 8px;
-  padding-top: 16px;  /* internal padding compensates for the removed gap */
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
-  z-index: 300;
-}
-/* invisible bridge fills the gap between trigger and panel */
-.nav-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -10px; left: 0; right: 0;
-  height: 10px;
-  background: transparent;
-}
-.nav-links .has-dropdown:hover .nav-dropdown { display: block; }
-.nav-dropdown a {
-  display: flex; flex-direction: column;
-  padding: 10px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.15s;
-  gap: 2px;
-}
-.nav-dropdown a:hover { background: var(--bg2); }
-.nav-dropdown .dd-title {
-  font-size: 13px; font-weight: 600; color: var(--text);
-}
-.nav-dropdown .dd-sub {
-  font-size: 11px; color: var(--aux);
-}
-.nav-dropdown .dd-divider {
-  height: 1px; background: var(--border); margin: 4px 0;
-}
-
-.nav-right { display: flex; align-items: center; gap: 12px; }
-.nav-cta {
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  padding: 9px 20px;
-  border-radius: var(--radius-btn);
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: opacity 0.18s, transform 0.18s;
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 5px;
-  white-space: nowrap;
-}
-.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-.nav-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  color: var(--text);
-}
-
-/* ── MODAL ── */
-.modal-overlay {
-  display: none;
-  position: fixed; inset: 0; z-index: 500;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(4px);
-  align-items: center; justify-content: center;
-  padding: 20px;
-}
-.modal-overlay.open { display: flex; }
-.modal-box {
-  background: #fff;
-  border-radius: 16px;
-  width: 100%; max-width: 520px;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
-  animation: modalIn 0.22s ease both;
-}
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-.modal-head {
-  padding: 28px 32px 0;
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
-}
-.modal-title {
-  font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.25;
-}
-.modal-sub {
-  font-size: 13px; color: var(--aux); margin-top: 6px; line-height: 1.6;
-}
-.modal-close {
-  flex-shrink: 0;
-  width: 32px; height: 32px;
-  background: var(--bg2); border: 1px solid var(--border); border-radius: 50%;
-  cursor: pointer; font-size: 16px; color: var(--muted);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s, color 0.15s;
-  line-height: 1;
-}
-.modal-close:hover { background: var(--border); color: var(--text); }
-.modal-body {
-  padding: 20px 32px 32px;
-}
-.modal-body iframe {
-  border: none;
-  width: 100%;
-  min-height: 360px;
-  display: block;
-}
-
 /* ── TICKER ── */
 .ticker-bar {
   background: var(--bg2);
@@ -295,7 +92,6 @@ nav {
 .ticker-track {
   display: flex;
   align-items: center;
-  gap: 0;
   animation: ticker-scroll 22s linear infinite;
   white-space: nowrap;
   will-change: transform;
@@ -303,1004 +99,212 @@ nav {
 .ticker-track:hover { animation-play-state: paused; }
 .ticker-item {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px;
-  color: #555;
-  white-space: nowrap;
-  padding: 0 28px;
-  flex-shrink: 0;
+  font-size: 12px; color: #555;
+  white-space: nowrap; padding: 0 28px; flex-shrink: 0;
 }
-.ticker-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
+.ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 @keyframes ticker-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 /* ── HERO ── */
-.hero {
-  padding: 80px 40px 100px;
-  max-width: 780px;
-  margin: 0 auto;
-}
-.hero-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 28px;
-}
-.hero-headline {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin-bottom: 28px;
-}
-.hero-headline em {
-  font-style: normal;
-  color: var(--accent);
-}
-.hero-sub {
-  font-size: clamp(14px, 1.8vw, 16px);
-  line-height: 1.75;
-  color: var(--muted);
-  max-width: 600px;
-  margin-bottom: 44px;
-}
+.hero { padding: 80px 40px 100px; max-width: 780px; margin: 0 auto; }
+.hero-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aux); margin-bottom: 28px; }
+.hero-headline { font-size: 56px; font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; color: var(--text); margin-bottom: 28px; }
+.hero-headline em { font-style: normal; color: var(--accent); }
+.hero-sub { font-size: clamp(14px, 1.8vw, 16px); line-height: 1.75; color: var(--muted); max-width: 600px; margin-bottom: 44px; }
 .hero-sub strong { color: var(--text); font-weight: 500; }
-.hero-actions {
-  display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
-}
-.btn-cta {
-  font-size: clamp(15px, 1.5vw, 16px);
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  padding: 16px 36px;
-  border-radius: var(--radius-cta);
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: opacity 0.18s, transform 0.18s;
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 6px;
-}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.btn-cta { font-size: clamp(15px, 1.5vw, 16px); font-weight: 600; color: #fff; background: var(--accent); border: none; padding: 16px 36px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.18s, transform 0.18s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
 .btn-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-.btn-outline {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-  background: none;
-  border: 1.5px solid var(--border-mid);
-  padding: 15px 28px;
-  border-radius: var(--radius-cta);
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: border-color 0.18s, color 0.18s;
-  text-decoration: none;
-  display: inline-flex; align-items: center;
-}
+.btn-outline { font-size: 14px; font-weight: 500; color: var(--muted); background: none; border: 1.5px solid var(--border-mid); padding: 15px 28px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: border-color 0.18s, color 0.18s; text-decoration: none; display: inline-flex; align-items: center; }
 .btn-outline:hover { border-color: var(--accent); color: var(--text); }
 
 /* ── STATS BAND ── */
-.stats-band {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.stats-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.stat-item {
-  padding: 40px 32px;
-  border-right: 1px solid var(--border);
-  text-align: center;
-}
+.stats-band { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat-item { padding: 40px 32px; border-right: 1px solid var(--border); text-align: center; }
 .stat-item:last-child { border-right: none; }
-.stat-num {
-  font-size: 38px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: -0.03em;
-  display: block;
-  margin-bottom: 8px;
-  line-height: 1;
-}
+.stat-num { font-size: 38px; font-weight: 700; color: var(--accent); letter-spacing: -0.03em; display: block; margin-bottom: 8px; line-height: 1; }
 .stat-label { font-size: 13px; color: var(--muted); line-height: 1.55; }
-.stat-source {
-  font-size: 11px;
-  color: var(--aux);
-  margin-top: 6px;
-  display: block;
-}
-
-/* ── SECTIONS ── */
-.section-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-.section-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 14px;
-}
-.section-title {
-  font-size: clamp(26px, 3.5vw, 38px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-.section-title em { font-style: normal; color: var(--accent); }
+.stat-source { font-size: 11px; color: var(--aux); margin-top: 6px; display: block; }
 
 /* ── MANIFESTO ── */
-.manifesto-section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--border);
-}
-.manifesto-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: start;
-}
+.manifesto-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.manifesto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
 .manifesto-left { padding-right: 24px; }
-.manifesto-quote {
-  font-size: clamp(20px, 2.5vw, 26px);
-  font-weight: 600;
-  line-height: 1.45;
-  color: var(--text);
-  margin-bottom: 20px;
-  padding-left: 20px;
-  border-left: 3px solid var(--accent);
-}
-.manifesto-attr {
-  font-size: 13px;
-  color: var(--aux);
-  padding-left: 20px;
-}
+.manifesto-quote { font-size: clamp(20px, 2.5vw, 26px); font-weight: 600; line-height: 1.45; color: var(--text); margin-bottom: 20px; padding-left: 20px; border-left: 3px solid var(--accent); }
+.manifesto-attr { font-size: 13px; color: var(--aux); padding-left: 20px; }
 .manifesto-right { padding-top: 4px; }
-.manifesto-body {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
+.manifesto-body { font-size: 15px; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
 .manifesto-body strong { color: var(--text); font-weight: 500; }
-.link-arrow {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--accent);
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 6px;
-  transition: gap 0.18s;
-}
-.link-arrow:hover { gap: 10px; }
 
 /* ── PROBLEM SIGNALS ── */
-.signals-section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--border);
-}
+.signals-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
 .signals-header { margin-bottom: 56px; }
-.signals-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.signal-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 36px 28px 44px;
-  position: relative;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-}
-.signal-card:hover {
-  border-color: var(--accent-border);
-  box-shadow: 0 4px 20px rgba(249,115,22,0.07);
-}
-.signal-num {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--aux);
-  display: block;
-  margin-bottom: 16px;
-}
-.signal-problem {
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--text);
-  margin-bottom: 14px;
-}
+.signals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.signal-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 36px 28px 44px; position: relative; transition: border-color 0.2s, box-shadow 0.2s; cursor: pointer; }
+.signal-card:hover { border-color: var(--accent-border); box-shadow: 0 4px 20px rgba(249,115,22,0.07); }
+.signal-num { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--aux); display: block; margin-bottom: 16px; }
+.signal-problem { font-size: 19px; font-weight: 700; line-height: 1.35; color: var(--text); margin-bottom: 14px; }
 .signal-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-.signal-arrow {
-  position: absolute;
-  bottom: 24px; right: 24px;
-  font-size: 16px;
-  color: var(--aux);
-  transition: color 0.2s, transform 0.2s;
-}
+.signal-arrow { position: absolute; bottom: 24px; right: 24px; font-size: 16px; color: var(--aux); transition: color 0.2s, transform 0.2s; }
 .signal-card:hover .signal-arrow { color: var(--accent); transform: translate(2px, -2px); }
 
 /* ── SERVICES ── */
-.services-section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--border);
-}
-.services-header {
-  display: flex; align-items: flex-end; justify-content: space-between;
-  margin-bottom: 52px;
-  gap: 24px;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.service-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 36px 28px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-  display: flex; flex-direction: column;
-}
-.service-card:hover {
-  border-color: var(--border-mid);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-}
-.service-card.featured {
-  border-color: var(--accent);
-  background: linear-gradient(to bottom, var(--accent-light), var(--bg));
-  position: relative;
-}
-.service-badge {
-  font-size: 11px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  padding: 3px 10px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 20px;
-  letter-spacing: 0.04em;
-}
-.service-tier {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 10px;
-}
-.service-name {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 14px;
-  line-height: 1.2;
-}
-.service-tagline {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-.service-includes {
-  list-style: none;
-  margin-bottom: 28px;
-  flex: 1;
-}
-.service-includes li {
-  font-size: 13px;
-  color: var(--muted);
-  padding: 9px 0;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  line-height: 1.5;
-}
-.service-includes li::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-.service-price {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 16px;
-}
-.service-link {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--accent);
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 4px;
-  transition: gap 0.18s;
-}
+.services-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.services-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; gap: 24px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.service-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 36px 28px; transition: border-color 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: column; }
+.service-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+.service-card.featured { border-color: var(--accent); background: linear-gradient(to bottom, var(--accent-light), var(--bg)); position: relative; }
+.service-badge { font-size: 11px; font-weight: 600; color: #fff; background: var(--accent); padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.04em; }
+.service-tier { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 10px; }
+.service-name { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.2; }
+.service-tagline { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
+.service-includes { list-style: none; margin-bottom: 28px; flex: 1; }
+.service-includes li { font-size: 13px; color: var(--muted); padding: 9px 0; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
+.service-includes li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.service-price { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 16px; }
+.service-link { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.18s; }
 .service-link:hover { gap: 8px; }
 
 /* ── METHOD ── */
-.method-section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--border);
-}
+.method-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
 .method-header { margin-bottom: 60px; }
 .method-steps { display: flex; flex-direction: column; }
-.method-step {
-  display: grid;
-  grid-template-columns: 60px 1fr 1fr;
-  gap: 36px;
-  padding: 40px 0;
-  border-top: 1px solid var(--border);
-  align-items: start;
-}
-.step-num {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--border-mid);
-  line-height: 1;
-  padding-top: 4px;
-  letter-spacing: -0.02em;
-}
-.step-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-.step-title {
-  font-size: 19px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
+.method-step { display: grid; grid-template-columns: 60px 1fr 1fr; gap: 36px; padding: 40px 0; border-top: 1px solid var(--border); align-items: start; }
+.step-num { font-size: 32px; font-weight: 700; color: var(--border-mid); line-height: 1; padding-top: 4px; letter-spacing: -0.02em; }
+.step-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.step-title { font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
 .step-body { font-size: 14px; color: var(--muted); line-height: 1.75; }
-.step-output {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 24px;
-}
-.step-output-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 14px;
-}
+.step-output { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 24px; }
+.step-output-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 14px; }
 .step-output-items { list-style: none; }
-.step-output-items li {
-  font-size: 13px;
-  color: var(--text);
-  padding: 7px 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.step-output-items li { font-size: 13px; color: var(--text); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
 .step-output-items li:last-child { border-bottom: none; }
-.step-output-items li::before {
-  content: '→';
-  color: var(--accent);
-  font-size: 12px;
-  flex-shrink: 0;
-}
+.step-output-items li::before { content: '→'; color: var(--accent); font-size: 12px; flex-shrink: 0; }
 
 /* ── TRUST ── */
-.trust-section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--border);
-}
+.trust-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
 .trust-header { margin-bottom: 56px; }
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.trust-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 32px 24px;
-  transition: border-color 0.2s;
-}
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.trust-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px 24px; transition: border-color 0.2s; }
 .trust-card:hover { border-color: var(--border-mid); }
-.trust-icon {
-  font-size: 20px;
-  color: var(--accent);
-  margin-bottom: 18px;
-  display: block;
-}
-.trust-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 10px;
-  line-height: 1.35;
-}
+.trust-icon { font-size: 20px; color: var(--accent); margin-bottom: 18px; display: block; }
+.trust-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35; }
 .trust-body { font-size: 13px; color: var(--muted); line-height: 1.75; }
 
 /* ── DIAGNOSTIC CTA ── */
-.diag-section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--border);
-}
-.diag-cta-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 60px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 60px;
-  align-items: center;
-}
-.diag-headline {
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--text);
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-}
+.diag-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.diag-cta-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 60px; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
+.diag-headline { font-size: clamp(22px, 3vw, 32px); font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 12px; letter-spacing: -0.02em; }
 .diag-headline em { font-style: normal; color: var(--accent); }
-.diag-sub {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.75;
-  max-width: 480px;
-}
-.diag-cta-group {
-  display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0;
-}
-.diag-open-btn {
-  font-size: 15px; font-weight: 600; color: #fff;
-  background: var(--accent); border: none;
-  padding: 16px 32px; border-radius: var(--radius-cta);
-  cursor: pointer; letter-spacing: 0.01em;
-  transition: opacity 0.18s, transform 0.18s;
-  white-space: nowrap;
-  display: inline-flex; align-items: center; gap: 8px;
-}
+.diag-sub { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 480px; }
+.diag-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0; }
+.diag-open-btn { font-size: 15px; font-weight: 600; color: #fff; background: var(--accent); border: none; padding: 16px 32px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.18s, transform 0.18s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
 .diag-open-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 .diag-cta-note { font-size: 11px; color: var(--aux); text-align: center; line-height: 1.5; padding-top: 4px; }
 
 /* ── CONTENT / ARTICLES ── */
-.content-section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--border);
-}
-.content-header {
-  display: flex; align-items: flex-end; justify-content: space-between;
-  margin-bottom: 44px;
-  gap: 24px;
-}
-.content-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
-}
-.article-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 28px;
-  cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.article-card:hover {
-  border-color: var(--border-mid);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-}
-.article-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 12px;
-  display: block;
-}
-.article-title {
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--text);
-  margin-bottom: 10px;
-}
+.content-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.content-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 44px; gap: 24px; }
+.content-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; }
+.article-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 28px; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+.article-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+.article-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+.article-title { font-size: 17px; font-weight: 700; line-height: 1.4; color: var(--text); margin-bottom: 10px; }
 .article-card.featured .article-title { font-size: 20px; }
 .article-excerpt { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
-.article-meta {
-  font-size: 12px;
-  color: var(--aux);
-  display: flex; gap: 14px;
-}
+.article-meta { font-size: 12px; color: var(--aux); display: flex; gap: 14px; }
 
 /* ── BOOKING CTA ── */
-.booking-section {
-  padding: 112px 0;
-  border-bottom: 1px solid var(--border);
-}
-.booking-cta-card {
-  max-width: 720px;
-  margin: 0 auto;
-  background: var(--dark);
-  border-radius: 16px;
-  padding: 60px 64px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  align-items: center;
-}
-.booking-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 14px;
-}
-.booking-headline {
-  font-size: clamp(24px, 3.5vw, 36px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin-bottom: 12px;
-}
+.booking-section { padding: 112px 0; border-bottom: 1px solid var(--border); }
+.booking-cta-card { max-width: 720px; margin: 0 auto; background: var(--dark); border-radius: 16px; padding: 60px 64px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+.booking-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+.booking-headline { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #fff; margin-bottom: 12px; }
 .booking-headline em { font-style: normal; color: var(--accent); }
-.booking-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.75;
-}
-.booking-cta-group {
-  display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0;
-}
-.booking-open-btn {
-  font-size: 15px; font-weight: 600; color: var(--dark);
-  background: #fff; border: none;
-  padding: 16px 32px; border-radius: var(--radius-cta);
-  cursor: pointer; letter-spacing: 0.01em;
-  transition: opacity 0.18s, transform 0.18s;
-  white-space: nowrap;
-  display: inline-flex; align-items: center; gap: 8px;
-}
+.booking-sub { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; }
+.booking-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0; }
+.booking-open-btn { font-size: 15px; font-weight: 600; color: var(--dark); background: #fff; border: none; padding: 16px 32px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.18s, transform 0.18s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
 .booking-open-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-.booking-cta-note {
-  font-size: 11px; color: rgba(255,255,255,0.35); text-align: center; line-height: 1.5; padding-top: 4px;
-}
-.booking-alt {
-  margin-top: 16px;
-  text-align: center;
-  font-size: 13px;
-  color: rgba(255,255,255,0.3);
-}
-.booking-alt a {
-  color: rgba(255,255,255,0.5);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  transition: color 0.18s;
-}
+.booking-cta-note { font-size: 11px; color: rgba(255,255,255,0.35); text-align: center; line-height: 1.5; padding-top: 4px; }
+.booking-alt { margin-top: 16px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); }
+.booking-alt a { color: rgba(255,255,255,0.5); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); transition: color 0.18s; }
 .booking-alt a:hover { color: rgba(255,255,255,0.8); }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .nav-right { display: none; }
-  .nav-menu-btn { display: flex; }
-  .ticker-bar { padding: 0 20px; }
-
-  .hero { padding: 64px 24px 80px; }
-  .stats-inner { grid-template-columns: repeat(2,1fr); padding: 0 20px; }
-  .stat-item:nth-child(2) { border-right: none; }
-  .stat-item { padding: 28px 20px; }
-
-  .section-wrap { padding: 0 20px; }
-  .manifesto-section,.signals-section,.services-section,.method-section,
-  .trust-section,.diag-section,.content-section,.booking-section { padding: 48px 0; }
-
-  .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
-  .signals-grid { grid-template-columns: 1fr; }
-  .services-grid { grid-template-columns: 1fr; }
-  .services-header { flex-direction: column; align-items: flex-start; }
-  .trust-grid { grid-template-columns: 1fr; }
-
-  .method-step { grid-template-columns: 44px 1fr; gap: 20px; }
-  .method-step .step-output { grid-column: 1 / -1; }
-
-  .diag-cta-card { grid-template-columns: 1fr; gap: 32px; padding: 36px 24px; text-align: center; }
-  .diag-sub { max-width: 100%; }
-  .diag-cta-group { width: 100%; display: flex; flex-direction: column; gap: 0; }
-  .diag-open-btn { width: 100%; justify-content: center; margin-bottom: 10px; }
-  .diag-cta-note { padding-top: 0; }
-
-  .content-grid { grid-template-columns: 1fr; }
-  .content-header { flex-direction: column; align-items: flex-start; }
-
-  .booking-cta-card { padding: 36px 24px; gap: 28px; grid-template-columns: 1fr; }
-  .booking-cta-group { width: 100%; display: flex; flex-direction: column; gap: 0; }
-  .booking-open-btn { width: 100%; justify-content: center; margin-bottom: 10px; }
-  .booking-cta-note { padding-top: 0; }
-  .booking-alt { text-align: center !important; }
-
-  /* mobile nav open base */
-  .nav-links.nav-open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 60px; left: 0; right: 0;
-    background: rgba(255,255,255,0.98);
-    padding: 16px 20px 24px;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-    gap: 2px;
-    z-index: 190;
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-  }
-  .nav-links.nav-open > li > a { padding: 10px 12px; font-size: 15px; }
-
-  /* mobile nav dropdown – accordion, hidden by default */
-  .nav-links.nav-open .nav-dropdown {
-    display: none;   /* 默认收起 */
-    position: static;
-    box-shadow: none;
-    border: none;
-    border-left: 2px solid var(--border-mid);
-    border-radius: 0;
-    padding: 4px 0 4px 12px;
-    margin: 2px 0 6px 16px;
-    background: transparent;
-  }
-  /* 点击后展开 */
-  .nav-links.nav-open .has-dropdown.dd-open .nav-dropdown { display: block; }
-  /* 箭头旋转 */
-  .nav-links.nav-open .has-dropdown.dd-open > a::after { transform: rotate(180deg); }
-  .nav-links.nav-open .nav-dropdown .dd-sub { display: none; }
-  .nav-links.nav-open .nav-dropdown a { padding: 8px 10px; }
-  .nav-links.nav-open .nav-dropdown .dd-title { font-size: 14px; }
-
-
-}
-
-@media (max-width: 480px) {
-  .stats-inner { grid-template-columns: 1fr; }
-  .stat-item { border-right: none !important; border-bottom: 1px solid var(--border); }
-  .stat-item:last-child { border-bottom: none; }
-
-  /* Fix 1: lock headline at 36px on mobile */
-  .hero-headline { font-size: 36px; letter-spacing: -0.02em; }
-
-  /* Fix 2: buttons as true separate blocks with real gap */
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-  .hero-actions .btn-cta {
-    width: 100%;
-    justify-content: center;
-    padding: 18px 24px;
-    font-size: 15px;
-    margin-bottom: 14px;
-  }
-  .hero-actions .btn-outline {
-    width: 100%;
-    justify-content: center;
-    padding: 16px 24px;
-    font-size: 14px;
-  }
-}
-
 /* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .hero-tag { animation: fadeUp 0.5s ease 0.05s both; }
 .hero-headline { animation: fadeUp 0.6s ease 0.18s both; }
 .hero-sub { animation: fadeUp 0.6s ease 0.3s both; }
 .hero-actions { animation: fadeUp 0.6s ease 0.42s both; }
 
-/* modal mobile fix */
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-right { display: none; }
+  .ticker-bar { padding: 0 20px; }
+  .hero { padding: 64px 24px 80px; }
+  .stats-inner { grid-template-columns: repeat(2,1fr); padding: 0 20px; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item { padding: 28px 20px; }
+  .manifesto-section,.signals-section,.services-section,.method-section,
+  .trust-section,.diag-section,.content-section,.booking-section { padding: 48px 0; }
+  .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
+  .signals-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-header { flex-direction: column; align-items: flex-start; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .method-step { grid-template-columns: 44px 1fr; gap: 20px; }
+  .method-step .step-output { grid-column: 1 / -1; }
+  .diag-cta-card { grid-template-columns: 1fr; gap: 32px; padding: 36px 24px; text-align: center; }
+  .diag-sub { max-width: 100%; }
+  .diag-cta-group { width: 100%; display: flex; flex-direction: column; gap: 0; }
+  .diag-open-btn { width: 100%; justify-content: center; margin-bottom: 10px; }
+  .diag-cta-note { padding-top: 0; }
+  .content-grid { grid-template-columns: 1fr; }
+  .content-header { flex-direction: column; align-items: flex-start; }
+  .booking-cta-card { padding: 36px 24px; gap: 28px; grid-template-columns: 1fr; }
+  .booking-cta-group { width: 100%; display: flex; flex-direction: column; gap: 0; }
+  .booking-open-btn { width: 100%; justify-content: center; margin-bottom: 10px; }
+  .booking-cta-note { padding-top: 0; }
+  .booking-alt { text-align: center !important; }
+  .nav-links.nav-open .nav-dropdown { display: none; position: static; box-shadow: none; border: none; border-left: 2px solid var(--border-mid); border-radius: 0; padding: 4px 0 4px 12px; margin: 2px 0 6px 16px; background: transparent; }
+  .nav-links.nav-open .has-dropdown.dd-open .nav-dropdown { display: block; }
+  .nav-links.nav-open .has-dropdown.dd-open > a::after { transform: rotate(180deg); }
+  .nav-links.nav-open .nav-dropdown .dd-sub { display: none; }
+  .nav-links.nav-open .nav-dropdown a { padding: 8px 10px; }
+  .nav-links.nav-open .nav-dropdown .dd-title { font-size: 14px; }
+  .nav-links.nav-open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(255,255,255,0.98); padding: 16px 20px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,0.07); gap: 2px; z-index: 190; max-height: calc(100vh - 60px); overflow-y: auto; }
+  .nav-links.nav-open > li > a { padding: 10px 12px; font-size: 15px; }
+}
+@media (max-width: 480px) {
+  .stats-inner { grid-template-columns: 1fr; }
+  .stat-item { border-right: none !important; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
+  .hero-headline { font-size: 36px; letter-spacing: -0.02em; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 0; }
+  .hero-actions .btn-cta { width: 100%; justify-content: center; padding: 18px 24px; font-size: 15px; margin-bottom: 14px; }
+  .hero-actions .btn-outline { width: 100%; justify-content: center; padding: 16px 24px; font-size: 14px; }
+}
 @media (max-width: 600px) {
   .modal-overlay { padding: 0; align-items: flex-end; }
-  .modal-box {
-    border-radius: 20px 20px 0 0;
-    max-height: 92vh;
-    width: 100%;
-    max-width: 100%;
-  }
+  .modal-box { border-radius: 20px 20px 0 0; max-height: 92vh; width: 100%; max-width: 100%; }
   .modal-head { padding: 24px 20px 0; }
   .modal-body { padding: 16px 20px 32px; }
   .modal-body iframe { min-height: 320px; }
-}
-
-/* 手机端表格横向滚动 */
-@media(max-width:900px){
-  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:12px}
-  table th,table td{white-space:nowrap;padding:8px 10px}
-  .pg,.rg{grid-template-columns:1fr 1fr}
-  .sct td,.sct th{white-space:normal;word-break:break-all}
-}
-@media(max-width:480px){
-  .pg,.rg{grid-template-columns:1fr}
-  .proc-g{grid-template-columns:1fr}
-}
-
-/* ── SITE FOOTER ── */
-.site-footer {
-  border-top: 1px solid var(--border);
-  background: var(--bg2);
-}
-.sf-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 56px 40px 32px;
-}
-
-/* Top row: logo + nav columns */
-.sf-top {
-  display: grid;
-  grid-template-columns: 240px 1fr 1fr 1fr;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-}
-.sf-brand {}
-.sf-logo { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 0; }
-.sf-tagline {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-top: 10px;
-  max-width: 200px;
-}
-.sf-col-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 16px;
-}
-.sf-col-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.sf-col-links a {
-  font-size: 13.5px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.18s;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-.sf-col-links a:hover { color: var(--accent); }
-.sf-col-links .sf-badge {
-  font-size: 10px;
-  font-weight: 600;
-  background: var(--accent-light);
-  color: var(--accent);
-  padding: 1px 6px;
-  border-radius: 4px;
-  border: 1px solid var(--accent-border);
-}
-
-/* Bottom row: copyright + legal links */
-.sf-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 24px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.sf-copy { font-size: 12px; color: var(--aux); }
-.sf-legal {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-.sf-legal a {
-  font-size: 12px;
-  color: var(--aux);
-  text-decoration: none;
-  transition: color 0.18s;
-}
-.sf-legal a:hover { color: var(--muted); }
-
-/* Mobile responsive */
-@media (max-width: 900px) {
-  .sf-inner { padding: 28px 20px 20px; }
-  .sf-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding-bottom: 24px;
-  }
-  .sf-brand {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  .sf-tagline { display: none; }
-  .sf-logo svg { height: 24px; width: auto; }
-  .sf-col-title { font-size: 10px; margin-bottom: 10px; text-align: left; }
-  .sf-col-links { gap: 8px; align-items: flex-start; }
-  .sf-col-links a { font-size: 13px; white-space: nowrap; text-align: left; }
-}
-
-/* ── 手机端：紧凑左对齐布局 ── */
-@media (max-width: 520px) {
-  .sf-inner { padding: 20px 18px 16px; }
-
-  .sf-brand {
-    padding-bottom: 16px;
-    margin-bottom: 0;
-  }
-  .sf-logo { display: inline-flex; }
-  .sf-logo svg { height: 22px; }
-
-  .sf-top {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding-bottom: 16px;
-  }
-
-  /* 每行：标题（固定宽）+ 链接竖列 */
-  .sf-top > div:not(.sf-brand) {
-    display: flex;
-    align-items: flex-start;
-    gap: 0;
-    border-top: 1px solid var(--border);
-    padding: 10px 0;
-  }
-  .sf-col-title {
-    font-size: 10px;
-    color: var(--aux);
-    white-space: nowrap;
-    width: 52px;
-    flex-shrink: 0;
-    margin-bottom: 0;
-    padding-top: 3px;
-  }
-  /* 链接竖排，每条独占一行，间距清晰 */
-  .sf-col-links {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 6px;
-    flex: 1;
-  }
-  .sf-col-links a {
-    font-size: 13px;
-    white-space: nowrap;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-  .sf-col-links .sf-badge { font-size: 9px; padding: 1px 4px; }
-
-  .sf-bottom {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-  }
-  .sf-copy { font-size: 11px; }
-  .sf-legal { gap: 12px; }
-  .sf-legal a { font-size: 11px; }
-}
-
-/* 触摸设备禁用 hover 展开下拉，改由 JS 的 dd-open 类控制 */
-@media (hover: none) {
-  .nav-links .has-dropdown:hover .nav-dropdown { display: none; }
-  .nav-links .has-dropdown:hover > a::after { transform: none; }
-  .nav-links .has-dropdown.dd-open .nav-dropdown { display: block !important; }
-  .nav-links .has-dropdown.dd-open > a::after { transform: rotate(180deg) !important; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo">
-    <svg height="30" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg" style="display:block">
-      <rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/>
-      <rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111111"/>
-      <rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/>
-      <rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111111"/>
-      <text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111111">Arch<tspan fill="#f97316">bloc</tspan></text>
-    </svg>
-  </a>
-  <ul class="nav-links">
-    <li class="has-dropdown">
-      <a href="#services">服务方案</a>
-      <div class="nav-dropdown">
-        <a href="/signal.html">
-          <span class="dd-title">Signal · 入门方案</span>
-          <span class="dd-sub">¥3,800/月 · 适合起步阶段</span>
-        </a>
-        <a href="/presence.html">
-          <span class="dd-title">Presence · 主力方案</span>
-          <span class="dd-sub">¥8,800/月 · 适合快速增长</span>
-        </a>
-        <a href="/authority.html">
-          <span class="dd-title">Authority · 旗舰方案</span>
-          <span class="dd-sub">¥18,800/月 · 全面布局</span>
-        </a>
-      </div>
-    </li>
-    <li><a href="/method.html">方法论</a></li>
-    <li><a href="#content">洞察</a></li>
-    <li><a href="/geo-diagnostic.html">免费诊断</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-cta" href="#" onclick="openModal('modal-booking');return false;">留下电话 →</a>
-  </div>
-  <button class="nav-menu-btn" aria-label="菜单" aria-expanded="false">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-  </button>
-</nav>
-
-<!-- MODAL: GEO 诊断 -->
-<!-- MODAL: 电话回访 -->
-<div class="modal-overlay" id="modal-booking" role="dialog" aria-modal="true" aria-labelledby="modal-booking-title">
-  <div class="modal-box">
-    <div class="modal-head">
-      <div>
-        <div class="modal-title" id="modal-booking-title">留下电话，我们主动联系你</div>
-        <div class="modal-sub">24–48 小时内回访 · 信息仅用于沟通</div>
-      </div>
-      <button class="modal-close" onclick="closeModal('modal-booking')" aria-label="关闭">✕</button>
-    </div>
-    <div class="modal-body">
-      <iframe data-tally-src="https://tally.so/embed/lbL8N6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" title="电话回访"></iframe>
-    </div>
-  </div>
-</div>
+<!-- ██ 导航栏（由组件加载器注入）██ -->
+<div id="nav-placeholder"></div>
 
 <!-- TICKER -->
 <div class="ticker-bar">
   <div class="ticker-track">
-    <!-- first set -->
     <div class="ticker-item"><span class="ticker-dot"></span> SEO × GEO 整合</div>
     <div class="ticker-item"><span class="ticker-dot"></span> AI 搜索可见度</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 自媒体矩阵</div>
@@ -1308,7 +312,6 @@ nav {
     <div class="ticker-item"><span class="ticker-dot"></span> 搜索增长</div>
     <div class="ticker-item"><span class="ticker-dot"></span> GEO 可见度</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 品牌权威建设</div>
-    <!-- duplicate for seamless loop -->
     <div class="ticker-item"><span class="ticker-dot"></span> SEO × GEO 整合</div>
     <div class="ticker-item"><span class="ticker-dot"></span> AI 搜索可见度</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 自媒体矩阵</div>
@@ -1379,10 +382,7 @@ nav {
         <p class="manifesto-body">
           GEO（生成式搜索引擎优化）不是 SEO 的对立面，是它的升维。当你同时在<strong>传统搜索排名、AI 引用频率、自媒体声量、媒体公信力</strong>四个维度建立存在感，流量才真正稳健。
         </p>
-        <p class="manifesto-body">
-          这个网站本身就在践行这个方法论——你现在访问的页面，Schema 标注、内容结构、关键词布局，全部按照我们服务客户的同一套标准执行。
-        </p>
-        <a href="/method.html" class="link-arrow">查看完整方法论 →</a>
+        <a href="/method.html" class="link-arrow">了解我们的方法论 →</a>
       </div>
     </div>
   </div>
@@ -1392,27 +392,27 @@ nav {
 <section class="signals-section">
   <div class="section-wrap">
     <div class="signals-header">
-      <div class="section-tag">你是否遇到了</div>
-      <h2 class="section-title">三种<em>增长卡壳</em>的信号</h2>
+      <div class="section-tag">你是否遇到这些问题</div>
+      <h2 class="section-title">搜索流量<em>停滞不前</em>的<br>三个根本原因</h2>
     </div>
     <div class="signals-grid">
-      <div class="signal-card" onclick="location.href='/geo-diagnostic.html'">
+      <div class="signal-card">
         <span class="signal-num">01</span>
-        <div class="signal-problem">网站有流量，<br>就是不转化</div>
-        <div class="signal-desc">SEO 带来了访客，但他们不知道你能做什么，也不知道该联系谁。问题不在流量本身，在于信任没建起来。</div>
-        <div class="signal-arrow">↗</div>
+        <div class="signal-problem">网站排名上不去，<br>流量全靠付费广告</div>
+        <div class="signal-desc">内容更新了很久，排名没有变化。SEO 像黑盒，不知道哪里出了问题，只能继续投广告维持流量。</div>
+        <span class="signal-arrow">↗</span>
       </div>
-      <div class="signal-card" onclick="location.href='/geo-diagnostic.html'">
+      <div class="signal-card">
         <span class="signal-num">02</span>
-        <div class="signal-problem">搜索排名还行，<br>AI 问答里没你</div>
-        <div class="signal-desc">客户用文心一言、DeepSeek 或 Kimi 问"哪家好"，从来不提你的名字。你的竞争对手却频繁被引用。</div>
-        <div class="signal-arrow">↗</div>
+        <div class="signal-problem">AI 搜索里<br>完全找不到你的品牌</div>
+        <div class="signal-desc">用户问文心一言"推荐一家做 XX 的公司"，AI 给了竞争对手的名字，却从没提到你。</div>
+        <span class="signal-arrow">↗</span>
       </div>
-      <div class="signal-card" onclick="location.href='/geo-diagnostic.html'">
+      <div class="signal-card">
         <span class="signal-num">03</span>
-        <div class="signal-problem">自媒体在发，<br>没带来一条询盘</div>
-        <div class="signal-desc">内容发了很多，点赞还行，但从没收到过"我看了你的文章，想了解你的服务"。内容和业务完全脱节。</div>
-        <div class="signal-arrow">↗</div>
+        <div class="signal-problem">自媒体发了很久，<br>没有带来任何客户</div>
+        <div class="signal-desc">公众号、小红书、视频号都在更新，偶尔有点击，但没有询盘。内容和业务之间的转化路径断了。</div>
+        <span class="signal-arrow">↗</span>
       </div>
     </div>
   </div>
@@ -1424,127 +424,130 @@ nav {
     <div class="services-header">
       <div>
         <div class="section-tag">服务方案</div>
-        <h2 class="section-title">三个切入点，<br><em>一个增长体系</em></h2>
+        <h2 class="section-title">选择适合你<em>增长阶段</em>的方案</h2>
       </div>
-      <a href="#contact" class="link-arrow">不确定选哪个？聊一下 →</a>
+      <a href="/#services" class="link-arrow">方案对比详情 →</a>
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-tier">入门方案</div>
-        <div class="service-name">Signal</div>
-        <div class="service-tagline">让你出现在搜索结果里。适合从零起步、想先建立基础可见度的企业。</div>
+        <div class="service-tier">Signal</div>
+        <div class="service-name">入门方案</div>
+        <div class="service-tagline">建立基础可见度，验证搜索增长路径</div>
         <ul class="service-includes">
-          <li>技术 SEO 月度优化</li>
-          <li>核心关键词布局（10–15个/月）</li>
-          <li>GEO 结构化内容 1 篇/月</li>
-          <li>Schema 标注维护</li>
+          <li>官网 SEO 技术审计 + 修复</li>
+          <li>关键词研究与内容规划</li>
+          <li>每月 4 篇 SEO 优化内容</li>
+          <li>基础 GEO 内容结构优化</li>
           <li>月度数据报告</li>
         </ul>
-        <div class="service-price">¥ 3,800 / 月 · 最少 3 个月</div>
-        <a class="service-link" href="/signal.html">查看详情 →</a>
+        <div class="service-price">¥3,800 / 月</div>
+        <a href="/signal.html" class="service-link">了解详情 →</a>
       </div>
       <div class="service-card featured">
-        <div class="service-badge">推荐</div>
-        <div class="service-tier">主力方案</div>
-        <div class="service-name">Presence</div>
-        <div class="service-tagline">被找到、被点击、被信任。在 SEO 基础上叠加媒体背书，让客户有理由选择你。</div>
+        <div class="service-badge">最受欢迎</div>
+        <div class="service-tier">Presence</div>
+        <div class="service-name">主力方案</div>
+        <div class="service-tagline">全面布局传统搜索与 AI 可见度</div>
         <ul class="service-includes">
-          <li>SEO 持续优化（含技术+内容）</li>
-          <li>GEO 结构化内容 2 篇/月</li>
-          <li>媒体软文发稿 2 篇/月</li>
-          <li>自媒体内容策略指导</li>
-          <li>月度增长数据报告</li>
+          <li>Signal 全部内容</li>
+          <li>GEO 专项优化策略</li>
+          <li>自媒体矩阵（2–3 个平台）</li>
+          <li>每月 8 篇内容（含自媒体）</li>
+          <li>媒体软文发稿（每月 2 篇）</li>
+          <li>双周沟通 + 策略复盘</li>
         </ul>
-        <div class="service-price">¥ 8,800 / 月 · 最少 3 个月</div>
-        <a class="service-link" href="/presence.html">查看详情 →</a>
+        <div class="service-price">¥8,800 / 月</div>
+        <a href="/presence.html" class="service-link">了解详情 →</a>
       </div>
       <div class="service-card">
-        <div class="service-tier">旗舰方案</div>
-        <div class="service-name">Authority</div>
-        <div class="service-tagline">成为细分领域首选品牌。全量执行 + 专属策略师，适合想全面建立行业权威的企业。</div>
+        <div class="service-tier">Authority</div>
+        <div class="service-name">旗舰方案</div>
+        <div class="service-tagline">建立行业权威，系统性占领搜索心智</div>
         <ul class="service-includes">
-          <li>含 Presence 全部内容</li>
-          <li>自媒体矩阵内容全量执行</li>
-          <li>媒体发稿 4 篇/月（头部媒体）</li>
-          <li>专属策略师一对一跟进</li>
-          <li>季度 ROI 复盘</li>
+          <li>Presence 全部内容</li>
+          <li>完整媒体背书策略</li>
+          <li>每月 4–6 篇媒体发稿</li>
+          <li>竞争对手监控与反制</li>
+          <li>品牌知识图谱建设</li>
+          <li>专属策略师 + 周会</li>
         </ul>
-        <div class="service-price">¥ 18,800 / 月起 · 最少 6 个月</div>
-        <a class="service-link" href="/authority.html">查看详情 →</a>
+        <div class="service-price">¥18,800 / 月</div>
+        <a href="/authority.html" class="service-link">了解详情 →</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- METHOD -->
-<section id="method" class="method-section">
+<section class="method-section">
   <div class="section-wrap">
     <div class="method-header">
-      <div class="section-tag">工作方式</div>
-      <h2 class="section-title">四步<em>增长框架</em></h2>
+      <div class="section-tag">我们怎么做</div>
+      <h2 class="section-title">四步建立<em>稳定的搜索存在感</em></h2>
     </div>
     <div class="method-steps">
       <div class="method-step">
         <div class="step-num">01</div>
         <div>
-          <div class="step-tag">AUDIT</div>
-          <div class="step-title">现状诊断与机会识别</div>
-          <div class="step-body">先用数据摸清你现在在哪——技术 SEO 健康度、AI 引用情况、竞品差距。给出有优先级的行动清单，而不是洋洋洒洒的报告。</div>
+          <div class="step-tag">可见度审计</div>
+          <div class="step-title">找到你在搜索中的真实位置</div>
+          <div class="step-body">技术健康度、关键词排名、AI 引用情况、竞争对手差距——全面评估后才知道优先修什么。</div>
         </div>
         <div class="step-output">
           <div class="step-output-label">交付物</div>
           <ul class="step-output-items">
-            <li>SEO 技术问题清单（优先级标注）</li>
-            <li>GEO 可见度基线报告</li>
-            <li>竞品内容缺口分析</li>
+            <li>SEO 技术审计报告</li>
+            <li>GEO 可见度评估</li>
+            <li>关键词机会清单</li>
+            <li>竞争对手分析</li>
           </ul>
         </div>
       </div>
       <div class="method-step">
         <div class="step-num">02</div>
         <div>
-          <div class="step-tag">BUILD</div>
-          <div class="step-title">内容与结构建设</div>
-          <div class="step-body">产出 AI 友好的内容——有结构、有数据来源、有权威背书。同时修复技术基础，让搜索引擎和 AI 都能准确理解你的业务。</div>
+          <div class="step-tag">内容基础建设</div>
+          <div class="step-title">让搜索引擎和 AI 读懂你在做什么</div>
+          <div class="step-body">结构化内容、Schema 标注、权威来源引用——帮你的官网成为 AI 乐于引用的内容来源。</div>
         </div>
         <div class="step-output">
           <div class="step-output-label">交付物</div>
           <ul class="step-output-items">
-            <li>结构化内容页面（含 Schema）</li>
-            <li>Topic Cluster 内容架构</li>
-            <li>媒体发稿（权威链接建设）</li>
+            <li>内容结构优化</li>
+            <li>Schema 标注实施</li>
+            <li>核心页面 SEO 优化</li>
           </ul>
         </div>
       </div>
       <div class="method-step">
         <div class="step-num">03</div>
         <div>
-          <div class="step-tag">AMPLIFY</div>
-          <div class="step-title">多渠道声量扩散</div>
-          <div class="step-body">好内容需要被看见。通过自媒体矩阵、媒体软文、行业平台，让同一套内容在多个触点触达潜在客户，形成品牌记忆。</div>
+          <div class="step-tag">持续内容输出</div>
+          <div class="step-title">在客户决策链的每个节点出现</div>
+          <div class="step-body">官网文章 + 自媒体矩阵协同，用有价值的内容覆盖搜索意图，建立从认知到咨询的完整路径。</div>
         </div>
         <div class="step-output">
           <div class="step-output-label">交付物</div>
           <ul class="step-output-items">
-            <li>自媒体内容策略文档</li>
-            <li>媒体发稿计划与执行</li>
-            <li>渠道覆盖追踪报告</li>
+            <li>月度内容日历</li>
+            <li>SEO 文章（官网）</li>
+            <li>自媒体内容（多平台）</li>
           </ul>
         </div>
       </div>
       <div class="method-step">
         <div class="step-num">04</div>
         <div>
-          <div class="step-tag">MEASURE</div>
-          <div class="step-title">量化证明，持续迭代</div>
-          <div class="step-body">每个月你都能看到数字在变——AI 引用次数、自然流量、内容覆盖关键词数。ROI 可追踪，才值得持续投入。</div>
+          <div class="step-tag">权威信号建设</div>
+          <div class="step-title">让第三方为你背书</div>
+          <div class="step-body">媒体软文发稿、行业平台引用——高质量外部链接与媒体提及，是 AI 判断品牌可信度的关键信号。</div>
         </div>
         <div class="step-output">
           <div class="step-output-label">交付物</div>
           <ul class="step-output-items">
-            <li>月度增长数据报告</li>
-            <li>AI 引用率趋势追踪</li>
-            <li>下月策略调整建议</li>
+            <li>媒体发稿（行业媒体）</li>
+            <li>外链建设报告</li>
+            <li>品牌提及监控</li>
           </ul>
         </div>
       </div>
@@ -1556,29 +559,14 @@ nav {
 <section class="trust-section">
   <div class="section-wrap">
     <div class="trust-header">
-      <div class="section-tag">为什么信任我们</div>
-      <h2 class="section-title">方法论<em>公开透明</em>，<br>过程就是证据</h2>
+      <div class="section-tag">为什么选择我们</div>
+      <h2 class="section-title">我们不承诺<em>奇迹</em>，<br>只承诺透明的过程</h2>
     </div>
     <div class="trust-grid">
       <div class="trust-card">
-        <span class="trust-icon">⬜</span>
-        <div class="trust-title">这个网站本身就是案例</div>
-        <div class="trust-body">你现在访问的这个网站，从内容结构到 Schema 标注到 GEO 优化，全部按照我们服务客户的同一套方法论执行。排名和 AI 引用数据公开可查。</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">{ }</span>
-        <div class="trust-title">方法论完整公开</div>
-        <div class="trust-body">博客里有完整的框架文章——GEO 审计怎么做、内容架构怎么设计、媒体发稿如何建立权威。能把方法说清楚的人，才真正理解它。</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">→</span>
-        <div class="trust-title">首单门槛极低</div>
-        <div class="trust-body">Signal 方案从 ¥3,800/月起，目的是让你用最小成本验证价值。3 个月后数据说话，你来决定要不要继续——不用凭信任下注。</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">⊞</span>
-        <div class="trust-title">数据来源透明</div>
-        <div class="trust-body">所有洞察文章的数据来源都明确标注——百度指数、艾瑞咨询、第三方 SEO 工具。我们的观点建立在可验证的事实上，不靠感性表述。</div>
+        <span class="trust-icon">◈</span>
+        <div class="trust-title">不卖排名，只做过程</div>
+        <div class="trust-body">没有任何 SEO 服务商能保证排名——这是 Google 明确说过的。我们承诺的是可验证的执行过程：每月你能看到做了什么、改了什么、数据如何变化。</div>
       </div>
       <div class="trust-card">
         <span class="trust-icon">∿</span>
@@ -1621,10 +609,10 @@ nav {
         <div class="section-tag">最新洞察</div>
         <h2 class="section-title">可以直接用的<em>增长知识</em></h2>
       </div>
-      <a href="#" class="link-arrow">全部文章 →</a>
+      <a href="/blog.html" class="link-arrow">全部文章 →</a>
     </div>
     <div class="content-grid">
-      <div class="article-card featured">
+      <a href="/blog/geo-visibility-guide.html" class="article-card featured" style="text-decoration:none;display:flex;flex-direction:column;">
         <span class="article-tag">GEO 方法论</span>
         <div class="article-title">国内中小企业 GEO 可见度完整指南：让 AI 搜索主动推荐你的品牌</div>
         <div class="article-excerpt">当潜在客户向 AI 提问"有没有好的 XX 服务商"，你的名字有没有出现？这篇指南从审计、内容建设、媒体背书三个维度，给出可执行的操作框架。</div>
@@ -1632,8 +620,8 @@ nav {
           <span>2025年3月</span>
           <span>18 分钟阅读</span>
         </div>
-      </div>
-      <div class="article-card">
+      </a>
+      <a href="/blog.html" class="article-card" style="text-decoration:none;display:flex;flex-direction:column;">
         <span class="article-tag">SEO 策略</span>
         <div class="article-title">2025年，哪些 SEO 动作已经过时了？</div>
         <div class="article-excerpt">堆关键词、买外链、更新元描述——这些方法在 AI 搜索时代已经失效。我们整理了 7 个必须放弃的旧习惯。</div>
@@ -1641,8 +629,8 @@ nav {
           <span>2025年3月</span>
           <span>11 分钟阅读</span>
         </div>
-      </div>
-      <div class="article-card">
+      </a>
+      <a href="/blog.html" class="article-card" style="text-decoration:none;display:flex;flex-direction:column;">
         <span class="article-tag">内容运营</span>
         <div class="article-title">自媒体发了三个月没效果？可能是漏斗断了</div>
         <div class="article-excerpt">内容和业务之间需要有清晰的转化路径。大多数企业自媒体失效的原因不是内容质量，而是流量无处可去。</div>
@@ -1650,7 +638,7 @@ nav {
           <span>2025年2月</span>
           <span>9 分钟阅读</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1664,7 +652,7 @@ nav {
         <h2 class="booking-headline">留下电话，<br>我们<em>主动联系你</em></h2>
         <p class="booking-sub">告诉我们你的网址和联系方式，我们会在 24–48 小时内回访——了解你的现状，判断是否适合合作，给出直接建议。</p>
         <div class="booking-alt" style="text-align:left;margin-top:20px">
-          更习惯邮件？<a href="/cdn-cgi/l/email-protection#85b7bcb7b3bdb6b4b3b2b3c5f4f4abe6eae8">发邮件咨询</a>
+          更习惯邮件？<a href="mailto:hello@archbloc.com">发邮件咨询</a>
         </div>
       </div>
       <div class="booking-cta-group">
@@ -1677,149 +665,8 @@ nav {
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="sf-inner">
+<!-- ██ 页脚（由组件加载器注入）██ -->
+<div id="footer-placeholder"></div>
 
-    <!-- Top grid: brand + nav columns -->
-    <div class="sf-top">
-
-      <!-- Brand column -->
-      <div class="sf-brand">
-        <a href="/" class="sf-logo">
-          <svg height="22" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg>
-        </a>
-        <p class="sf-tagline">帮助中小企业在传统搜索与 AI 推荐中同时建立可见度。</p>
-      </div>
-
-      <!-- Column 1: 服务 -->
-      <div>
-        <div class="sf-col-title">服务方案</div>
-        <ul class="sf-col-links">
-          <li><a href="/signal.html">Signal · 入门方案</a></li>
-          <li><a href="/presence.html">Presence · 主力方案</a></li>
-          <li><a href="/authority.html">Authority · 旗舰方案</a></li>
-          <li><a href="/#services">方案对比</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 2: 资源 -->
-      <div>
-        <div class="sf-col-title">资源</div>
-        <ul class="sf-col-links">
-          <li><a href="/method.html">方法论</a></li>
-          <li><a href="/#content">洞察文章</a></li>
-          <li>
-            <a href="/geo-diagnostic.html">免费 GEO 诊断 <span class="sf-badge">免费</span></a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Column 3: 联系 -->
-      <div>
-        <div class="sf-col-title">联系</div>
-        <ul class="sf-col-links">
-          <li><a href="/cdn-cgi/l/email-protection#85b7bcb7b3bdb6b4b3b2b3c5f4f4abe6eae8">发邮件咨询</a></li>
-          <li><a href="#contact" onclick="openModal('modal-booking');return false;">留下联系方式</a></li>
-        </ul>
-      </div>
-
-    </div><!-- /.sf-top -->
-
-    <!-- Bottom: copyright + legal -->
-    <div class="sf-bottom">
-      <div class="sf-copy">© 2026 Archbloc · 整合搜索增长服务</div>
-      <ul class="sf-legal">
-        <li><a href="#">隐私政策</a></li>
-        <li><a href="#">服务条款</a></li>
-      </ul>
-    </div>
-
-  </div><!-- /.sf-inner -->
-</footer>
-<script>
-// ── Tally embed loader ──
-(function(){
-  var d=document,w="https://tally.so/widgets/embed.js",
-  v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};
-  if("undefined"!=typeof Tally)v();
-  else if(!d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
-})();
-
-// ── Modal ──
-function openModal(id){
-  var el=document.getElementById(id);
-  if(!el)return;
-  el.classList.add('open');
-  document.body.style.overflow='hidden';
-  el.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(f){f.src=f.dataset.tallySrc;});
-}
-function closeModal(id){
-  var el=document.getElementById(id);
-  if(!el)return;
-  el.classList.remove('open');
-  document.body.style.overflow='';
-}
-document.querySelectorAll('.modal-overlay').forEach(function(overlay){
-  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal(overlay.id);});
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(function(m){closeModal(m.id);});
-});
-
-// ── Nav（首页用 .nav-menu-btn / .nav-links / .has-dropdown / .nav-dropdown）──
-(function(){
-  var btn=document.querySelector('.nav-menu-btn');
-  var nav=document.querySelector('.nav-links');
-  if(!btn||!nav)return;
-
-  function closeAllDropdowns(){
-    nav.querySelectorAll('.has-dropdown').forEach(function(l){l.classList.remove('dd-open');});
-  }
-
-  // 汉堡菜单开关
-  btn.addEventListener('click',function(e){
-    e.stopPropagation();
-    var isOpen=nav.classList.contains('nav-open');
-    nav.classList.toggle('nav-open',!isOpen);
-    btn.setAttribute('aria-expanded',String(!isOpen));
-    if(isOpen) closeAllDropdowns();
-  });
-
-  // 服务方案下拉：手机端点击展开/收起，桌面端 hover 由 CSS 处理
-  nav.querySelectorAll('.has-dropdown>a').forEach(function(a){
-    a.addEventListener('click',function(e){
-      // 桌面端（有真实 hover 能力）不处理
-      if(window.matchMedia('(hover:hover)').matches) return;
-      e.preventDefault();
-      e.stopPropagation();
-      var li=a.parentElement;
-      var wasOpen=li.classList.contains('dd-open');
-      closeAllDropdowns();
-      if(!wasOpen) li.classList.add('dd-open');
-    });
-  });
-
-  // 点击普通链接或子菜单项：关闭整个导航
-  nav.querySelectorAll('a').forEach(function(a){
-    // 跳过服务方案父链接（已有专属处理器）
-    if(a.parentElement.classList.contains('has-dropdown')) return;
-    a.addEventListener('click',function(){
-      nav.classList.remove('nav-open');
-      btn.setAttribute('aria-expanded','false');
-      closeAllDropdowns();
-    });
-  });
-
-  // 点击导航外区域：关闭
-  document.addEventListener('click',function(e){
-    if(!nav.contains(e.target) && e.target!==btn){
-      nav.classList.remove('nav-open');
-      btn.setAttribute('aria-expanded','false');
-      closeAllDropdowns();
-    }
-  });
-})();
-</script>
 </body>
 </html>
