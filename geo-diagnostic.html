@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>免费 GEO 诊断工具 — 你的网站在 AI 搜索里能被看见吗 | Archbloc</title>
-<meta name="description" content="免费获取 GEO 可见度初步评估：AI引用情况、内容结构缺口、三条优先修复建议。填入网址，1个工作日内发到邮箱。">
+<meta name="description" content="免费获取 GEO 可见度初步评估：AI引用情况、内容结构缺口、三条优先修复建议。填入网址，24–48 小时内发到邮箱。">
 <link rel="canonical" href="https://archbloc.com/geo-diagnostic">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <style>
@@ -126,12 +126,11 @@ select.field-input option{background:var(--bg);color:var(--text)}
 .co-icon{font-size:18px;color:var(--accent);flex-shrink:0;width:28px}
 .co-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
 .co-desc{font-size:12px;color:var(--aux)}
-.fw{border-top:1px solid var(--border)}
-footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:24px}
-.flinks{display:flex;gap:28px;list-style:none}.flinks a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .18s}.flinks a:hover{color:var(--text)}
-.fcopy{font-size:12px;color:var(--aux)}
+
+
+
+
 @media(max-width:900px){
-  /* mobile nav */
   nav{padding:0 20px}
   .nm{display:none}
   .nc{display:none}
@@ -150,7 +149,35 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
   .sample-g{grid-template-columns:1fr;gap:20px}.sample-col{padding:16px 0;border-right:none;border-top:1px solid var(--border)}.sample-col:first-child{border-top:none;padding-top:0}
   .cta-g{grid-template-columns:1fr}.field-row{grid-template-columns:1fr}
   .hstats{grid-template-columns:1fr 1fr}
-  footer{flex-direction:column;gap:16px;text-align:center;padding:32px 20px}.flinks{flex-wrap:wrap;justify-content:center}
+}
+
+/* 手机端表格横向滚动 */
+@media(max-width:900px){
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:12px}
+  table th,table td{white-space:nowrap;padding:8px 10px}
+  .pg,.rg{grid-template-columns:1fr 1fr}
+  .sct td,.sct th{white-space:normal;word-break:break-all}
+}
+@media(max-width:480px){
+  .pg,.rg{grid-template-columns:1fr}
+  .proc-g{grid-template-columns:1fr}
+}
+
+/* ── SITE FOOTER ── */
+.site-footer{border-top:1px solid var(--border);background:var(--bg)}
+.sf-inner{max-width:1100px;margin:0 auto;padding:36px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.sf-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.sf-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.sf-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .18s}
+.sf-links a:hover{color:var(--text)}
+.sf-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.sf-email{font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;transition:opacity .18s}
+.sf-email:hover{opacity:.75}
+.sf-copy{font-size:12px;color:var(--aux)}
+@media(max-width:900px){
+  .sf-inner{flex-direction:column;gap:20px;text-align:center;padding:32px 20px}
+  .sf-links{justify-content:center}
+  .sf-right{align-items:center}
 }
 </style>
 </head>
@@ -170,9 +197,7 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
     <li><a href="/#content">洞察</a></li>
     <li><a href="/geo-diagnostic.html" class="cur">免费诊断</a></li>
   </ul>
-  <div style="display:flex;align-items:center">
-    <a class="nc" href="#form">立即诊断 →</a>
-  </div>
+  <div style="display:flex;align-items:center"><a class="nc" href="#form">立即诊断 →</a></div>
   <button class="nmb" aria-label="菜单" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
 </nav>
 <div class="pt"></div>
@@ -181,16 +206,16 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
   <div>
     <div class="st"><span class="pulse"></span>免费工具 · GEO 可见度诊断</div>
     <h1 class="hh">你的网站在<br><em>AI 搜索</em>里存在吗？</h1>
-    <p class="hs">当你的潜在客户向 ChatGPT、Kimi、文心一言提问"有没有好的 XX 服务商"——<strong style="color:var(--text);font-weight:500">你的名字出现了吗？</strong><br><br>填入你的网址，免费获得一份 GEO 可见度初步评估报告。</p>
+    <p class="hs">当你的潜在客户向文心一言、Kimi、DeepSeek 提问"有没有好的 XX 服务商"——<strong style="color:var(--text);font-weight:500">你的名字出现了吗？</strong><br><br>填入你的网址，免费获得一份 GEO 可见度初步评估报告。</p>
     <div class="hstats">
       <div class="hstat"><div class="hsn">78%</div><div class="hsl">企业网站 AI 引用率为零</div></div>
-      <div class="hstat"><div class="hsn">1天</div><div class="hsl">填表后 1 个工作日内发报告</div></div>
+      <div class="hstat"><div class="hsn">48h</div><div class="hsl">填表后 24–48 小时内发报告</div></div>
     </div>
   </div>
   <div id="form">
     <div class="fcard">
       <div class="ftitle">获取免费 GEO 诊断报告</div>
-      <div class="fsub">免费 · 1 个工作日内发到邮箱 · 不发垃圾邮件</div>
+      <div class="fsub">免费 · 24–48 小时内发到邮箱 · 不发垃圾邮件</div>
       <iframe data-tally-src="https://tally.so/embed/ODLx5A?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="GEO 诊断申请"></iframe>
       <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </div>
@@ -201,7 +226,7 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
   <div class="st">报告包含内容</div>
   <h2 class="sh">你会收到<em>三项具体评估</em></h2>
   <div class="wyg-grid">
-    <div class="wyg-card"><div class="wyg-num">01 · AI 引用现状</div><div class="wyg-title">你现在在哪些 AI 系统里存在</div><div class="wyg-body">我们测试主流 AI 系统在你行业相关问题下对你的引用情况，给出一个基线评分，让你知道现在起点在哪。</div><div class="wyg-sample"><strong>示例输出</strong><br>ChatGPT: 未被提及<br>Kimi: 出现 1 次<br>文心一言: 未被提及<br>基线评分: 2 / 10</div></div>
+    <div class="wyg-card"><div class="wyg-num">01 · AI 引用现状</div><div class="wyg-title">你现在在哪些 AI 系统里存在</div><div class="wyg-body">我们测试主流 AI 系统在你行业相关问题下对你的引用情况，给出一个基线评分，让你知道现在起点在哪。</div><div class="wyg-sample"><strong>示例输出</strong><br>文心一言: 未被提及<br>Kimi: 出现 1 次<br>DeepSeek: 未被提及<br>豆包: 未被提及<br>基线评分: 2 / 10</div></div>
     <div class="wyg-card"><div class="wyg-num">02 · 内容结构缺口</div><div class="wyg-title">哪些内容问题导致 AI 忽视你</div><div class="wyg-body">AI 系统青睐有结构、有 Schema 标注、有权威来源的内容。我们检查你的核心页面是否满足这些条件，并指出最关键的缺口。</div><div class="wyg-sample"><strong>示例输出</strong><br>✗ 无 FAQ Schema 标注<br>✗ 服务页无结构化数据<br>✗ 关键页面缺乏外部引用<br>✓ 网站技术基础良好</div></div>
     <div class="wyg-card"><div class="wyg-num">03 · 三条优先建议</div><div class="wyg-title">现在可以立刻执行的行动</div><div class="wyg-body">不是 30 页报告——是三条有优先级的具体建议，你自己或你的团队可以直接执行，或作为与 Archbloc 合作的起点。</div><div class="wyg-sample"><strong>示例输出</strong><br>1. 在服务页添加 FAQ Schema（1 小时）<br>2. 撰写行业权威 Q&A 内容页（1 周）<br>3. 在知乎发布 3 篇行业问答（2 周）</div></div>
   </div>
@@ -223,9 +248,9 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
       <div class="st">常见问题</div>
       <div class="geo-faq">
         <div class="geo-fq"><div class="geo-qt">GEO 和 SEO 有什么区别？</div><div class="geo-at">传统 SEO 是让搜索引擎把你的网页排在前面；GEO 是让 AI 在生成答案时主动引用你的品牌。<strong>两者都需要，但 GEO 是大多数企业还没开始做的盲点。</strong></div></div>
-        <div class="geo-fq"><div class="geo-qt">国内 AI 搜索的用户规模有多大？</div><div class="geo-at">文心一言月活超过 3 亿，Kimi 用户增长持续加速，DeepSeek 在行业搜索场景的使用比例正在快速上升。这个流量入口正在成型，但大多数企业还没有布局。</div></div>
+        <div class="geo-fq"><div class="geo-qt">国内 AI 搜索的用户规模有多大？</div><div class="geo-at">文心一言月活超过 3 亿，DeepSeek 问世后迅速成为行业搜索标配，Kimi 和豆包用户规模持续增长。这些国内 AI 入口正在成型，ChatGPT、Perplexity 等海外平台也有大量出海品牌和专业人士在使用——布局越早，积累越深。</div></div>
         <div class="geo-fq"><div class="geo-qt">我现在做 GEO 优化会不会太早？</div><div class="geo-at">恰恰相反。GEO 优化的核心是内容权威度积累——越早开始，积累的内容资产越多，被 AI 系统认定为权威来源的时间越长。<strong>等竞对都开始做了再做，就已经落后了。</strong></div></div>
-        <div class="geo-fq"><div class="geo-qt">免费诊断会给我推销服务吗？</div><div class="geo-at">不会主动推。我们发报告，你决定要不要继续。如果报告发完你想了解合作细节，发邮件或者预约通话都可以。不适合合作，我们会直接说。</div></div>
+        <div class="geo-fq"><div class="geo-qt">免费诊断会给我推销服务吗？</div><div class="geo-at">不会主动推。我们发报告，你决定要不要继续。如果报告发完你想了解合作细节，发邮件或者发邮件回访都可以。不适合合作，我们会直接说。</div></div>
       </div>
     </div>
   </div>
@@ -234,13 +259,13 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
 <section class="sec"><div class="w">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:44px;flex-wrap:wrap">
     <div><div class="st">诊断流程</div><h2 class="sh">填表之后<em>发生什么</em></h2></div>
-    <p style="font-size:14px;color:var(--muted);line-height:1.8">这是真实的人工评估过程，不是自动生成的通用报告。因此需要 1 个工作日的处理时间。</p>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8">这是真实的人工评估过程，不是自动生成的通用报告。因此需要 24–48 小时的处理时间。</p>
   </div>
   <div class="proc-g">
     <div class="prs"><div class="prn">01</div><div class="prt">收到你的网址</div><div class="prb">系统自动记录你的提交，我们的团队在下一个工作日开始评估。</div><div class="prd">即时确认</div></div>
     <div class="prs"><div class="prn">02</div><div class="prt">AI 引用测试</div><div class="prb">在主流 AI 系统中测试你行业相关问题的答案，记录你的品牌是否被提及。</div><div class="prd">2–4 小时</div></div>
     <div class="prs"><div class="prn">03</div><div class="prt">内容结构审查</div><div class="prb">检查你核心页面的 Schema 标注、内容结构、权威信号，找出对 AI 可见度影响最大的缺口。</div><div class="prd">4–6 小时</div></div>
-    <div class="prs" style="border-right:none"><div class="prn">04</div><div class="prt">报告发送到邮箱</div><div class="prb">包含 AI 引用基线评分、内容缺口清单、三条优先修复建议。1 个工作日内完成。</div><div class="prd">1 个工作日内</div></div>
+    <div class="prs" style="border-right:none"><div class="prn">04</div><div class="prt">报告发送到邮箱</div><div class="prb">包含 AI 引用基线评分、内容缺口清单、三条优先修复建议。24–48 小时内完成。</div><div class="prd">24–48 小时内</div></div>
   </div>
 </div></section>
 
@@ -256,7 +281,7 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
       <div class="sample-col">
         <div class="sample-cl">GEO 可见度评分</div>
         <div class="score-big">3.2</div><div class="score-sub">/ 10 · 需要立即改善</div>
-        <div style="margin-top:16px;font-size:12px;color:var(--muted);line-height:2">ChatGPT ···· 0/5<br>Kimi ········ 1/5<br>文心一言 ···· 0/5<br>Perplexity ·· 1/5</div>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);line-height:2">文心一言 ···· 0/5<br>Kimi ········ 1/5<br>DeepSeek ···· 0/5<br>豆包 ········ 0/5<br>ChatGPT ····· 1/5</div>
       </div>
       <div class="sample-col">
         <div class="sample-cl">发现的主要问题</div>
@@ -290,19 +315,30 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
       <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px">如果你更喜欢直接对话，可以发邮件或者了解我们的服务方案——你描述现状，我们给出直接的建议。</p>
     </div>
     <div class="cta-opts">
-      <a class="cta-opt" href="/cdn-cgi/l/email-protection#ddb5b8b1b1b29dbcafbeb5bfb1b2bef3beb2b0"><div class="co-icon">@</div><div><div class="co-title">发邮件</div><div class="co-desc"><span class="__cf_email__" data-cfemail="d8b0bdb4b4b798b9aabbb0bab4b7bbf6bbb7b5">[email&#160;protected]</span> · 1 个工作日内回复</div></div></a>
+      <a class="cta-opt" href="mailto:2926831676@qq.com"><div class="co-icon">@</div><div><div class="co-title">发邮件</div><div class="co-desc">2926831676@qq.com · 24–48 小时内回复</div></div></a>
       <a class="cta-opt" href="/method.html"><div class="co-icon">//</div><div><div class="co-title">先看方法论</div><div class="co-desc">了解我们怎么做 GEO 优化</div></div></a>
       <a class="cta-opt" href="/#services"><div class="co-icon">→</div><div><div class="co-title">看服务方案</div><div class="co-desc">找到适合你的起点</div></div></a>
     </div>
   </div>
 </div></section>
 
-<div class="fw"><footer>
-  <svg height="22" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg>
-  <ul class="flinks"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
-  <div class="fcopy">© 2026 Archbloc · 整合搜索增长服务</div>
-</footer></div>
-
+<footer class="site-footer">
+  <div class="sf-inner">
+    <a href="/" class="sf-logo">
+      <svg height="22" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg>
+    </a>
+    <ul class="sf-links">
+      <li><a href="/#services">服务方案</a></li>
+      <li><a href="/method.html">方法论</a></li>
+      <li><a href="/#content">洞察</a></li>
+      <li><a href="/geo-diagnostic.html">免费诊断</a></li>
+    </ul>
+    <div class="sf-right">
+      <a href="mailto:2926831676@qq.com" class="sf-email">发邮件咨询</a>
+      <div class="sf-copy">© 2026 Archbloc · 整合搜索增长服务</div>
+    </div>
+  </div>
+</footer>
 <script>
 (function(){
   var btn=document.querySelector('.nmb'),nav=document.querySelector('.nm');
