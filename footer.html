@@ -1,0 +1,82 @@
+<!--
+  /components/footer.html
+  全站页脚 + Tally 表单加载器
+  Nav/Modal JS 已迁移到 loader.js 统一管理
+  修改此文件 → 全站页脚自动更新
+-->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="sf-inner">
+
+    <div class="sf-top">
+
+      <!-- Brand -->
+      <div class="sf-brand">
+        <a href="/" class="sf-logo">
+          <svg height="22" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg>
+        </a>
+        <p class="sf-tagline">帮助中小企业在传统搜索与 AI 推荐中同时建立可见度。</p>
+      </div>
+
+      <!-- 服务方案 -->
+      <div>
+        <div class="sf-col-title">服务方案</div>
+        <ul class="sf-col-links">
+          <li><a href="/signal.html">Signal · 入门方案</a></li>
+          <li><a href="/presence.html">Presence · 主力方案</a></li>
+          <li><a href="/authority.html">Authority · 旗舰方案</a></li>
+          <li><a href="/#services">方案对比</a></li>
+        </ul>
+      </div>
+
+      <!-- 资源 -->
+      <div>
+        <div class="sf-col-title">资源</div>
+        <ul class="sf-col-links">
+          <li><a href="/method.html">方法论</a></li>
+          <li><a href="/#content">洞察文章</a></li>
+          <li>
+            <a href="/geo-diagnostic.html">免费 GEO 诊断 <span class="sf-badge">免费</span></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 联系 -->
+      <div>
+        <div class="sf-col-title">联系</div>
+        <ul class="sf-col-links">
+          <li><a href="mailto:hello@archbloc.com">发邮件咨询</a></li>
+          <li><a href="#contact" onclick="openModal('modal-booking');return false;">留下联系方式</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.sf-top -->
+
+    <div class="sf-bottom">
+      <div class="sf-copy">© 2026 Archbloc · 整合搜索增长服务</div>
+      <ul class="sf-legal">
+        <li><a href="#">隐私政策</a></li>
+        <li><a href="#">服务条款</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /.sf-inner -->
+</footer>
+
+<!-- ══════════════════════════════════════════
+     在线咨询工具 — 只改这里，全站自动更新
+     替换示例（腾讯企点）：
+     <script src="https://wp.qiye.qq.com/qidian/xxxxxxxx"></script>
+══════════════════════════════════════════ -->
+<!-- LIVECHAT_PLACEHOLDER -->
+
+<script>
+// Tally embed loader — 加载页面内所有 Tally 表单 iframe
+(function(){
+  var d=document,w="https://tally.so/widgets/embed.js",
+  v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};
+  if("undefined"!=typeof Tally)v();
+  else if(!d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
+})();
+</script>
