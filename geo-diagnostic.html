@@ -151,29 +151,8 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
     <div class="fcard">
       <div class="ftitle">获取免费 GEO 诊断报告</div>
       <div class="fsub">免费 · 1 个工作日内发到邮箱 · 不发垃圾邮件</div>
-      <form name="geo-diagnostic" method="POST" netlify netlify-honeypot="bot-field" id="diagForm">
-        <input type="hidden" name="form-name" value="geo-diagnostic">
-        <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
-        <div class="field"><label class="field-label" for="website">你的网址 <span>*</span></label><input class="field-input" type="url" id="website" name="website" placeholder="https://www.yourcompany.com" required></div>
-        <div class="field"><label class="field-label" for="email">接收报告的邮箱 <span>*</span></label><input class="field-input" type="email" id="email" name="email" placeholder="you@company.com" required></div>
-        <div class="field-row">
-          <div class="field"><label class="field-label" for="name">你的姓名</label><input class="field-input" type="text" id="name" name="name" placeholder="王总"></div>
-          <div class="field"><label class="field-label" for="phone">联系电话</label><input class="field-input" type="tel" id="phone" name="phone" placeholder="13x xxxx xxxx"></div>
-        </div>
-        <div class="field"><label class="field-label" for="industry">你的行业</label>
-          <select class="field-input" id="industry" name="industry"><option value="" disabled selected>选择你的行业（可选）</option><option>企业服务 / B2B</option><option>电商 / 零售</option><option>教育培训</option><option>医疗健康</option><option>建筑 / 装修 / 设计</option><option>法律 / 财务 / 咨询</option><option>科技 / 软件 / SaaS</option><option>制造业</option><option>餐饮 / 酒店 / 本地服务</option><option>其他</option></select>
-        </div>
-        <div class="field"><label class="field-label" for="concern">最想了解的问题</label>
-          <select class="field-input" id="concern" name="concern"><option value="" disabled selected>你最关心哪个方向（可选）</option><option>我的网站在 AI 搜索里被提到了吗</option><option>哪些关键词我应该优先布局</option><option>竞争对手的搜索策略是什么</option><option>我的网站有哪些技术 SEO 问题</option><option>内容结构怎么优化才能被 AI 引用</option><option>其他</option></select>
-        </div>
-        <button type="submit" class="submit-btn" id="submitBtn">获取免费 GEO 诊断报告 →</button>
-        <div class="form-note">不会收到垃圾邮件 · 结果仅发给你一人 · 可随时退订</div>
-      </form>
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">✅</div>
-        <div class="success-title">已收到你的申请</div>
-        <div class="success-body">我们会在 <strong style="color:var(--text)">1 个工作日内</strong> 将诊断报告发到你的邮箱。<br><br>如有紧急需求，可直接发邮件至<br><a href="/cdn-cgi/l/email-protection#4129242d2d2e0120332229232d2e226f222e2c"><span class="__cf_email__" data-cfemail="0c64696060634c6d7e6f646e60636f226f6361">[email&#160;protected]</span></a></div>
-      </div>
+      <iframe data-tally-src="https://tally.so/embed/ODLx5A?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="GEO 诊断申请"></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </div>
   </div>
 </div></div></section>
@@ -283,12 +262,5 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
   <ul class="flinks"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
   <div class="fcopy">© 2025 Archbloc · 整合搜索增长服务</div>
 </footer></div>
-<script>
-const form=document.getElementById('diagForm');
-const success=document.getElementById('formSuccess');
-const submitBtn=document.getElementById('submitBtn');
-form.addEventListener('submit',function(e){
-  submitBtn.disabled=true;submitBtn.textContent='提交中…';
-});
-</script>
- </body></html>
+</body>
+</html>
