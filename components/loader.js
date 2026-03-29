@@ -1,87 +1,124 @@
 /**
  * /components/loader.js
- * Archbloc 组件动态加载器
+ * Archbloc 组件动态加载器 v2
  *
- * 用法（在每个页面的 <head> 末尾引入此脚本）：
- *   <script src="/components/loader.js"></script>
- *
- * 页面中用占位符标记注入点：
- *   <div id="nav-placeholder"></div>      ← 导航栏注入点
- *   <div id="footer-placeholder"></div>   ← 页脚注入点
- *
- * blog/ 子目录页面：脚本会自动检测路径深度，
- * 将所有组件内 href="/..." 替换为正确相对路径，无需手动修改。
+ * 修复：nav 注入后立即初始化交互，不依赖 DOMContentLoaded（异步注入时已触发过）
  */
 
 (function () {
   'use strict';
 
-  // ── 检测当前页面路径深度，计算根路径前缀 ──
-  // 根路径页面：prefix = ""（即 /components/... 直接可用）
-  // blog/ 子目录：prefix = "../"
+  // ── 路径深度检测（blog/ 子目录自动处理）──
   var depth = window.location.pathname.split('/').filter(Boolean).length;
-  // 若路径包含 .html 则文件本身算一级，减去文件层只取目录深度
   var isFile = window.location.pathname.indexOf('.html') !== -1;
   var dirDepth = isFile ? depth - 1 : depth;
   var prefix = '';
   for (var i = 0; i < dirDepth; i++) prefix += '../';
 
-  /**
-   * 修正组件 HTML 中的绝对路径
-   * 将 href="/" → href="../"（或保留 /）以兼容 EdgeOne Pages 的根路径重写
-   * 策略：保留所有 href/src 的绝对路径（以 / 开头），让 CDN 处理
-   * 仅当页面在子目录时，才需要把 /components/... 改为 ../components/...
-   */
-  function fixPaths(html, componentName) {
-    if (dirDepth === 0) return html; // 根目录，路径无需修正
-    // 仅修正组件自身资源（如有引用相对资源时备用）
-    // 站内链接（/signal.html 等）保持绝对路径，EdgeOne Pages 会正确解析
-    return html;
-  }
-
-  /**
-   * 注入 head 组件（CSS + 字体 + 统计）
-   * 直接插入到 <head> 内，确保样式在 body 渲染前生效
-   */
+  // ── 注入 <head> 组件 ──
   function injectHead(html) {
-    var headFrag = document.createRange().createContextualFragment(html);
-    document.head.appendChild(headFrag);
+    var frag = document.createRange().createContextualFragment(html);
+    document.head.appendChild(frag);
   }
 
-  /**
-   * 注入 nav / footer 到占位符
-   */
+  // ── 注入 nav / footer 到占位符 ──
   function injectInto(placeholderId, html) {
     var el = document.getElementById(placeholderId);
     if (!el) return;
-    el.outerHTML = html; // 用真实 HTML 替换占位 div
+    var frag = document.createRange().createContextualFragment(html);
+    el.parentNode.replaceChild(frag, el);
   }
 
-  /**
-   * 加载单个组件文件
-   */
+  // ── fetch 组件 ──
   function loadComponent(name, callback) {
     var url = prefix + 'components/' + name + '.html';
     fetch(url)
       .then(function (res) {
-        if (!res.ok) throw new Error('Failed to load ' + url + ' (' + res.status + ')');
+        if (!res.ok) throw new Error('[Archbloc] Failed: ' + url + ' (' + res.status + ')');
         return res.text();
       })
-      .then(function (html) {
-        callback(fixPaths(html, name));
-      })
-      .catch(function (err) {
-        console.error('[Archbloc Loader]', err);
-      });
+      .then(callback)
+      .catch(function (err) { console.error(err); });
   }
 
-  // ── 加载顺序：head → nav → footer ──
-  // head 最先注入，保证首屏样式不闪烁
-  loadComponent('head', function (html) {
-    injectHead(html);
-  });
+  // ── Nav 交互初始化（nav 注入后立即调用）──
+  function initNav() {
+    var btn = document.querySelector('.nav-menu-btn');
+    var nav = document.querySelector('.nav-links');
+    if (!btn || !nav) return;
 
-  // nav 和 footer 等 DOM 就绪后注入
+    function closeAllDropdowns() {
+      nav.querySelectorAll('.has-dropdown').forEach(function (l) { l.classList.remove('dd-open'); });
+    }
+
+    // 汉堡开关
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = nav.classList.contains('nav-open');
+      nav.classList.toggle('nav-open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) closeAllDropdowns();
+    });
+
+    // 手机端服务方案下拉（桌面用 CSS hover 处理）
+    nav.querySelectorAll('.has-dropdown > a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (window.matchMedia('(hover:hover)').matches) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var li = a.parentElement;
+        var wasOpen = li.classList.contains('dd-open');
+        closeAllDropdowns();
+        if (!wasOpen) li.classList.add('dd-open');
+      });
+    });
+
+    // 点击普通链接关闭菜单
+    nav.querySelectorAll('a').forEach(function (a) {
+      if (a.parentElement.classList.contains('has-dropdown')) return;
+      a.addEventListener('click', function () {
+        nav.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+        closeAllDropdowns();
+      });
+    });
+
+    // 点击页面其他区域关闭菜单
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !btn.contains(e.target)) {
+        nav.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+        closeAllDropdowns();
+      }
+    });
+
+    // 当前页面导航高亮
+    var path = window.location.pathname;
+    nav.querySelectorAll('a').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href) return;
+      var aPath = href.split('?')[0].split('#')[0];
+      if (aPath === path || (path === '/' && aPath === '/')) a.classList.add('active');
+    });
+  }
+
+  // ── Modal 关闭绑定（nav 注入后调用）──
+  function initModal() {
+    document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal(overlay.id);
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(function (m) { closeModal(m.id); });
+      }
+    });
+  }
+
+  // ── 加载顺序：head → (DOM就绪) → nav → footer ──
+  loadComponent('head', injectHead);
+
   function onReady(fn) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', fn);
@@ -91,11 +128,23 @@
   }
 
   onReady(function () {
+    // nav 注入后立即初始化，不等任何事件
     loadComponent('nav', function (html) {
       injectInto('nav-placeholder', html);
+      initNav();
+      initModal();
     });
+
+    // footer 注入后触发 Tally embed
     loadComponent('footer', function (html) {
       injectInto('footer-placeholder', html);
+      if (typeof Tally !== 'undefined') {
+        Tally.loadEmbeds();
+      } else {
+        document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function (f) {
+          f.src = f.dataset.tallySrc;
+        });
+      }
     });
   });
 
