@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ✏️ 每篇文章替换这里 ↓ -->
+<title>文章标题 — Archbloc</title>
+<meta name="description" content="文章摘要（120–160字符）。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://archbloc.com/blog/post-slug.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://archbloc.com/blog/post-slug.html">
+<meta property="og:title" content="文章标题 — Archbloc">
+<meta property="og:description" content="文章摘要。">
+<meta property="og:image" content="https://archbloc.com/og-image.png">
+<meta property="og:site_name" content="Archbloc">
+<!-- ✏️ 每篇文章替换以上 ↑ -->
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- ██ 组件加载器（blog/ 子目录：loader.js 自动处理相对路径）██ -->
+<script src="../components/loader.js"></script>
+
+<!-- Schema: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "文章标题",
+  "description": "文章摘要",
+  "author": {
+    "@type": "Organization",
+    "name": "Archbloc",
+    "url": "https://archbloc.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Archbloc",
+    "logo": { "@type": "ImageObject", "url": "https://archbloc.com/archbloc-logo-light.svg" }
+  },
+  "datePublished": "2025-03-01",
+  "dateModified": "2025-03-01",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://archbloc.com/blog/post-slug.html" }
+}
+</script>
+
+<style>
+/* 文章页专属样式 */
+.post-header { padding: 100px 40px 64px; max-width: 760px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+.post-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
+.post-title { font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; color: var(--text); margin-bottom: 20px; }
+.post-meta { display: flex; gap: 16px; font-size: 13px; color: var(--aux); flex-wrap: wrap; }
+.post-meta span { display: flex; align-items: center; gap: 6px; }
+
+.post-body { max-width: 760px; margin: 0 auto; padding: 64px 40px 96px; }
+.post-body h2 { font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: var(--text); margin: 48px 0 16px; line-height: 1.3; letter-spacing: -0.015em; }
+.post-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 32px 0 12px; line-height: 1.35; }
+.post-body p { font-size: 16px; color: var(--muted); line-height: 1.85; margin-bottom: 20px; }
+.post-body p strong { color: var(--text); font-weight: 600; }
+.post-body ul, .post-body ol { margin: 0 0 20px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.post-body ul li { font-size: 15px; color: var(--muted); line-height: 1.7; display: flex; align-items: flex-start; gap: 10px; }
+.post-body ul li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 13px; margin-top: 3px; }
+.post-body ol { counter-reset: ol-counter; }
+.post-body ol li { font-size: 15px; color: var(--muted); line-height: 1.7; display: flex; align-items: flex-start; gap: 12px; counter-increment: ol-counter; }
+.post-body ol li::before { content: counter(ol-counter); color: var(--accent); font-weight: 700; font-size: 13px; flex-shrink: 0; min-width: 18px; }
+.post-body blockquote { border-left: 3px solid var(--accent); padding: 4px 0 4px 24px; margin: 28px 0; }
+.post-body blockquote p { font-size: 17px; font-weight: 500; color: var(--text); line-height: 1.65; margin-bottom: 0; font-style: normal; }
+.post-body a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); transition: border-color 0.18s; }
+.post-body a:hover { border-color: var(--accent); }
+.post-body hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+.post-callout { background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: var(--radius-card); padding: 24px 28px; margin: 32px 0; }
+.post-callout p { color: var(--text) !important; margin-bottom: 0 !important; font-size: 15px !important; }
+
+.post-cta { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 40px; text-align: center; margin-top: 64px; }
+.post-cta-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+.post-cta-sub { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+.btn-cta { font-size: 15px; font-weight: 600; color: #fff; background: var(--accent); border: none; padding: 14px 32px; border-radius: var(--radius-cta); cursor: pointer; transition: opacity 0.18s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: none !important; }
+.btn-cta:hover { opacity: 0.88; border-bottom: none !important; }
+
+@media (max-width: 768px) {
+  .post-header { padding: 80px 20px 48px; }
+  .post-body { padding: 48px 20px 60px; }
+  .post-callout { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- 文章头部 -->
+<div class="post-header">
+  <span class="post-tag">分类标签</span>
+  <h1 class="post-title">这里是文章完整标题，可以两行</h1>
+  <div class="post-meta">
+    <span>2025年3月</span>
+    <span>预计阅读 XX 分钟</span>
+    <span>作者：Archbloc 团队</span>
+  </div>
+</div>
+
+<!-- 文章正文 -->
+<div class="post-body">
+
+  <p>这里是文章导言段落。交代背景、提出问题、预告文章将解答什么。这一段很重要，决定读者是否继续阅读。</p>
+
+  <h2>第一个大标题</h2>
+
+  <p>正文段落。建议每段不超过4–5行，保持阅读节奏。可以用 <strong>加粗</strong> 强调关键词。</p>
+
+  <blockquote>
+    <p>这里是引用或重点观点，会用左侧橙色边框突出显示。</p>
+  </blockquote>
+
+  <p>继续正文。可以在合适的地方插入无序列表：</p>
+
+  <ul>
+    <li>列表项一：简明扼要说明一个要点</li>
+    <li>列表项二：避免超过两行</li>
+    <li>列表项三：与上下文紧密关联</li>
+  </ul>
+
+  <div class="post-callout">
+    <p><strong>💡 重点提示：</strong>这里放一个需要读者特别注意的关键信息，会用橙色背景卡片突出显示。</p>
+  </div>
+
+  <h2>第二个大标题</h2>
+
+  <h3>子标题（如需要）</h3>
+
+  <p>更多正文内容。如需编号列表：</p>
+
+  <ol>
+    <li>第一步：执行动作描述</li>
+    <li>第二步：执行动作描述</li>
+    <li>第三步：执行动作描述</li>
+  </ol>
+
+  <hr>
+
+  <!-- 文末 CTA -->
+  <div class="post-cta">
+    <div class="post-cta-title">想知道你的网站 GEO 状态？</div>
+    <div class="post-cta-sub">免费诊断报告，24–48 小时内告诉你当前 AI 可见度缺口和三条优先修复建议。</div>
+    <a class="btn-cta" href="/geo-diagnostic.html">获取免费诊断 →</a>
+  </div>
+
+</div>
+
+<div id="footer-placeholder"></div>
+
+</body>
+</html>
