@@ -11,10 +11,24 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#fff;--bg2:#fafafa;--border:#f0f0f0;--border-mid:#e5e5e5;--text:#0f172a;--muted:#475569;--aux:#aaaaaa;--accent:#f97316;--accent-light:rgba(249,115,22,0.08);--accent-border:rgba(249,115,22,0.25);--dark:#111;--sans:'Inter',system-ui,sans-serif;--rc:12px;--rcta:10px;--rbtn:6px}
 html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .nl{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
-.nm{display:flex;gap:28px;list-style:none}.nm a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .18s}.nm a:hover{color:var(--text)}
-.nc{font-size:12px;font-weight:600;color:#fff;background:var(--dark);border:none;padding:8px 18px;border-radius:var(--rbtn);cursor:pointer;transition:opacity .18s;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}.nc:hover{opacity:.82}
+.nm{display:flex;gap:4px;list-style:none;align-items:center}
+.nm>li{position:relative}
+.nm>li>a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.01em;transition:color .18s;padding:6px 12px;border-radius:6px;display:flex;align-items:center;gap:4px}
+.nm>li>a:hover{color:var(--text);background:var(--bg2)}
+.nm>li>a.cur{color:var(--text);font-weight:600}
+.nm .has-dd>a::after{content:'';display:inline-block;width:8px;height:5px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M1 1l3 3 3-3' stroke='%23aaa' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;transition:transform .18s;flex-shrink:0;margin-top:1px}
+.nm .has-dd:hover>a::after{transform:rotate(180deg)}
+.ndd{display:none;position:absolute;top:100%;left:0;min-width:200px;background:#fff;border:1px solid var(--border-mid);border-radius:10px;padding:8px;padding-top:16px;box-shadow:0 8px 28px rgba(0,0,0,.10);z-index:300}
+.ndd::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;background:transparent}
+.nm .has-dd:hover .ndd{display:block}
+.ndd a{display:flex;flex-direction:column;padding:10px 12px;border-radius:6px;text-decoration:none;transition:background .15s;gap:2px}
+.ndd a:hover{background:var(--bg2)}
+.ndd .ddt{font-size:13px;font-weight:600;color:var(--text)}
+.ndd .dds{font-size:11px;color:var(--aux)}
+.nc{font-size:13px;font-weight:600;color:#fff;background:var(--accent);border:none;padding:9px 20px;border-radius:var(--rbtn,6px);cursor:pointer;letter-spacing:.01em;transition:opacity .18s,transform .18s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.nc:hover{opacity:.88;transform:translateY(-1px)}
 .nmb{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text)}
 .pt{margin-top:60px}.w{max-width:1100px;margin:0 auto;padding:0 40px}
 .st{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aux);margin-bottom:14px}
@@ -90,7 +104,19 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
 .flinks{display:flex;gap:28px;list-style:none}.flinks a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .18s}.flinks a:hover{color:var(--text)}
 .fcopy{font-size:12px;color:var(--aux)}
 @media(max-width:900px){
-  nav{padding:0 20px}.nm{display:none}.nmb{display:flex}.w{padding:0 20px}
+  /* mobile nav */
+  nav{padding:0 20px}
+  .nm{display:none}
+  .nc{display:none}
+  .nmb{display:flex}
+  .nm.nav-open{display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(255,255,255,0.98);padding:16px 20px 24px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.07);gap:2px;z-index:190;max-height:calc(100vh - 60px);overflow-y:auto}
+  .nm.nav-open>li>a{padding:10px 12px;font-size:15px}
+  .nm.nav-open .ndd{display:none;position:static;box-shadow:none;border:none;border-left:2px solid var(--border-mid);border-radius:0;padding:4px 0 4px 12px;margin:2px 0 6px 16px;background:transparent}
+  .nm.nav-open .has-dd.dd-open .ndd{display:block}
+  .nm.nav-open .has-dd.dd-open>a::after{transform:rotate(180deg)}
+  .nm.nav-open .ndd .dds{display:none}
+  .nm.nav-open .ndd a{padding:8px 10px}
+  .nm.nav-open .ndd .ddt{font-size:14px}.w{padding:0 20px}
   .hero{padding:56px 0 64px}.hg{grid-template-columns:1fr;gap:36px}.sec{padding:56px 0}
   .wg{grid-template-columns:1fr}.sg{grid-template-columns:1fr}.pg{grid-template-columns:1fr 1fr}.ps{border-bottom:1px solid var(--border)}.rg{grid-template-columns:1fr}.rc{border-right:none;border-bottom:1px solid var(--border)}.rc:last-child{border-bottom:none}
   .pbox{grid-template-columns:1fr;padding:32px 24px;gap:28px}.pr{text-align:left}.pac{align-items:flex-start}
@@ -102,9 +128,23 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
 <body>
 <nav>
   <a href="/" class="nl"><svg height="28" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg></a>
-  <ul class="nm"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
-  <a class="nc" href="/geo-diagnostic.html">免费诊断 →</a>
-  <button class="nmb"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <ul class="nm">
+    <li class="has-dd">
+      <a href="/#services">服务方案</a>
+      <div class="ndd">
+        <a href="/signal.html"><span class="ddt">Signal · 入门方案</span><span class="dds">¥3,800/月 · 适合起步阶段</span></a>
+        <a href="/presence.html"><span class="ddt">Presence · 主力方案</span><span class="dds">¥8,800/月 · 适合快速增长</span></a>
+        <a href="/authority.html"><span class="ddt">Authority · 旗舰方案</span><span class="dds">¥18,800/月 · 全面布局</span></a>
+      </div>
+    </li>
+    <li><a href="/method.html">方法论</a></li>
+    <li><a href="/#content">洞察</a></li>
+    <li><a href="/geo-diagnostic.html">免费诊断</a></li>
+  </ul>
+  <div style="display:flex;align-items:center">
+    <a class="nc" href="/geo-diagnostic.html">免费诊断 →</a>
+  </div>
+  <button class="nmb" aria-label="菜单" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
 </nav>
 <div class="pt"></div>
 
@@ -248,6 +288,6 @@ footer{max-width:1100px;margin:0 auto;padding:40px;display:flex;justify-content:
 <div class="fw"><footer>
   <svg height="22" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/><rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111"/><rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/><rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111"/><text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111">Arch<tspan fill="#f97316">bloc</tspan></text></svg>
   <ul class="flinks"><li><a href="/#services">服务方案</a></li><li><a href="/method.html">方法论</a></li><li><a href="/geo-diagnostic.html">免费诊断</a></li></ul>
-  <div class="fcopy">© 2025 Archbloc · 整合搜索增长服务</div>
+  <div class="fcopy">© 2026 Archbloc · 整合搜索增长服务</div>
 </footer></div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.querySele

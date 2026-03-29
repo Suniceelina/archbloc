@@ -111,12 +111,12 @@ body {
 
 /* ── NAV ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 40px;
   height: 60px;
-  background: rgba(255,255,255,0.94);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 .nav-logo {
@@ -126,34 +126,99 @@ nav {
 }
 .nav-logo-img { height: 28px; width: auto; display: block; }
 .nav-links {
-  display: flex; gap: 28px; list-style: none;
+  display: flex; gap: 4px; list-style: none; align-items: center;
 }
-.nav-links a {
+.nav-links > li {
+  position: relative;
+}
+.nav-links > li > a {
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.01em;
   transition: color 0.18s;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: flex; align-items: center; gap: 4px;
 }
-.nav-links a:hover { color: var(--text); }
+.nav-links > li > a:hover { color: var(--text); background: var(--bg2); }
+.nav-links > li > a.active { color: var(--text); font-weight: 600; }
+
+/* dropdown arrow */
+.nav-links .has-dropdown > a::after {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M1 1l3 3 3-3' stroke='%23aaa' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.18s;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.nav-links .has-dropdown:hover > a::after { transform: rotate(180deg); }
+
+/* dropdown panel */
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;          /* flush — no gap */
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  padding: 8px;
+  padding-top: 16px;  /* internal padding compensates for the removed gap */
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+  z-index: 300;
+}
+/* invisible bridge fills the gap between trigger and panel */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 0; right: 0;
+  height: 10px;
+  background: transparent;
+}
+.nav-links .has-dropdown:hover .nav-dropdown { display: block; }
+.nav-dropdown a {
+  display: flex; flex-direction: column;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s;
+  gap: 2px;
+}
+.nav-dropdown a:hover { background: var(--bg2); }
+.nav-dropdown .dd-title {
+  font-size: 13px; font-weight: 600; color: var(--text);
+}
+.nav-dropdown .dd-sub {
+  font-size: 11px; color: var(--aux);
+}
+.nav-dropdown .dd-divider {
+  height: 1px; background: var(--border); margin: 4px 0;
+}
+
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .nav-cta {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #fff;
-  background: var(--dark);
+  background: var(--accent);
   border: none;
-  padding: 8px 18px;
+  padding: 9px 20px;
   border-radius: var(--radius-btn);
   cursor: pointer;
   letter-spacing: 0.01em;
-  transition: opacity 0.18s;
+  transition: opacity 0.18s, transform 0.18s;
   text-decoration: none;
-  display: inline-flex; align-items: center;
+  display: inline-flex; align-items: center; gap: 5px;
   white-space: nowrap;
 }
-.nav-cta:hover { opacity: 0.82; }
+.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
 .nav-menu-btn {
   display: none;
   background: none;
@@ -161,6 +226,60 @@ nav {
   cursor: pointer;
   padding: 6px;
   color: var(--text);
+}
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%; max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  animation: modalIn 0.22s ease both;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-head {
+  padding: 28px 32px 0;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+}
+.modal-title {
+  font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.25;
+}
+.modal-sub {
+  font-size: 13px; color: var(--aux); margin-top: 6px; line-height: 1.6;
+}
+.modal-close {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 50%;
+  cursor: pointer; font-size: 16px; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+.modal-close:hover { background: var(--border); color: var(--text); }
+.modal-body {
+  padding: 20px 32px 32px;
+}
+.modal-body iframe {
+  border: none;
+  width: 100%;
+  min-height: 360px;
+  display: block;
 }
 
 /* ── TICKER ── */
@@ -633,7 +752,7 @@ nav {
   padding: 96px 0;
   border-bottom: 1px solid var(--border);
 }
-.diag-inner {
+.diag-cta-card {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
@@ -657,48 +776,21 @@ nav {
   color: var(--muted);
   line-height: 1.75;
   max-width: 480px;
-  margin-bottom: 0;
 }
-.diag-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 300px;
+.diag-cta-group {
+  display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0;
 }
-.diag-input {
-  background: var(--bg);
-  border: 1.5px solid var(--border-mid);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 14px;
-  padding: 13px 16px;
-  border-radius: 8px;
-  outline: none;
-  transition: border-color 0.18s;
-  width: 100%;
+.diag-open-btn {
+  font-size: 15px; font-weight: 600; color: #fff;
+  background: var(--accent); border: none;
+  padding: 16px 32px; border-radius: var(--radius-cta);
+  cursor: pointer; letter-spacing: 0.01em;
+  transition: opacity 0.18s, transform 0.18s;
+  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 8px;
 }
-.diag-input:focus { border-color: var(--accent); }
-.diag-input::placeholder { color: var(--aux); }
-.diag-submit {
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  padding: 14px 20px;
-  border-radius: var(--radius-cta);
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: opacity 0.18s;
-  text-align: center;
-}
-.diag-submit:hover { opacity: 0.88; }
-.diag-note {
-  font-size: 11px;
-  color: var(--aux);
-  text-align: center;
-  line-height: 1.5;
-}
+.diag-open-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.diag-cta-note { font-size: 11px; color: var(--aux); text-align: center; line-height: 1.5; }
 
 /* ── CONTENT / ARTICLES ── */
 .content-section {
@@ -756,96 +848,68 @@ nav {
   padding: 112px 0;
   border-bottom: 1px solid var(--border);
 }
-.booking-inner {
-  max-width: 560px;
+.booking-cta-card {
+  max-width: 720px;
   margin: 0 auto;
-  text-align: center;
+  background: var(--dark);
+  border-radius: 16px;
+  padding: 60px 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
 }
 .booking-tag {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 20px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 14px;
 }
 .booking-headline {
-  font-size: clamp(28px, 4.5vw, 48px);
+  font-size: clamp(24px, 3.5vw, 36px);
   font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin-bottom: 16px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 12px;
 }
 .booking-headline em { font-style: normal; color: var(--accent); }
 .booking-sub {
-  font-size: 15px;
-  color: var(--muted);
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
   line-height: 1.75;
-  margin-bottom: 40px;
 }
-/* Lead capture form */
-.booking-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  text-align: left;
+.booking-cta-group {
+  display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0;
 }
-.booking-input {
-  background: var(--bg);
-  border: 1.5px solid var(--border-mid);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 15px;
-  padding: 16px 20px;
-  border-radius: 10px;
-  outline: none;
-  transition: border-color 0.18s;
-  width: 100%;
+.booking-open-btn {
+  font-size: 15px; font-weight: 600; color: var(--dark);
+  background: #fff; border: none;
+  padding: 16px 32px; border-radius: var(--radius-cta);
+  cursor: pointer; letter-spacing: 0.01em;
+  transition: opacity 0.18s, transform 0.18s;
+  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 8px;
 }
-.booking-input:focus { border-color: var(--accent); }
-.booking-input::placeholder { color: var(--aux); }
-.booking-textarea {
-  resize: vertical;
-  min-height: 88px;
-  line-height: 1.6;
-  font-family: var(--sans);
-}
-.booking-submit {
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  padding: 18px 24px;
-  border-radius: var(--radius-cta);
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: opacity 0.18s;
-  width: 100%;
-  margin-top: 8px;
-}
-.booking-submit:hover { opacity: 0.88; }
-.booking-note {
-  font-size: 12px;
-  color: var(--aux);
-  text-align: center;
-  line-height: 1.6;
-  margin-top: 4px;
+.booking-open-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.booking-cta-note {
+  font-size: 11px; color: rgba(255,255,255,0.35); text-align: center; line-height: 1.5;
 }
 .booking-alt {
-  margin-top: 20px;
+  margin-top: 16px;
   text-align: center;
   font-size: 13px;
-  color: var(--aux);
+  color: rgba(255,255,255,0.3);
 }
 .booking-alt a {
-  color: var(--muted);
+  color: rgba(255,255,255,0.5);
   text-decoration: none;
-  border-bottom: 1px solid var(--border-mid);
-  transition: color 0.18s, border-color 0.18s;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  transition: color 0.18s;
 }
-.booking-alt a:hover { color: var(--text); border-color: var(--text); }
+.booking-alt a:hover { color: rgba(255,255,255,0.8); }
 
 /* ── FOOTER ── */
 .footer-wrap {
@@ -875,6 +939,7 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
+  .nav-right { display: none; }
   .nav-menu-btn { display: flex; }
   .ticker-bar { padding: 0 20px; }
 
@@ -896,11 +961,54 @@ footer {
   .method-step { grid-template-columns: 44px 1fr; gap: 20px; }
   .method-step .step-output { grid-column: 1 / -1; }
 
-  .diag-inner { grid-template-columns: 1fr; gap: 40px; padding: 36px 24px; }
-  .diag-form { min-width: unset; }
+  .diag-cta-card { grid-template-columns: 1fr; gap: 32px; padding: 36px 24px; text-align: center; }
+  .diag-sub { max-width: 100%; }
+  .diag-cta-group { width: 100%; }
+  .diag-open-btn { width: 100%; justify-content: center; }
 
   .content-grid { grid-template-columns: 1fr; }
   .content-header { flex-direction: column; align-items: flex-start; }
+
+  .booking-cta-card { padding: 36px 24px; gap: 28px; grid-template-columns: 1fr; }
+  .booking-open-btn { width: 100%; justify-content: center; }
+  .booking-alt { text-align: center !important; }
+
+  /* mobile nav open base */
+  .nav-links.nav-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.98);
+    padding: 16px 20px 24px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    gap: 2px;
+    z-index: 190;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+  .nav-links.nav-open > li > a { padding: 10px 12px; font-size: 15px; }
+
+  /* mobile nav dropdown – accordion, hidden by default */
+  .nav-links.nav-open .nav-dropdown {
+    display: none;   /* 默认收起 */
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--border-mid);
+    border-radius: 0;
+    padding: 4px 0 4px 12px;
+    margin: 2px 0 6px 16px;
+    background: transparent;
+  }
+  /* 点击后展开 */
+  .nav-links.nav-open .has-dropdown.dd-open .nav-dropdown { display: block; }
+  /* 箭头旋转 */
+  .nav-links.nav-open .has-dropdown.dd-open > a::after { transform: rotate(180deg); }
+  .nav-links.nav-open .nav-dropdown .dd-sub { display: none; }
+  .nav-links.nav-open .nav-dropdown a { padding: 8px 10px; }
+  .nav-links.nav-open .nav-dropdown .dd-title { font-size: 14px; }
 
   footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 20px; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
@@ -944,6 +1052,20 @@ footer {
 .hero-headline { animation: fadeUp 0.6s ease 0.18s both; }
 .hero-sub { animation: fadeUp 0.6s ease 0.3s both; }
 .hero-actions { animation: fadeUp 0.6s ease 0.42s both; }
+
+/* modal mobile fix */
+@media (max-width: 600px) {
+  .modal-overlay { padding: 0; align-items: flex-end; }
+  .modal-box {
+    border-radius: 20px 20px 0 0;
+    max-height: 92vh;
+    width: 100%;
+    max-width: 100%;
+  }
+  .modal-head { padding: 24px 20px 0; }
+  .modal-body { padding: 16px 20px 32px; }
+  .modal-body iframe { min-height: 320px; }
+}
 </style>
 </head>
 <body>
@@ -951,7 +1073,6 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
-    <!-- Logo: faithfully reproduces archbloc-logo-light.svg coordinates, viewBox 20-62 x, 19-61 y cropped tight -->
     <svg height="30" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg" style="display:block">
       <rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/>
       <rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111111"/>
@@ -961,18 +1082,66 @@ footer {
     </svg>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">服务方案</a></li>
-    <li><a href="#method">方法论</a></li>
+    <li class="has-dropdown">
+      <a href="#services">服务方案</a>
+      <div class="nav-dropdown">
+        <a href="/signal.html">
+          <span class="dd-title">Signal · 入门方案</span>
+          <span class="dd-sub">¥3,800/月 · 适合起步阶段</span>
+        </a>
+        <a href="/presence.html">
+          <span class="dd-title">Presence · 主力方案</span>
+          <span class="dd-sub">¥8,800/月 · 适合快速增长</span>
+        </a>
+        <a href="/authority.html">
+          <span class="dd-title">Authority · 旗舰方案</span>
+          <span class="dd-sub">¥18,800/月 · 全面布局</span>
+        </a>
+      </div>
+    </li>
+    <li><a href="/method.html">方法论</a></li>
     <li><a href="#content">洞察</a></li>
-    <li><a href="/method.html">完整方法论</a></li>
+    <li><a href="/geo-diagnostic.html">免费诊断</a></li>
   </ul>
   <div class="nav-right">
-    <a class="nav-cta" href="/geo-diagnostic.html">免费诊断 →</a>
+    <a class="nav-cta" href="#" onclick="openModal('modal-booking');return false;">留下电话 →</a>
   </div>
-  <button class="nav-menu-btn" aria-label="菜单">
+  <button class="nav-menu-btn" aria-label="菜单" aria-expanded="false">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
   </button>
 </nav>
+
+<!-- MODAL: GEO 诊断 -->
+<div class="modal-overlay" id="modal-diag" role="dialog" aria-modal="true" aria-labelledby="modal-diag-title">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="modal-diag-title">获取免费 GEO 诊断报告</div>
+        <div class="modal-sub">免费 · 1 个工作日内发到邮箱 · 不发垃圾邮件</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-diag')" aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <iframe data-tally-src="https://tally.so/embed/ODLx5A?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" title="GEO 诊断申请"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: 电话回访 -->
+<div class="modal-overlay" id="modal-booking" role="dialog" aria-modal="true" aria-labelledby="modal-booking-title">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="modal-booking-title">留下电话，我们主动联系你</div>
+        <div class="modal-sub">1 个工作日内回访 · 信息仅用于沟通</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-booking')" aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <iframe data-tally-src="https://tally.so/embed/lbL8N6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" title="电话回访"></iframe>
+    </div>
+  </div>
+</div>
 
 <!-- TICKER -->
 <div class="ticker-bar">
@@ -1274,18 +1443,17 @@ footer {
 <!-- DIAGNOSTIC CTA -->
 <section id="diagnostic" class="diag-section">
   <div class="section-wrap">
-    <div class="diag-inner">
+    <div class="diag-cta-card">
       <div>
         <div class="section-tag" style="margin-bottom:16px">免费工具</div>
         <h2 class="diag-headline">你的网站在 <em>AI 搜索</em>里<br>能被看见吗？</h2>
         <p class="diag-sub" style="margin-top:14px">填入你的网址，免费获得一份 GEO 可见度初步评估——AI 引用情况、内容结构缺口、三条优先修复建议。1 个工作日内发到你邮箱。</p>
       </div>
-      <div class="diag-form">
-        <input class="diag-input" type="url" placeholder="你的网址，如 www.company.com">
-        <input class="diag-input" type="email" placeholder="接收报告的邮箱">
-        <input class="diag-input" type="text" placeholder="你的姓名（选填）">
-        <button class="diag-submit" onclick="location.href='/geo-diagnostic.html'">获取免费 GEO 诊断报告</button>
-        <div class="diag-note">不会收到垃圾邮件 · 结果仅发给你一人</div>
+      <div class="diag-cta-group">
+        <button class="diag-open-btn" onclick="openModal('modal-diag')">
+          获取免费诊断报告 →
+        </button>
+        <div class="diag-cta-note">不会收到垃圾邮件 · 结果仅发给你一人</div>
       </div>
     </div>
   </div>
@@ -1336,17 +1504,20 @@ footer {
 <!-- BOOKING CTA -->
 <section id="contact" class="booking-section">
   <div class="section-wrap">
-    <div class="booking-inner">
-      <div class="booking-tag">开始合作</div>
-      <h2 class="booking-headline">留下电话，<br>我们<em>主动联系你</em></h2>
-      <p class="booking-sub">告诉我们你的网址和联系方式，我们会在 1 个工作日内回访——了解你的现状，判断是否适合合作，给出直接建议。</p>
-      <div class="booking-form">
-        <iframe data-tally-src="https://tally.so/embed/lbL8N6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="留下电话回访"></iframe>
-        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-        <div class="booking-note">信息仅用于回访沟通，不会用于其他用途 · 1 个工作日内联系</div>
+    <div class="booking-cta-card">
+      <div>
+        <div class="booking-tag">开始合作</div>
+        <h2 class="booking-headline">留下电话，<br>我们<em>主动联系你</em></h2>
+        <p class="booking-sub">告诉我们你的网址和联系方式，我们会在 1 个工作日内回访——了解你的现状，判断是否适合合作，给出直接建议。</p>
+        <div class="booking-alt" style="text-align:left;margin-top:20px">
+          更习惯邮件？发送至 <a href="/cdn-cgi/l/email-protection#b88a818a8e808b898e8f8ef8c9c996dbd7d5"><span class="__cf_email__" data-cfemail="9fada6ada9a7acaea9a8a9dfeeeeb1fcf0f2">[email&#160;protected]</span></a>
+        </div>
       </div>
-      <div class="booking-alt">
-        更习惯邮件？发送至 <a href="/cdn-cgi/l/email-protection#49212c25252609283b2a212b25262a672a2624"><span class="__cf_email__" data-cfemail="bad2dfd6d6d5fadbc8d9d2d8d6d5d994d9d5d7">[email&#160;protected]</span></a>
+      <div class="booking-cta-group">
+        <button class="booking-open-btn" onclick="openModal('modal-booking')">
+          留下联系方式 →
+        </button>
+        <div class="booking-cta-note">1 个工作日内联系 · 不适合合作我们会直接说</div>
       </div>
     </div>
   </div>
@@ -1366,4 +1537,139 @@ footer {
       <li><a href="#services">服务方案</a></li>
       <li><a href="/method.html">方法论</a></li>
       <li><a href="#content">洞察</a></li>
-      <li><a href="/geo-diagnostic.html">免费诊断</a
+      <li><a href="/geo-diagnostic.html">免费诊断</a</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Archbloc · 整合搜索增长服务</div>
+  </footer>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Tally embed loader ──
+(function(){
+  var d=document,w="https://tally.so/widgets/embed.js",
+  v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};
+  if("undefined"!=typeof Tally)v();
+  else if(!d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
+})();
+
+// ── Modal ──
+function openModal(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // lazy-load tally iframe when modal opens
+  el.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(f){
+    f.src = f.dataset.tallySrc;
+  });
+}
+function closeModal(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('open');
+  document.body.style.overflow = '';
+}
+// close on overlay click
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+// close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m){ closeModal(m.id); });
+  }
+});
+
+// ── Tally embed loader ──
+(function(){
+  var d=document,w="https://tally.so/widgets/embed.js",
+  v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};
+  if("undefined"!=typeof Tally)v();
+  else if(!d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
+})();
+
+// ── Modal ──
+function openModal(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  el.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(f){
+    f.src = f.dataset.tallySrc;
+  });
+}
+function closeModal(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m){ closeModal(m.id); });
+  }
+});
+
+// ── Mobile nav ──
+(function () {
+  var menuBtn = document.querySelector(".nav-menu-btn");
+  var navLinks = document.querySelector(".nav-links");
+  if (!menuBtn || !navLinks) return;
+
+  // 汉堡菜单开关
+  menuBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    var isOpen = navLinks.classList.contains("nav-open");
+    navLinks.classList.toggle("nav-open", !isOpen);
+    menuBtn.setAttribute("aria-expanded", String(!isOpen));
+    // 关闭时同时收起所有子菜单
+    if (isOpen) {
+      navLinks.querySelectorAll('.has-dropdown').forEach(function(li){
+        li.classList.remove('dd-open');
+      });
+    }
+  });
+
+  // 手机端「服务方案」点击展开/收起（手风琴）
+  navLinks.querySelectorAll('.has-dropdown > a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      // 只在手机端（菜单竖排时）拦截
+      if (window.innerWidth > 900) return;
+      e.preventDefault();
+      var li = a.parentElement;
+      var isOpen = li.classList.contains('dd-open');
+      // 关闭其他
+      navLinks.querySelectorAll('.has-dropdown').forEach(function(el){ el.classList.remove('dd-open'); });
+      if (!isOpen) li.classList.add('dd-open');
+    });
+  });
+
+  // 点击普通菜单项后关闭导航
+  navLinks.querySelectorAll("a").forEach(function (a) {
+    if (a.closest('.has-dropdown') && !a.closest('.nav-dropdown')) return; // skip parent trigger
+    a.addEventListener("click", function () {
+      navLinks.classList.remove("nav-open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      navLinks.querySelectorAll('.has-dropdown').forEach(function(li){ li.classList.remove('dd-open'); });
+    });
+  });
+
+  // 点击页面其他区域关闭
+  document.addEventListener("click", function (e) {
+    if (!navLinks.contains(e.target) && e.target !== menuBtn) {
+      navLinks.classList.remove("nav-open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      navLinks.querySelectorAll('.has-dropdown').forEach(function(li){ li.classList.remove('dd-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
