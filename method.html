@@ -1,202 +1,264 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>方法论 — AUDIT · BUILD · AMPLIFY · MEASURE | Archbloc</title>
 <meta name="description" content="Archbloc 四步增长框架：AUDIT诊断、BUILD建设、AMPLIFY扩散、MEASURE量化——每步都有明确交付物，结果可追踪、可验证。">
 <link rel="canonical" href="https://archbloc.com/method">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-
-<style>
-body{padding-top:60px}
-.w{max-width:1100px;margin:0 auto;padding:0 24px}
-.hero{padding:64px 0 40px;border-bottom:1px solid var(--border)}
-.st{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--aux)}
-.sh{font-size:clamp(34px,5vw,56px);line-height:1.1;letter-spacing:-.03em;color:var(--text);margin-top:10px}
-.sh em{font-style:normal;color:var(--accent)}
-.fwbar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
-.fwstep,.sigc,.ctabox,.tc,.step,.stepcol{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px}
-.fwnum{display:block;font-size:12px;font-weight:800;color:var(--accent);margin-bottom:6px}
-.fwname{font-size:14px;font-weight:700;color:var(--text)}
-.sec{padding:72px 0;border-bottom:1px solid var(--border)}
-.phg,.tg{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.phq{font-size:26px;font-weight:700;line-height:1.4;color:var(--text);padding-left:18px;border-left:3px solid var(--accent);margin-top:14px}
-.pha{margin-top:14px;font-size:13px;color:var(--aux)}
-.phb,.tcb,.stepb,.sign{font-size:15px;line-height:1.85;color:var(--muted)}
-.plist,.tclist,.stepcol-items{list-style:none;margin-top:18px;padding:0}
-.plist li,.tclist li,.stepcol-items li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
-.icon{width:24px;height:24px;border-radius:999px;background:var(--accent-light);border:1px solid var(--accent-border);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px}
-.steps{display:flex;flex-direction:column;gap:18px}
-.step{display:grid;grid-template-columns:72px 1fr;gap:20px}
-.stepn{font-size:14px;font-weight:800;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:12px;padding:10px 12px;height:fit-content;text-align:center}
-.steptag,.stepcol-label,.tcl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--aux);margin-bottom:8px}
-.stept,.tct{font-size:22px;font-weight:700;line-height:1.35;color:var(--text);margin-bottom:10px}
-.stepg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-.stepcol-items li{position:relative;padding-left:18px}
-.stepcol-items li:before{content:"•";position:absolute;left:0;color:var(--accent)}
-.sig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.sigm{font-size:34px;font-weight:800;color:var(--accent);line-height:1}
-.sigl{font-size:18px;font-weight:700;color:var(--text);margin:8px 0}
-.ctabox{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
-.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
-.bp{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(249,115,22,.18)}
-.bg{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:12px;border:1px solid var(--border-mid);color:var(--text);text-decoration:none;background:#fff}
-@media (max-width:900px){
-  .w{padding:0 20px}
-  .phg,.tg,.stepg,.ctabox{grid-template-columns:1fr}
-  .fwbar,.sig-grid{grid-template-columns:1fr 1fr}
-}
-@media (max-width:640px){
-  .w{padding:0 16px}
-  .sec{padding:56px 0}
-  .fwbar,.sig-grid{grid-template-columns:1fr}
-  .step{grid-template-columns:1fr}
-  .bp,.bg{width:100%}
-  .cta-actions{flex-direction:column}
-}
-</style>
-
-
-<!-- ██ 组件加载器 — 注入全局CSS / 统计 / 导航 / 页脚 ██ -->
 <script src="/components/loader.js"></script>
+<link rel="stylesheet" href="/components/page-blocks.css">
 </head>
-<body>
+<body class="page-body">
 
 <div id="nav-placeholder"></div>
 
-<section class="hero"><div class="w">
-  <div class="st">方法论 · 四步增长框架</div>
-  <h1 class="sh" style="font-size:clamp(32px,5vw,56px)">方法<em>公开透明</em>，<br>结果可以验证</h1>
-  <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-top:20px;max-width:600px">我们不靠信任感接项目。你可以在这里看清楚我们每一步做什么、交付什么、怎么衡量效果——然后再决定要不要合作。</p>
-  <div class="fwbar">
-    <div class="fwstep"><span class="fwnum">01</span><span class="fwname">AUDIT</span></div>
-    <div class="fwstep"><span class="fwnum">02</span><span class="fwname">BUILD</span></div>
-    <div class="fwstep"><span class="fwnum">03</span><span class="fwname">AMPLIFY</span></div>
-    <div class="fwstep"><span class="fwnum">04</span><span class="fwname">MEASURE</span></div>
-  </div>
-</div></section>
-
-<section class="sec"><div class="w">
-  <div class="phg">
-    <div>
-      <div class="st">我们的起点</div>
-      <div class="phq">"搜索增长不是一个单一的技术问题，是一个系统工程。"</div>
-      <div class="pha">— Archbloc 方法论基础</div>
-    </div>
-    <div>
-      <p class="phb">大多数 SEO 项目失败，不是因为缺少执行，而是因为缺少系统。关键词优化做了，但技术问题没修复；内容写了，但 AI 无法解析；媒体发了，但没有配套的内容权威度。<strong>每一个单点的努力，因为缺少其他环节的配合而无法形成复利。</strong></p>
-      <p class="phb">我们的框架从诊断开始，按顺序建设，最后用数据验证——每一步都有明确的交付物，每一步的价值都可以在下一步中得到量化。</p>
-      <ul class="plist">
-        <li><span class="icon">◻</span><div>先诊断，再执行。没有清晰的基线数据，所有执行都是在黑暗中开枪。</div></li>
-        <li><span class="icon">◻</span><div>内容质量优先于数量。1 篇 AI 引用率高的内容，价值远超 10 篇没人读的文章。</div></li>
-        <li><span class="icon">◻</span><div>方法论公开，才值得被信任。我们把框架全部写出来，因为真正理解的人才会执行好。</div></li>
-        <li><span class="icon">◻</span><div>数据可追踪，结论你来判断。我们提供数字，你来决定值不值得继续投入。</div></li>
-      </ul>
+<section class="hero method-hero">
+  <div class="w">
+    <div class="st">方法论 · 四步增长框架</div>
+    <h1 class="sh method-hero-title">方法<em>公开透明</em>，<br>结果可以验证</h1>
+    <p class="method-hero-copy">我们不靠信任感接项目。你可以在这里看清楚我们每一步做什么、交付什么、怎么衡量效果——然后再决定要不要合作。</p>
+    <div class="fwbar" aria-label="四步增长框架">
+      <div class="fwstep"><span class="fwnum">01</span><span class="fwname">AUDIT</span></div>
+      <div class="fwstep"><span class="fwnum">02</span><span class="fwname">BUILD</span></div>
+      <div class="fwstep"><span class="fwnum">03</span><span class="fwname">AMPLIFY</span></div>
+      <div class="fwstep"><span class="fwnum">04</span><span class="fwname">MEASURE</span></div>
     </div>
   </div>
-</div></section>
+</section>
 
-<section id="framework" class="sec"><div class="w">
-  <div class="st">四步框架</div>
-  <h2 class="sh">每一步都有<em>明确交付物</em></h2>
-  <div class="steps">
-    <div class="step" id="step-01">
-      <div class="stepn">01</div>
+<section class="sec">
+  <div class="w">
+    <div class="phg">
       <div>
-        <div class="steptag">AUDIT</div>
-        <h3 class="stept">现状诊断与机会识别</h3>
-        <p class="stepb">用数据摸清你现在在哪。不是洋洋洒洒的报告——是有优先级的行动清单。我们想知道：<strong>哪些问题正在流失客户？</strong>哪些机会窗口还没有竞争者占领？AI 系统现在对你的认知是什么？</p>
-        <div class="stepg">
-          <div class="stepcol"><div class="stepcol-label">我们检查什么</div><ul class="stepcol-items"><li>技术 SEO 健康度（抓取、索引、速度、结构）</li><li>关键词覆盖现状与缺口分析</li><li>竞品内容地图与排名差距</li><li>AI 引用基线（主流 AI 系统对你的认知）</li><li>Schema 标注完整性审计</li></ul></div>
-          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>技术问题清单（按影响优先级排序）</li><li>关键词机会地图（含搜索量和竞争度）</li><li>竞品内容缺口报告</li><li>GEO 可见度基线报告</li><li>90 天优先行动清单</li></ul></div>
-        </div>
+        <div class="st">我们的起点</div>
+        <div class="phq">“搜索增长不是一个单一的技术问题，是一个系统工程。”</div>
+        <div class="pha">— Archbloc 方法论基础</div>
       </div>
-    </div>
-    <div class="step" id="step-02">
-      <div class="stepn">02</div>
       <div>
-        <div class="steptag">BUILD</div>
-        <h3 class="stept">内容与结构建设</h3>
-        <p class="stepb">修复技术基础，产出 AI 友好的内容。<strong>AI 系统青睐有结构、有数据来源、有权威背书的内容</strong>——这和传统 SEO 内容的写法有本质区别。我们让搜索引擎和 AI 都能准确理解你的业务。</p>
-        <div class="stepg">
-          <div class="stepcol"><div class="stepcol-label">我们做什么</div><ul class="stepcol-items"><li>修复高优先级技术 SEO 问题</li><li>核心页面内容优化（Title/H 标签/结构）</li><li>GEO 结构化内容撰写（含 Schema 标注）</li><li>FAQ / HowTo / Service Schema 部署</li><li>Topic Cluster 内容架构规划</li></ul></div>
-          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>结构化内容页面（每月按方案数量）</li><li>Schema 标注部署记录</li><li>技术修复执行清单</li><li>Topic Cluster 内容架构图</li><li>媒体发稿（建立权威外链）</li></ul></div>
-        </div>
-      </div>
-    </div>
-    <div class="step" id="step-03">
-      <div class="stepn">03</div>
-      <div>
-        <div class="steptag">AMPLIFY</div>
-        <h3 class="stept">多渠道声量扩散</h3>
-        <p class="stepb">好内容需要被看见。<strong>同一套内容，在不同格式和平台上出现，形成的是品牌记忆而非简单曝光。</strong>媒体软文建立权威信号，自媒体矩阵持续触达，让潜在客户在决策前已经多次接触过你的品牌。</p>
-        <div class="stepg">
-          <div class="stepcol"><div class="stepcol-label">我们做什么</div><ul class="stepcol-items"><li>媒体软文发稿（行业/头部媒体）</li><li>内容拆解与自媒体平台适配</li><li>公众号 / 知乎 / 小红书 / 微博内容框架</li><li>发布节奏规划与内容日历</li><li>渠道覆盖数据追踪</li></ul></div>
-          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>媒体发稿文章 + 链接存档</li><li>自媒体内容策略文档（月度）</li><li>各平台内容分发框架</li><li>渠道触达追踪报告</li></ul></div>
-        </div>
-      </div>
-    </div>
-    <div class="step" id="step-04">
-      <div class="stepn">04</div>
-      <div>
-        <div class="steptag">MEASURE</div>
-        <h3 class="stept">量化证明，持续迭代</h3>
-        <p class="stepb"><strong>ROI 可追踪，才值得持续投入。</strong>每个月你都能看到数字在变——AI 引用次数、自然流量、线索量、覆盖关键词数。数据透明，结论你来判断，不值得继续就直说。</p>
-        <div class="stepg">
-          <div class="stepcol"><div class="stepcol-label">我们追踪什么</div><ul class="stepcol-items"><li>关键词排名变化（逐词追踪）</li><li>自然搜索流量趋势</li><li>AI 引用频次（多平台交叉测试）</li><li>媒体发稿外链权重积累</li><li>搜索带来的线索量</li></ul></div>
-          <div class="stepcol"><div class="stepcol-label">交付物</div><ul class="stepcol-items"><li>月度增长数据报告（PDF）</li><li>AI 引用率趋势追踪图表</li><li>关键词排名变化明细</li><li>下月策略调整建议</li><li>季度 ROI 复盘（旗舰方案）</li></ul></div>
-        </div>
+        <p class="phb">大多数 SEO 项目失败，不是因为缺少执行，而是因为缺少系统。关键词优化做了，但技术问题没修复；内容写了，但 AI 无法解析；媒体发了，但没有配套的内容权威度。<strong>每一个单点的努力，因为缺少其他环节的配合而无法形成复利。</strong></p>
+        <p class="phb">我们的框架从诊断开始，按顺序建设，最后用数据验证——每一步都有明确的交付物，每一步的价值都可以在下一步中得到量化。</p>
+        <ul class="plist">
+          <li><span class="icon">◻</span><div>先诊断，再执行。没有清晰的基线数据，所有执行都是在黑暗中开枪。</div></li>
+          <li><span class="icon">◻</span><div>内容质量优先于数量。1 篇 AI 引用率高的内容，价值远超 10 篇没人读的文章。</div></li>
+          <li><span class="icon">◻</span><div>方法论公开，才值得被信任。我们把框架全部写出来，因为真正理解的人才会执行好。</div></li>
+          <li><span class="icon">◻</span><div>数据可追踪，结论你来判断。我们提供数字，你来决定值不值得继续投入。</div></li>
+        </ul>
       </div>
     </div>
   </div>
-</div></section>
+</section>
 
-<section class="sec"><div class="w">
-  <div class="st">可量化的指标</div>
-  <h2 class="sh">你可以<em>直接验证</em>的数字</h2>
-  <div class="sig-grid">
-    <div class="sigc"><div class="sigm">50+</div><div class="sigl">关键词排名追踪</div><div class="sign">每月追踪不少于 50 个目标关键词排名变化，数据来自第三方 SEO 工具，你可以自行核验</div></div>
-    <div class="sigc"><div class="sigm">5+</div><div class="sigl">AI 系统引用测试</div><div class="sign">每月测试文心一言、Kimi、ChatGPT、Perplexity 等主流 AI 系统对你品牌的引用情况</div></div>
-    <div class="sigc"><div class="sigm">月报</div><div class="sigl">数据报告准时送达</div><div class="sign">每月固定日期发送，包含上月执行内容、数据变化、下月计划，不需要你追问</div></div>
-    <div class="sigc"><div class="sigm">0</div><div class="sigl">数据来源造假</div><div class="sign">所有数据均来自 Google Search Console、百度站长工具或第三方工具，不做任何数据美化</div></div>
-  </div>
-</div></section>
+<section id="framework" class="sec">
+  <div class="w">
+    <div class="st">四步框架</div>
+    <h2 class="sh">每一步都有<em>明确交付物</em></h2>
+    <div class="steps">
+      <div class="step" id="step-01">
+        <div class="stepn">01</div>
+        <div>
+          <div class="steptag">AUDIT</div>
+          <h3 class="stept">现状诊断与机会识别</h3>
+          <p class="stepb">用数据摸清你现在在哪。不是洋洋洒洒的报告——是有优先级的行动清单。我们想知道：<strong>哪些问题正在流失客户？</strong>哪些机会窗口还没有竞争者占领？AI 系统现在对你的认知是什么？</p>
+          <div class="stepg">
+            <div class="stepcol">
+              <div class="stepcol-label">我们检查什么</div>
+              <ul class="stepcol-items">
+                <li>技术 SEO 健康度（抓取、索引、速度、结构）</li>
+                <li>关键词覆盖现状与缺口分析</li>
+                <li>竞品内容地图与排名差距</li>
+                <li>AI 引用基线（主流 AI 系统对你的认知）</li>
+                <li>Schema 标注完整性审计</li>
+              </ul>
+            </div>
+            <div class="stepcol">
+              <div class="stepcol-label">交付物</div>
+              <ul class="stepcol-items">
+                <li>技术问题清单（按影响优先级排序）</li>
+                <li>关键词机会地图（含搜索量和竞争度）</li>
+                <li>竞品内容缺口报告</li>
+                <li>GEO 可见度基线报告</li>
+                <li>90 天优先行动清单</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<section class="sec"><div class="w">
-  <div class="st">透明度承诺</div>
-  <h2 class="sh">我们<em>做</em>什么，<em>不做</em>什么</h2>
-  <div class="tg">
-    <div class="tc">
-      <div class="tcl">我们做</div>
-      <div class="tct">公开方法，建立信任</div>
-      <div class="tcb">这个网站本身就是按照我们服务客户的同一套方法论搭建的——Schema 标注、GEO 内容结构、关键词布局——所有实现方式都可以通过审查源代码和 Google Search Console 数据验证。</div>
-      <ul class="tclist"><li>博客公开完整框架文章，方法论可自行复现</li><li>诊断工具免费开放，第一步无需付费</li><li>数据来源全部透明标注</li><li>合作不适合直接说，不硬推</li></ul>
-    </div>
-    <div class="tc">
-      <div class="tcl">我们不做</div>
-      <div class="tct">拒绝不透明的承诺</div>
-      <div class="tcb">我们不承诺"排名第一"，不承诺"一个月见效"，不发 SEO 农场链接，不做数据注水。<strong>能把方法说清楚的人，才真正理解它；愿意公开方法的人，才不需要靠信息不对称赚钱。</strong></div>
-      <ul class="tclist"><li>不保证具体排名位置</li><li>不承诺不切实际的时间周期</li><li>不接自己做不好的客户</li><li>不用低质量外链冒充效果</li></ul>
-    </div>
-  </div>
-</div></section>
+      <div class="step" id="step-02">
+        <div class="stepn">02</div>
+        <div>
+          <div class="steptag">BUILD</div>
+          <h3 class="stept">内容与结构建设</h3>
+          <p class="stepb">修复技术基础，产出 AI 友好的内容。<strong>AI 系统青睐有结构、有数据来源、有权威背书的内容</strong>——这和传统 SEO 内容的写法有本质区别。我们让搜索引擎和 AI 都能准确理解你的业务。</p>
+          <div class="stepg">
+            <div class="stepcol">
+              <div class="stepcol-label">我们做什么</div>
+              <ul class="stepcol-items">
+                <li>修复高优先级技术 SEO 问题</li>
+                <li>核心页面内容优化（Title/H 标签/结构）</li>
+                <li>GEO 结构化内容撰写（含 Schema 标注）</li>
+                <li>FAQ / HowTo / Service Schema 部署</li>
+                <li>Topic Cluster 内容架构规划</li>
+              </ul>
+            </div>
+            <div class="stepcol">
+              <div class="stepcol-label">交付物</div>
+              <ul class="stepcol-items">
+                <li>结构化内容页面（每月按方案数量）</li>
+                <li>Schema 标注部署记录</li>
+                <li>技术修复执行清单</li>
+                <li>Topic Cluster 内容架构图</li>
+                <li>媒体发稿（建立权威外链）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<section class="sec" style="border-bottom:none"><div class="w">
-  <div class="st">下一步</div>
-  <h2 class="sh">先做一次<em>免费 GEO 诊断</em></h2>
-  <div class="ctabox">
-    <div>
-      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-top:10px">填入你的网址，5 分钟获得初步评估：AI 引用情况、内容结构缺口、三条优先修复建议。不需要付费，也不需要承诺任何合作。</p>
-    </div>
-    <div class="cta-actions">
-      <a class="bp" href="/geo-diagnostic.html">获取免费 GEO 诊断 →</a>
-      <a class="bg" href="/cdn-cgi/l/email-protection#41737873777972707776770130306f222e2c">发邮件咨询</a>
+      <div class="step" id="step-03">
+        <div class="stepn">03</div>
+        <div>
+          <div class="steptag">AMPLIFY</div>
+          <h3 class="stept">多渠道声量扩散</h3>
+          <p class="stepb">好内容需要被看见。<strong>同一套内容，在不同格式和平台上出现，形成的是品牌记忆而非简单曝光。</strong>媒体软文建立权威信号，自媒体矩阵持续触达，让潜在客户在决策前已经多次接触过你的品牌。</p>
+          <div class="stepg">
+            <div class="stepcol">
+              <div class="stepcol-label">我们做什么</div>
+              <ul class="stepcol-items">
+                <li>媒体软文发稿（行业 / 头部媒体）</li>
+                <li>内容拆解与自媒体平台适配</li>
+                <li>公众号 / 知乎 / 小红书 / 微博内容框架</li>
+                <li>发布节奏规划与内容日历</li>
+                <li>渠道覆盖数据追踪</li>
+              </ul>
+            </div>
+            <div class="stepcol">
+              <div class="stepcol-label">交付物</div>
+              <ul class="stepcol-items">
+                <li>媒体发稿文章 + 链接存档</li>
+                <li>自媒体内容策略文档（月度）</li>
+                <li>各平台内容分发框架</li>
+                <li>渠道触达追踪报告</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" id="step-04">
+        <div class="stepn">04</div>
+        <div>
+          <div class="steptag">MEASURE</div>
+          <h3 class="stept">量化证明，持续迭代</h3>
+          <p class="stepb"><strong>ROI 可追踪，才值得持续投入。</strong>每个月你都能看到数字在变——AI 引用次数、自然流量、线索量、覆盖关键词数。数据透明，结论你来判断，不值得继续就直说。</p>
+          <div class="stepg">
+            <div class="stepcol">
+              <div class="stepcol-label">我们追踪什么</div>
+              <ul class="stepcol-items">
+                <li>关键词排名变化（逐词追踪）</li>
+                <li>自然搜索流量趋势</li>
+                <li>AI 引用频次（多平台交叉测试）</li>
+                <li>媒体发稿外链权重积累</li>
+                <li>搜索带来的线索量</li>
+              </ul>
+            </div>
+            <div class="stepcol">
+              <div class="stepcol-label">交付物</div>
+              <ul class="stepcol-items">
+                <li>月度增长数据报告（PDF）</li>
+                <li>AI 引用率趋势追踪图表</li>
+                <li>关键词排名变化明细</li>
+                <li>下月策略调整建议</li>
+                <li>季度 ROI 复盘（旗舰方案）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div></section>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="st">可量化的指标</div>
+    <h2 class="sh">你可以<em>直接验证</em>的数字</h2>
+    <div class="sig-grid">
+      <div class="sigc">
+        <div class="sigm">50+</div>
+        <div class="sigl">关键词排名追踪</div>
+        <div class="sign">每月追踪不少于 50 个目标关键词排名变化，数据来自第三方 SEO 工具，你可以自行核验</div>
+      </div>
+      <div class="sigc">
+        <div class="sigm">5+</div>
+        <div class="sigl">AI 系统引用测试</div>
+        <div class="sign">每月测试文心一言、Kimi、ChatGPT、Perplexity 等主流 AI 系统对你品牌的引用情况</div>
+      </div>
+      <div class="sigc">
+        <div class="sigm">月报</div>
+        <div class="sigl">数据报告准时送达</div>
+        <div class="sign">每月固定日期发送，包含上月执行内容、数据变化、下月计划，不需要你追问</div>
+      </div>
+      <div class="sigc">
+        <div class="sigm">0</div>
+        <div class="sigl">数据来源造假</div>
+        <div class="sign">所有数据均来自 Google Search Console、百度站长工具或第三方工具，不做任何数据美化</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="st">透明度承诺</div>
+    <h2 class="sh">我们<em>做</em>什么，<em>不做</em>什么</h2>
+    <div class="tg">
+      <div class="tc">
+        <div class="tcl">我们做</div>
+        <div class="tct">公开方法，建立信任</div>
+        <div class="tcb">这个网站本身就是按照我们服务客户的同一套方法论搭建的——Schema 标注、GEO 内容结构、关键词布局——所有实现方式都可以通过审查源代码和 Google Search Console 数据验证。</div>
+        <ul class="tclist">
+          <li>博客公开完整框架文章，方法论可自行复现</li>
+          <li>诊断工具免费开放，第一步无需付费</li>
+          <li>数据来源全部透明标注</li>
+          <li>合作不适合直接说，不硬推</li>
+        </ul>
+      </div>
+      <div class="tc">
+        <div class="tcl">我们不做</div>
+        <div class="tct">拒绝不透明的承诺</div>
+        <div class="tcb">我们不承诺“排名第一”，不承诺“一个月见效”，不发 SEO 农场链接，不做数据注水。<strong>能把方法说清楚的人，才真正理解它；愿意公开方法的人，才不需要靠信息不对称赚钱。</strong></div>
+        <ul class="tclist">
+          <li>不保证具体排名位置</li>
+          <li>不承诺不切实际的时间周期</li>
+          <li>不接自己做不好的客户</li>
+          <li>不用低质量外链冒充效果</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec method-cta-sec">
+  <div class="w">
+    <div class="st">下一步</div>
+    <h2 class="sh">先做一次<em>免费 GEO 诊断</em></h2>
+    <div class="ctabox">
+      <div>
+        <p class="method-cta-copy">填入你的网址，5 分钟获得初步评估：AI 引用情况、内容结构缺口、三条优先修复建议。不需要付费，也不需要承诺任何合作。</p>
+      </div>
+      <div class="cta-actions">
+        <button class="bp" type="button" onclick="openModal('modal-geo-diagnostic')">获取免费 GEO 诊断 →</button>
+        <a class="bg" href="mailto:2926831676@qq.com">发邮件咨询</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div id="footer-placeholder"></div>
+<div id="modals-placeholder"></div>
 
 </body>
 </html>

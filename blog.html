@@ -148,6 +148,63 @@
 .newsletter-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 .newsletter-note { font-size: 12px; color: var(--aux); margin-top: 12px; }
 
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .page-hero {
+    padding: 100px 20px 48px;
+  }
+
+  .filter-bar {
+    padding: 24px 20px 0;
+  }
+
+  .blog-section {
+    padding: 28px 20px 72px;
+  }
+
+  .blog-featured {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .article-card {
+    padding: 24px 20px;
+  }
+
+  .newsletter-band {
+    padding: 48px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-hero-title {
+    font-size: 34px;
+    line-height: 1.15;
+  }
+
+  .page-hero-sub {
+    font-size: 15px;
+  }
+
+  .newsletter-title {
+    font-size: 24px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-btn {
+    width: 100%;
+  }
+}
+
 </style>
 
 <!-- ██ 组件加载器 — 注入全局CSS / 统计 / 导航 / 页脚 ██ -->
@@ -272,7 +329,7 @@
     <p class="newsletter-sub">SEO / GEO 实战洞察 + Archbloc 自己的增长数据，不发促销，不群发，只有值得读的内容。</p>
     <div class="newsletter-form">
       <input class="newsletter-input" type="email" placeholder="your@email.com">
-      <button class="newsletter-btn">订阅 →</button>
+      <button class="newsletter-btn" type="button" onclick="openNewsletterModalWithEmail()">订阅 →</button>
     </div>
     <div class="newsletter-note">已有 240+ 位从业者订阅 · 随时退订</div>
   </div>
@@ -281,6 +338,31 @@
 <!-- FOOTER -->
 
 <div id="footer-placeholder"></div>
+<div id="modals-placeholder"></div>
+
+
+<script>
+function openNewsletterModalWithEmail() {
+  var emailInput = document.querySelector('.newsletter-input');
+  var iframe = document.querySelector('#modal-newsletter iframe');
+  if (!iframe) {
+    openModal('modal-newsletter');
+    return;
+  }
+
+  var baseSrc = 'https://tally.so/embed/PdlKob?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1';
+  var email = emailInput ? emailInput.value.trim() : '';
+  var nextSrc = baseSrc;
+
+  if (email) {
+    nextSrc += '&email=' + encodeURIComponent(email);
+  }
+
+  iframe.dataset.tallySrc = nextSrc;
+  iframe.removeAttribute('src');
+  openModal('modal-newsletter');
+}
+</script>
 
 </body>
 </html>
