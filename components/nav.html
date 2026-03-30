@@ -1,453 +1,62 @@
 <!--
-  /components/head.html
-  全局 CSS + 字体 + 统计工具
-  用法：通过 loadComponent() 注入到 <head> 末尾，或在 <body> 首部以 <script> 动态插入
-  修改此文件 → 全站自动更新
+  /components/nav.html
+  全站导航栏 + 预约弹窗
 -->
+<nav>
+  <a href="/" class="nav-logo" aria-label="Archbloc 首页">
+    <svg class="nav-logo-svg" height="30" viewBox="20 14 300 52" xmlns="http://www.w3.org/2000/svg" style="display:block">
+      <rect x="20" y="19" width="42" height="42" rx="5" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+      <rect x="28" y="27" width="26" height="3" rx="1.5" fill="#111111"/>
+      <rect x="28" y="36" width="18" height="3" rx="1.5" fill="#f97316"/>
+      <rect x="28" y="45" width="22" height="3" rx="1.5" fill="#111111"/>
+      <text x="76" y="47" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="28" letter-spacing="-0.3" fill="#111111">Arch<tspan fill="#f97316">bloc</tspan></text>
+    </svg>
+  </a>
 
-<!-- 字体 -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <ul class="nav-links" id="site-mobile-menu">
+    <li class="has-dropdown">
+      <a href="/#services">服务方案</a>
+      <div class="nav-dropdown">
+        <a href="/signal.html">
+          <span class="dd-title">Signal · 入门方案</span>
+          <span class="dd-sub">¥3,800/月 · 适合起步阶段</span>
+        </a>
+        <a href="/presence.html">
+          <span class="dd-title">Presence · 主力方案</span>
+          <span class="dd-sub">¥8,800/月 · 适合快速增长</span>
+        </a>
+        <a href="/authority.html">
+          <span class="dd-title">Authority · 旗舰方案</span>
+          <span class="dd-sub">¥18,800/月 · 全面布局</span>
+        </a>
+      </div>
+    </li>
+    <li><a href="/method.html">方法论</a></li>
+    <li><a href="/blog.html">洞察</a></li>
+    <li><a href="/geo-diagnostic.html">免费诊断</a></li>
+  </ul>
 
-<!-- 全局样式 -->
-<style>
-@import url('https://fonts.googleapis.cnpmjs.org/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  <div class="nav-right">
+    <a class="nav-cta" href="#" onclick="openModal('modal-booking');return false;">留下电话 →</a>
+    <button class="nav-menu-btn" type="button" aria-label="菜单" aria-expanded="false" aria-controls="site-mobile-menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</nav>
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #ffffff;
-  --bg2: #fafafa;
-  --border: #f0f0f0;
-  --border-mid: #e5e5e5;
-  --text: #0f172a;
-  --muted: #475569;
-  --aux: #aaaaaa;
-  --accent: #f97316;
-  --accent-light: rgba(249,115,22,0.08);
-  --accent-border: rgba(249,115,22,0.25);
-  --dark: #111111;
-  --sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --radius-btn: 6px;
-  --radius-cta: 10px;
-  --radius-card: 12px;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 40px;
-  height: 60px;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  display: flex; align-items: center; gap: 8px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.nav-logo-img { height: 28px; width: auto; display: block; }
-.nav-links {
-  display: flex; gap: 4px; list-style: none; align-items: center;
-}
-.nav-links > li {
-  position: relative;
-}
-.nav-links > li > a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  transition: color 0.18s;
-  padding: 6px 12px;
-  border-radius: 6px;
-  display: flex; align-items: center; gap: 4px;
-}
-.nav-links > li > a:hover { color: var(--text); background: var(--bg2); }
-.nav-links > li > a.active { color: var(--text); font-weight: 600; }
-
-/* dropdown arrow */
-.nav-links .has-dropdown > a::after {
-  content: '';
-  display: inline-block;
-  width: 8px; height: 5px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M1 1l3 3 3-3' stroke='%23aaa' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: transform 0.18s;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.nav-links .has-dropdown:hover > a::after { transform: rotate(180deg); }
-
-/* dropdown panel */
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background: #fff;
-  border: 1px solid var(--border-mid);
-  border-radius: 10px;
-  padding: 8px;
-  padding-top: 16px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
-  z-index: 300;
-}
-.nav-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -10px; left: 0; right: 0;
-  height: 10px;
-  background: transparent;
-}
-.nav-links .has-dropdown:hover .nav-dropdown { display: block; }
-.nav-dropdown a {
-  display: flex; flex-direction: column;
-  padding: 10px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.15s;
-  gap: 2px;
-}
-.nav-dropdown a:hover { background: var(--bg2); }
-.nav-dropdown .dd-title {
-  font-size: 13px; font-weight: 600; color: var(--text);
-}
-.nav-dropdown .dd-sub {
-  font-size: 11px; color: var(--aux);
-}
-.nav-dropdown .dd-divider {
-  height: 1px; background: var(--border); margin: 4px 0;
-}
-
-.nav-right { display: flex; align-items: center; gap: 12px; margin-left: auto; flex-shrink: 0; }
-.nav-cta {
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  padding: 9px 20px;
-  border-radius: var(--radius-btn);
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: opacity 0.18s, transform 0.18s;
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 5px;
-  white-space: nowrap;
-}
-.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-.nav-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  color: var(--text);
-}
-
-/* ── MODAL ── */
-.modal-overlay {
-  display: none;
-  position: fixed; inset: 0; z-index: 500;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(4px);
-  align-items: center; justify-content: center;
-  padding: 20px;
-}
-.modal-overlay.open { display: flex; }
-.modal-box {
-  background: #fff;
-  border-radius: 16px;
-  width: 100%; max-width: 520px;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
-  animation: modalIn 0.22s ease both;
-}
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-.modal-head {
-  padding: 28px 32px 0;
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
-}
-.modal-title {
-  font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.25;
-}
-.modal-sub {
-  font-size: 13px; color: var(--aux); margin-top: 6px; line-height: 1.6;
-}
-.modal-close {
-  flex-shrink: 0;
-  width: 32px; height: 32px;
-  background: var(--bg2); border: 1px solid var(--border); border-radius: 50%;
-  cursor: pointer; font-size: 16px; color: var(--muted);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s, color 0.15s;
-  line-height: 1;
-}
-.modal-close:hover { background: var(--border); color: var(--text); }
-.modal-body {
-  padding: 20px 32px 32px;
-}
-.modal-body iframe {
-  border: none;
-  width: 100%;
-  min-height: 360px;
-  display: block;
-}
-
-/* ── FOOTER ── */
-.site-footer {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-}
-.sf-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 56px 40px 32px;
-}
-.sf-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 24px;
-}
-.sf-brand {}
-.sf-logo { display: inline-flex; margin-bottom: 14px; }
-.sf-tagline {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.65;
-  max-width: 220px;
-}
-.sf-col-title {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 14px;
-}
-.sf-col-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.sf-col-links a {
-  font-size: 13.5px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.18s;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-.sf-col-links a:hover { color: var(--accent); }
-.sf-col-links .sf-badge {
-  font-size: 10px;
-  font-weight: 600;
-  background: var(--accent-light);
-  color: var(--accent);
-  padding: 1px 6px;
-  border-radius: 4px;
-  border: 1px solid var(--accent-border);
-}
-.sf-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 24px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.sf-copy { font-size: 12px; color: var(--aux); }
-.sf-legal {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-.sf-legal a {
-  font-size: 12px;
-  color: var(--aux);
-  text-decoration: none;
-  transition: color 0.18s;
-}
-.sf-legal a:hover { color: var(--muted); }
-
-/* ── SECTIONS ── */
-.section-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-.section-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--aux);
-  margin-bottom: 14px;
-}
-.section-title {
-  font-size: clamp(26px, 3.5vw, 38px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-.section-title em { font-style: normal; color: var(--accent); }
-.link-arrow {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--accent);
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 6px;
-  transition: gap 0.18s;
-}
-.link-arrow:hover { gap: 10px; }
-
-/* ── MOBILE NAV ── */
-@media (max-width: 768px) {
-  nav { padding: 0 16px; gap: 10px; }
-  .nav-right { display: flex; gap: 8px; }
-  .nav-cta { display: inline-flex; padding: 8px 12px; font-size: 13px; }
-  .nav-menu-btn { display: flex; }
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 60px; left: 0; right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    padding: 12px 16px 20px;
-    gap: 2px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    z-index: 190;
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-  }
-  .nav-links.nav-open { display: flex; }
-  .nav-links > li > a { padding: 10px 12px; border-radius: 8px; font-size: 15px; }
-  .nav-dropdown {
-    position: static;
-    display: none;
-    border: none;
-    box-shadow: none;
-    padding: 4px 0 4px 12px;
-    border-radius: 0;
-    background: transparent;
-  }
-  .nav-dropdown::before { display: none; }
-  .nav-links .has-dropdown.dd-open .nav-dropdown { display: block; }
-  .nav-links .has-dropdown:hover .nav-dropdown { display: none; }
-}
-
-@media (max-width: 420px) {
-  nav { padding: 0 12px; }
-  .nav-cta { padding: 7px 10px; font-size: 12px; }
-}
-@media (max-width: 900px) {
-  .sf-inner { padding: 28px 20px 20px; }
-  .sf-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding-bottom: 24px;
-  }
-  .sf-brand {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  .sf-tagline { display: none; }
-  .sf-logo svg { height: 24px; width: auto; }
-  .sf-col-title { font-size: 10px; margin-bottom: 10px; text-align: left; }
-  .sf-col-links { gap: 8px; align-items: flex-start; }
-  .sf-col-links a { font-size: 13px; white-space: nowrap; text-align: left; }
-}
-@media (max-width: 520px) {
-  .sf-inner { padding: 20px 18px 16px; }
-  .sf-brand { padding-bottom: 16px; margin-bottom: 0; }
-  .sf-logo { display: inline-flex; }
-  .sf-logo svg { height: 22px; }
-  .sf-top {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding-bottom: 16px;
-  }
-  .sf-top > div:not(.sf-brand) {
-    display: flex;
-    align-items: flex-start;
-    gap: 0;
-    border-top: 1px solid var(--border);
-    padding: 10px 0;
-  }
-  .sf-col-title {
-    font-size: 10px;
-    color: var(--aux);
-    white-space: nowrap;
-    width: 52px;
-    flex-shrink: 0;
-    margin-bottom: 0;
-    padding-top: 3px;
-  }
-  .sf-col-links {
-    flex: 1;
-    gap: 7px;
-    align-items: flex-start;
-  }
-  .sf-col-links a { font-size: 12.5px; }
-  .sf-bottom {
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-  }
-  .sf-copy { font-size: 11px; }
-  .sf-legal { gap: 12px; }
-  .sf-legal a { font-size: 11px; }
-}
-
-/* 触摸设备禁用 hover 展开下拉，改由 JS 的 dd-open 类控制 */
-@media (hover: none) {
-  .nav-links .has-dropdown:hover .nav-dropdown { display: none; }
-  .nav-links .has-dropdown:hover > a::after { transform: none; }
-  .nav-links .has-dropdown.dd-open .nav-dropdown { display: block !important; }
-  .nav-links .has-dropdown.dd-open > a::after { transform: rotate(180deg) !important; }
-}
-</style>
-
-<!-- ══════════════════════════════════════════
-     统计工具区 — 只改这里，全站自动更新
-     当前：占位（无统计）
-     替换示例（百度统计）：
-     <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?YOUR_ID";document.head.appendChild(hm)})();</script>
-     替换示例（Google Analytics）：
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
-     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXX');</script>
-══════════════════════════════════════════ -->
-<!-- ANALYTICS_PLACEHOLDER -->
+<div class="modal-overlay" id="modal-booking" role="dialog" aria-modal="true" aria-labelledby="modal-booking-title">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="modal-booking-title">留下电话，我们主动联系你</div>
+        <div class="modal-sub">24–48 小时内回访 · 信息仅用于沟通</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-booking')" aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <iframe data-tally-src="https://tally.so/embed/lbL8N6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" title="电话回访"></iframe>
+    </div>
+  </div>
+</div>
