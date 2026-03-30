@@ -7,6 +7,57 @@
 <link rel="canonical" href="https://archbloc.com/method">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
+
+<style>
+body{padding-top:60px}
+.w{max-width:1100px;margin:0 auto;padding:0 24px}
+.hero{padding:64px 0 40px;border-bottom:1px solid var(--border)}
+.st{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--aux)}
+.sh{font-size:clamp(34px,5vw,56px);line-height:1.1;letter-spacing:-.03em;color:var(--text);margin-top:10px}
+.sh em{font-style:normal;color:var(--accent)}
+.fwbar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.fwstep,.sigc,.ctabox,.tc,.step,.stepcol{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px}
+.fwnum{display:block;font-size:12px;font-weight:800;color:var(--accent);margin-bottom:6px}
+.fwname{font-size:14px;font-weight:700;color:var(--text)}
+.sec{padding:72px 0;border-bottom:1px solid var(--border)}
+.phg,.tg{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.phq{font-size:26px;font-weight:700;line-height:1.4;color:var(--text);padding-left:18px;border-left:3px solid var(--accent);margin-top:14px}
+.pha{margin-top:14px;font-size:13px;color:var(--aux)}
+.phb,.tcb,.stepb,.sign{font-size:15px;line-height:1.85;color:var(--muted)}
+.plist,.tclist,.stepcol-items{list-style:none;margin-top:18px;padding:0}
+.plist li,.tclist li,.stepcol-items li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.icon{width:24px;height:24px;border-radius:999px;background:var(--accent-light);border:1px solid var(--accent-border);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px}
+.steps{display:flex;flex-direction:column;gap:18px}
+.step{display:grid;grid-template-columns:72px 1fr;gap:20px}
+.stepn{font-size:14px;font-weight:800;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:12px;padding:10px 12px;height:fit-content;text-align:center}
+.steptag,.stepcol-label,.tcl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--aux);margin-bottom:8px}
+.stept,.tct{font-size:22px;font-weight:700;line-height:1.35;color:var(--text);margin-bottom:10px}
+.stepg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.stepcol-items li{position:relative;padding-left:18px}
+.stepcol-items li:before{content:"•";position:absolute;left:0;color:var(--accent)}
+.sig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sigm{font-size:34px;font-weight:800;color:var(--accent);line-height:1}
+.sigl{font-size:18px;font-weight:700;color:var(--text);margin:8px 0}
+.ctabox{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.bp{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(249,115,22,.18)}
+.bg{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:12px;border:1px solid var(--border-mid);color:var(--text);text-decoration:none;background:#fff}
+@media (max-width:900px){
+  .w{padding:0 20px}
+  .phg,.tg,.stepg,.ctabox{grid-template-columns:1fr}
+  .fwbar,.sig-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .w{padding:0 16px}
+  .sec{padding:56px 0}
+  .fwbar,.sig-grid{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr}
+  .bp,.bg{width:100%}
+  .cta-actions{flex-direction:column}
+}
+</style>
+
+
 <!-- ██ 组件加载器 — 注入全局CSS / 统计 / 导航 / 页脚 ██ -->
 <script src="/components/loader.js"></script>
 </head>
