@@ -5,9 +5,6 @@
   修改此文件 → 全站自动更新
 -->
 
-<!-- 视口 -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!-- 字体 -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -45,14 +42,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+
 /* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: flex-start;
   gap: 16px;
   padding: 0 40px;
   height: 60px;
@@ -60,166 +54,61 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
-
 .nav-logo {
-  display: flex;
-  align-items: center;
+  display: flex; align-items: center;
   text-decoration: none;
-  flex-shrink: 1;
-  min-width: 0;
+  flex-shrink: 1; min-width: 0;
 }
-
-.nav-logo-svg {
-  display: block;
-  height: 30px;
-  width: auto;
-  max-width: 180px;
-}
-
+.nav-logo-svg { display:block; height:30px; width:auto; max-width:180px; }
+.nav-logo-img { height: 28px; width: auto; display: block; }
 .nav-links {
-  display: flex;
-  gap: 4px;
-  list-style: none;
-  align-items: center;
+  display: flex; gap: 4px; list-style: none; align-items: center;
 }
-
-.nav-links > li {
-  position: relative;
-}
-
+.nav-links > li { position: relative; }
 .nav-links > li > a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  transition: color 0.18s;
-  padding: 6px 12px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+  letter-spacing: 0.01em; transition: color 0.18s; padding: 6px 12px;
+  border-radius: 6px; display: flex; align-items: center; gap: 4px;
 }
-
 .nav-links > li > a:hover { color: var(--text); background: var(--bg2); }
 .nav-links > li > a.active { color: var(--text); font-weight: 600; }
 
+/* dropdown arrow */
 .nav-links .has-dropdown > a::after {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 5px;
+  content: ''; display: inline-block; width: 8px; height: 5px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M1 1l3 3 3-3' stroke='%23aaa' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: transform 0.18s;
-  flex-shrink: 0;
-  margin-top: 1px;
+  background-repeat: no-repeat; background-position: center; transition: transform 0.18s;
+  flex-shrink: 0; margin-top: 1px;
 }
-
 .nav-links .has-dropdown:hover > a::after { transform: rotate(180deg); }
 
+/* dropdown panel */
 .nav-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background: #fff;
-  border: 1px solid var(--border-mid);
-  border-radius: 10px;
-  padding: 8px;
-  padding-top: 16px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
-  z-index: 300;
+  display: none; position: absolute; top: 100%; left: 0; min-width: 200px;
+  background: #fff; border: 1px solid var(--border-mid); border-radius: 10px;
+  padding: 8px; padding-top: 16px; box-shadow: 0 8px 28px rgba(0,0,0,0.10); z-index: 300;
 }
-
-.nav-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -10px; left: 0; right: 0;
-  height: 10px;
-  background: transparent;
-}
-
+.nav-dropdown::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; background: transparent; }
 .nav-links .has-dropdown:hover .nav-dropdown { display: block; }
-
-.nav-dropdown a {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.15s;
-  gap: 2px;
-}
-
+.nav-dropdown a { display: flex; flex-direction: column; padding: 10px 12px; border-radius: 6px; text-decoration: none; transition: background 0.15s; gap: 2px; }
 .nav-dropdown a:hover { background: var(--bg2); }
+.nav-dropdown .dd-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.nav-dropdown .dd-sub { font-size: 11px; color: var(--aux); }
 
-.nav-dropdown .dd-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.nav-dropdown .dd-sub {
-  font-size: 11px;
-  color: var(--aux);
-}
-
-.nav-dropdown .dd-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 4px 0;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
+.nav-right { display: flex; align-items: center; gap: 10px; margin-left: auto; flex-shrink: 0; }
 .nav-cta {
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  padding: 9px 20px;
-  border-radius: var(--radius-btn);
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: opacity 0.18s, transform 0.18s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
+  font-size: 13px; font-weight: 600; color: #fff; background: var(--accent); border: none;
+  padding: 9px 20px; border-radius: var(--radius-btn); cursor: pointer; letter-spacing: 0.01em;
+  transition: opacity 0.18s, transform 0.18s; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
 }
-
 .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-
 .nav-menu-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 0;
-  color: var(--text);
-  flex-shrink: 0;
+  display: none; align-items: center; justify-content: center;
+  width: 40px; height: 40px; background: none; border: none; border-radius: 8px;
+  cursor: pointer; padding: 0; color: var(--text); flex-shrink: 0;
 }
+.nav-menu-btn svg { display: block; pointer-events: none; }
 
-.nav-menu-btn svg {
-  display: block;
-  pointer-events: none;
-}
 
 /* ── MODAL ── */
 .modal-overlay {
@@ -388,91 +277,31 @@ nav {
 }
 .link-arrow:hover { gap: 10px; }
 
+
 /* ── MOBILE NAV ── */
 @media (max-width: 768px) {
-  nav {
-    padding: 0 16px;
-    gap: 10px;
-  }
-
-  .nav-logo-svg {
-    height: 26px;
-    max-width: 140px;
-  }
-
-  .nav-right {
-    gap: 8px;
-  }
-
-  .nav-cta {
-    padding: 8px 14px;
-    font-size: 14px;
-  }
-
-  .nav-menu-btn {
-    display: inline-flex;
-  }
-
+  nav { padding: 0 16px; gap: 10px; }
+  .nav-logo-svg { height: 26px; max-width: 140px; }
+  .nav-right { gap: 8px; }
+  .nav-cta { padding: 8px 14px; font-size: 14px; }
+  .nav-menu-btn { display: inline-flex; }
   .nav-links {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    padding: 12px 16px 20px;
-    gap: 2px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    z-index: 190;
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
+    display: none; position: fixed; top: 60px; left: 0; right: 0; background: #fff;
+    border-bottom: 1px solid var(--border); flex-direction: column; padding: 12px 16px 20px; gap: 2px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 190; max-height: calc(100vh - 60px); overflow-y: auto;
   }
-
   .nav-links.nav-open { display: flex; }
-
-  .nav-links > li > a {
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 15px;
-  }
-
-  .nav-dropdown {
-    position: static;
-    display: none;
-    border: none;
-    box-shadow: none;
-    padding: 4px 0 4px 12px;
-    border-radius: 0;
-    background: transparent;
-  }
-
+  .nav-links > li > a { padding: 12px; border-radius: 8px; font-size: 15px; }
+  .nav-dropdown { position: static; display: none; border: none; box-shadow: none; padding: 4px 0 4px 12px; border-radius: 0; background: transparent; }
   .nav-dropdown::before { display: none; }
-
   .nav-links .has-dropdown.dd-open .nav-dropdown { display: block; }
   .nav-links .has-dropdown:hover .nav-dropdown { display: none; }
 }
-
 @media (max-width: 420px) {
-  nav {
-    padding: 0 12px;
-  }
-
-  .nav-logo-svg {
-    height: 24px;
-    max-width: 128px;
-  }
-
-  .nav-cta {
-    padding: 7px 12px;
-    font-size: 13px;
-  }
-
-  .nav-menu-btn {
-    width: 36px;
-    height: 36px;
-  }
+  nav { padding: 0 12px; }
+  .nav-logo-svg { height: 24px; max-width: 128px; }
+  .nav-cta { padding: 7px 12px; font-size: 13px; }
+  .nav-menu-btn { width: 36px; height: 36px; }
 }
 
 @media (max-width: 900px) {
@@ -540,6 +369,7 @@ nav {
   .sf-legal a { font-size: 11px; }
 }
 
+/* 触摸设备禁用 hover 展开下拉，改由 JS 的 dd-open 类控制 */
 @media (hover: none) {
   .nav-links .has-dropdown:hover .nav-dropdown { display: none; }
   .nav-links .has-dropdown:hover > a::after { transform: none; }
@@ -550,5 +380,11 @@ nav {
 
 <!-- ══════════════════════════════════════════
      统计工具区 — 只改这里，全站自动更新
+     当前：占位（无统计）
+     替换示例（百度统计）：
+     <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?YOUR_ID";document.head.appendChild(hm)})();</script>
+     替换示例（Google Analytics）：
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXX');</script>
 ══════════════════════════════════════════ -->
 <!-- ANALYTICS_PLACEHOLDER -->
