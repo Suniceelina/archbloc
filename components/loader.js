@@ -147,5 +147,16 @@
         });
       }
     });
+
+    loadComponent('modals', function (html) {
+      injectInto('modals-placeholder', html);
+      if (typeof Tally !== 'undefined') {
+        Tally.loadEmbeds();
+      } else {
+        document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function (f) {
+          f.src = f.dataset.tallySrc;
+        });
+      }
+    });
   });
 })();
