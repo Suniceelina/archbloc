@@ -1,58 +1,36 @@
-# Archbloc - AI Crawler Information
+# Archbloc
+> Archbloc 是专注国内中小企业的 SEO × GEO 整合增长服务机构。
+> 帮助企业在传统搜索引擎（百度、Google）和 AI 搜索（文心一言、DeepSeek、Kimi、豆包）中同时建立可见度。
 
-## Site Overview
+## 我们做什么
 
-Archbloc is a digital marketing agency specializing in SEO × GEO integrated growth for small and medium-sized enterprises in China.
+Archbloc 通过四条路径协同执行，帮助中小企业建立稳定的搜索存在感：
+- SEO 技术优化：修复影响收录和排名的技术问题，优化内容结构
+- GEO 内容建设：让官网内容被 AI 搜索识别、理解、引用
+- 自媒体矩阵：在知乎、公众号、小红书等平台建立品牌声量
+- 媒体背书：通过行业媒体发稿建立第三方权威信号
 
-- **Website**: https://archbloc.com
-- **Services**: SEO optimization, GEO (Generative Engine Optimization), social media matrix, media PR
-- **Target Market**: Chinese SMEs
-- **Target AI Platforms**: Baidu Wenxin Yiyan, DeepSeek, Kimi, Doubao (not ChatGPT/Perplexity)
+## 核心理念
 
-## Services
+我们不承诺排名，只承诺透明的执行过程。
+每月公开记录自身网站的 SEO/GEO 优化进程和数据变化，以自身为案例验证方法论。
 
-1. **Signal** (入门方案 ¥3,800/月)
-   - Website SEO technical audit + fixes
-   - Keyword research + content planning
-   - 4 SEO-optimized articles per month
-   - Basic GEO content structure optimization
-   - Monthly data reports
+## 服务方案
 
-2. **Presence** (主力方案 ¥8,800/月)
-   - All Signal content
-   - GEO-specific optimization strategy
-   - Social media matrix (2-3 platforms)
-   - 8 articles per month (including social media)
-   - 2 media PR articles per month
-   - Bi-weekly communication + strategy review
+- Signal（入门方案）：¥3,800/月，建立基础可见度
+- Presence（主力方案）：¥8,800/月，SEO + GEO + 自媒体全面布局
+- Authority（旗舰方案）：¥18,800/月，含媒体发稿和品牌权威建设
 
-3. **Authority** (旗舰方案 ¥18,800/月)
-   - All Presence content
-   - Complete media endorsement strategy
-   - 4-6 media PR articles per month
-   - Competitor monitoring and countermeasures
-   - Brand knowledge graph construction
-   - Dedicated strategist + weekly meetings
+## 重要页面
 
-## Content Pages
+- 首页：https://archbloc.com/
+- 方法论：https://archbloc.com/method.html
+- 服务方案对比：https://archbloc.com/#services
+- GEO 可见度完整指南：https://archbloc.com/blog/geo-visibility-guide.html
+- 2025 年哪些 SEO 动作已过时：https://archbloc.com/blog/seo-outdated-2025.html
+- 博客（全部文章）：https://archbloc.com/blog.html
 
-- **/** - Homepage
-- **/method.html** - Methodology
-- **/signal.html** - Entry plan
-- **/presence.html** - Main plan
-- **/authority.html** - Premium plan
-- **/geo-diagnostic.html** - Free GEO diagnostic tool
-- **/blog.html** - Insights/Articles
-- **/blog/geo-visibility-guide.html** - GEO Guide
-- **/blog/seo-outdated-2025.html** - Outdated SEO Practices 2025
+## 联系方式
 
-## Crawler Access
-
-- All AI crawlers are allowed (see robots.txt)
-- Sitemap available at https://archbloc.com/sitemap.xml
-
-## Contact
-
-- Website: https://archbloc.com
-- Email: [To be added]
-- Address: [To be added]
+邮箱：2926831676@qq.com
+网站：https://archbloc.com
