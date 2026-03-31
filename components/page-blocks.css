@@ -485,3 +485,96 @@
   .related-section{padding:48px 20px}
   .related-grid{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   [Signal 页面专属] signal.html
+   说明：
+   - 以下样式只给 signal.html 使用
+   - 基于 signal 静态参考页拆分
+   - 不覆盖其他已修好的页面
+   ========================================================= */
+
+.signal-hero{padding:72px 0 88px;border-bottom:1px solid var(--border)}
+.signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.signal-tier{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.signal-tier-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--aux)}
+.signal-tier-dots{display:flex;gap:6px}
+.signal-tier-dots span{width:8px;height:8px;border-radius:50%;background:var(--border-mid)}
+.signal-tier-dots .is-active{background:var(--accent)}
+.signal-eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.signal-title{font-size:clamp(34px,4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--text);margin-bottom:20px}
+.signal-title em{font-style:normal;color:var(--accent)}
+.signal-copy{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:32px}
+.signal-actions{display:flex;gap:14px;flex-wrap:wrap}
+
+.signal-price-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:40px;text-align:center}
+.signal-price{font-size:52px;font-weight:700;color:var(--text);line-height:1;letter-spacing:-.03em}
+.signal-price span{font-size:.42em;color:var(--accent);font-weight:600}
+.signal-price-meta{font-size:14px;color:var(--muted);margin-top:6px}
+.signal-price-note{font-size:13px;color:var(--aux);margin-top:4px;margin-bottom:28px}
+.signal-price-card .pc{margin-bottom:12px}
+.signal-price-card .pa{font-size:13px;color:var(--aux)}
+.signal-price-card .pa a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border-mid)}
+.signal-price-card .pa a:hover{color:var(--text)}
+
+.signal-fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.signal-fit-copy{font-size:14px;color:var(--muted);line-height:1.8;margin-top:14px}
+.signal-fit-list{list-style:none;margin-top:28px}
+.signal-fit-list li{padding:14px 0;border-top:1px solid var(--border);display:flex;align-items:flex-start;gap:12px;line-height:1.6}
+.signal-fit-list li::before{content:'✓';color:var(--accent);flex-shrink:0;margin-top:2px;font-size:16px}
+.signal-fit-list strong{display:block;font-size:14px;color:var(--text);font-weight:600}
+.signal-fit-list small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+
+.signal-note-box{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px;margin-top:4px}
+.signal-note-title{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--aux);margin-bottom:14px}
+.signal-note-list{list-style:none}
+.signal-note-list li{font-size:13px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.signal-note-list li:last-child{border-bottom:none}
+.signal-note-list li::before{content:'×';color:var(--aux);font-size:14px;flex-shrink:0}
+.signal-upgrade{margin-top:20px;padding:24px 28px;border:1px solid var(--border);border-radius:12px}
+.signal-upgrade p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+
+.signal-deliver-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.signal-deliver-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px 24px}
+.signal-deliver-num{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.signal-deliver-title{font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3}
+.signal-deliver-body{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.signal-deliver-list{list-style:none}
+.signal-deliver-list li{font-size:13px;color:var(--text);padding:7px 0;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.signal-deliver-list li::before{content:'→';color:var(--accent);font-size:12px;flex-shrink:0}
+
+.signal-include-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:4px}
+.signal-include-price{font-size:14px;color:var(--muted)}
+.signal-include-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:44px}
+.signal-include-item{padding:20px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:start}
+.signal-include-item:nth-child(odd){padding-right:32px}
+.signal-include-item:nth-child(even){padding-left:32px;border-left:1px solid var(--border)}
+.signal-include-tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding-top:2px}
+.signal-include-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.signal-include-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+.signal-timeline{margin-top:44px;display:flex;flex-direction:column}
+.signal-timeline-item{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:32px 0;border-top:1px solid var(--border);align-items:start}
+.signal-timeline-month{font-size:12px;font-weight:600;color:var(--aux);letter-spacing:.06em;padding-top:4px}
+.signal-timeline-title{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+.signal-timeline-body{font-size:14px;color:var(--muted);line-height:1.7}
+.signal-timeline-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.signal-timeline-tags span{font-size:12px;color:var(--muted);background:var(--bg2);border:1px solid var(--border);padding:4px 12px;border-radius:20px}
+
+.signal-pricing-box{background:var(--bg2);border:1.5px solid var(--accent-border);border-radius:12px;padding:52px;display:grid;grid-template-columns:1fr auto;gap:52px;align-items:center;margin-top:44px}
+.signal-pricing-box .ph em{font-style:normal;color:var(--accent)}
+
+.signal-compare-sec{border-bottom:none}
+
+@media(max-width:900px){
+  .signal-hero{padding:56px 0 64px}
+  .signal-grid,.signal-fit-grid,.signal-pricing-box{grid-template-columns:1fr;gap:36px}
+  .signal-deliver-grid{grid-template-columns:1fr}
+  .signal-include-grid{grid-template-columns:1fr}
+  .signal-include-item{grid-template-columns:80px 1fr;gap:12px}
+  .signal-include-item:nth-child(odd){padding-right:0}
+  .signal-include-item:nth-child(even){padding-left:0;border-left:none}
+  .signal-timeline-item{grid-template-columns:1fr;gap:6px}
+  .signal-pricing-box{padding:32px 24px;gap:28px}
+}
