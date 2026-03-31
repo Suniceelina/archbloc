@@ -1,0 +1,58 @@
+# Archbloc - AI Crawler Information
+
+## Site Overview
+
+Archbloc is a digital marketing agency specializing in SEO × GEO integrated growth for small and medium-sized enterprises in China.
+
+- **Website**: https://archbloc.com
+- **Services**: SEO optimization, GEO (Generative Engine Optimization), social media matrix, media PR
+- **Target Market**: Chinese SMEs
+- **Target AI Platforms**: Baidu Wenxin Yiyan, DeepSeek, Kimi, Doubao (not ChatGPT/Perplexity)
+
+## Services
+
+1. **Signal** (入门方案 ¥3,800/月)
+   - Website SEO technical audit + fixes
+   - Keyword research + content planning
+   - 4 SEO-optimized articles per month
+   - Basic GEO content structure optimization
+   - Monthly data reports
+
+2. **Presence** (主力方案 ¥8,800/月)
+   - All Signal content
+   - GEO-specific optimization strategy
+   - Social media matrix (2-3 platforms)
+   - 8 articles per month (including social media)
+   - 2 media PR articles per month
+   - Bi-weekly communication + strategy review
+
+3. **Authority** (旗舰方案 ¥18,800/月)
+   - All Presence content
+   - Complete media endorsement strategy
+   - 4-6 media PR articles per month
+   - Competitor monitoring and countermeasures
+   - Brand knowledge graph construction
+   - Dedicated strategist + weekly meetings
+
+## Content Pages
+
+- **/** - Homepage
+- **/method.html** - Methodology
+- **/signal.html** - Entry plan
+- **/presence.html** - Main plan
+- **/authority.html** - Premium plan
+- **/geo-diagnostic.html** - Free GEO diagnostic tool
+- **/blog.html** - Insights/Articles
+- **/blog/geo-visibility-guide.html** - GEO Guide
+- **/blog/seo-outdated-2025.html** - Outdated SEO Practices 2025
+
+## Crawler Access
+
+- All AI crawlers are allowed (see robots.txt)
+- Sitemap available at https://archbloc.com/sitemap.xml
+
+## Contact
+
+- Website: https://archbloc.com
+- Email: [To be added]
+- Address: [To be added]
