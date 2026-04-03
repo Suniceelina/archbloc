@@ -2,4 +2,29 @@ User-agent: *
 Allow: /
 Disallow: /static/admin/
 
+# AI 爬虫放行（明确声明）
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Baidu-Spider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://archbloc.com/sitemap.xml
