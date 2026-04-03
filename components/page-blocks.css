@@ -578,3 +578,22 @@
   .signal-timeline-item{grid-template-columns:1fr;gap:6px}
   .signal-pricing-box{padding:32px 24px;gap:28px}
 }
+
+
+/* =========================================================
+   [Blog 列表页] blog.html — 精选角标
+   说明：
+   - 依赖 .article-card { position: relative } （已在 blog.html <style> 中定义）
+   - 新增文章卡片时，精选文章加 data-featured="true" 与此 span 即可
+   ========================================================= */
+.featured-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  padding: 3px 8px; border-radius: 10px;
+  pointer-events: none;
+}

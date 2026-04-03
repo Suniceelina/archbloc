@@ -44,6 +44,7 @@
   background: var(--bg2); border: 1px solid var(--border);
   padding: 7px 16px; border-radius: 20px; cursor: pointer;
   transition: all 0.18s; text-decoration: none;
+  font-family: var(--sans);
 }
 .filter-btn:hover, .filter-btn.active {
   color: var(--accent); border-color: var(--accent-border);
@@ -70,7 +71,7 @@
   border-radius: var(--radius-card); padding: 32px 28px;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   text-decoration: none; display: flex; flex-direction: column;
-  cursor: pointer;
+  cursor: pointer; position: relative;
 }
 .article-card:hover {
   border-color: var(--accent-border);
@@ -148,63 +149,24 @@
 .newsletter-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 .newsletter-note { font-size: 12px; color: var(--aux); margin-top: 12px; }
 
-
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .page-hero {
-    padding: 100px 20px 48px;
-  }
-
-  .filter-bar {
-    padding: 24px 20px 0;
-  }
-
-  .blog-section {
-    padding: 28px 20px 72px;
-  }
-
-  .blog-featured {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .blog-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .article-card {
-    padding: 24px 20px;
-  }
-
-  .newsletter-band {
-    padding: 48px 20px;
-  }
+  .page-hero { padding: 100px 20px 48px; }
+  .filter-bar { padding: 24px 20px 0; }
+  .blog-section { padding: 28px 20px 72px; }
+  .blog-featured { grid-template-columns: 1fr; gap: 16px; }
+  .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+  .article-card { padding: 24px 20px; }
+  .newsletter-band { padding: 48px 20px; }
 }
 
 @media (max-width: 520px) {
-  .page-hero-title {
-    font-size: 34px;
-    line-height: 1.15;
-  }
-
-  .page-hero-sub {
-    font-size: 15px;
-  }
-
-  .newsletter-title {
-    font-size: 24px;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  .newsletter-btn {
-    width: 100%;
-  }
+  .page-hero-title { font-size: 34px; line-height: 1.15; }
+  .page-hero-sub { font-size: 15px; }
+  .newsletter-title { font-size: 24px; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-btn { width: 100%; }
 }
-
 </style>
 
 <!-- ██ 组件加载器 — 注入全局CSS / 统计 / 导航 / 页脚 ██ -->
@@ -214,7 +176,6 @@
 
 <div id="nav-placeholder"></div>
 
-<!-- NAV -->
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-tag">洞察 · Insights</div>
@@ -223,19 +184,26 @@
 </div>
 
 <!-- FILTER TABS -->
+<!-- ▶ 改动：从 <a href="#"> 改为 <button data-filter>，新增「工具与决策」分类 -->
 <div class="filter-bar">
-  <a href="#" class="filter-btn active">全部</a>
-  <a href="#" class="filter-btn">GEO 方法论</a>
-  <a href="#" class="filter-btn">SEO 策略</a>
-  <a href="#" class="filter-btn">内容运营</a>
-  <a href="#" class="filter-btn">增长日志</a>
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="geo">GEO 方法论</button>
+  <button class="filter-btn" data-filter="seo">SEO 策略</button>
+  <button class="filter-btn" data-filter="content">内容运营</button>
+  <button class="filter-btn" data-filter="tools">工具与决策</button>
+  <button class="filter-btn" data-filter="growth">增长日志</button>
 </div>
 
 <!-- BLOG GRID -->
+<!-- ▶ 改动：每张卡片加 data-category；精选卡片加 data-featured="true" 和 .featured-badge -->
 <div class="blog-section">
+
   <!-- Featured Row: 2-col -->
   <div class="blog-featured">
-    <a href="/blog/geo-visibility-guide.html" class="article-card featured">
+
+    <a href="/blog/geo-visibility-guide.html" class="article-card featured"
+       data-category="geo" data-featured="true">
+      <span class="featured-badge">精选</span>
       <span class="article-tag">GEO 方法论</span>
       <div class="article-title">国内中小企业 GEO 可见度完整指南：让 AI 搜索主动推荐你的品牌</div>
       <div class="article-excerpt">当潜在客户向 AI 提问"有没有好的 XX 服务商"，你的名字有没有出现？这篇指南从审计、内容建设、媒体背书三个维度，给出可执行的操作框架。</div>
@@ -245,7 +213,10 @@
         <span class="article-meta-read">阅读全文 →</span>
       </div>
     </a>
-    <a href="/blog/seo-outdated-2025.html" class="article-card">
+
+    <a href="/blog/seo-outdated-2025.html" class="article-card"
+       data-category="seo" data-featured="true">
+      <span class="featured-badge">精选</span>
       <span class="article-tag">SEO 策略</span>
       <div class="article-title">2025年，哪些 SEO 动作已经过时了？</div>
       <div class="article-excerpt">关键词堆砌、买外链、每天发低质内容——这些曾经有效的SEO打法，正在让你的网站悄悄掉排名。</div>
@@ -255,11 +226,13 @@
         <span class="article-meta-read">阅读全文 →</span>
       </div>
     </a>
+
   </div>
 
   <!-- Regular Grid: 3-col -->
   <div class="blog-grid">
-    <a href="/blog/ai-citation-logic.html" class="article-card">
+
+    <a href="/blog/ai-citation-logic.html" class="article-card" data-category="geo">
       <span class="article-tag">GEO, AI 搜索</span>
       <div class="article-title">一篇文章被 AI 引用，背后的逻辑是什么</div>
       <div class="article-excerpt">DeepSeek 为什么引用了那篇文章而不是这篇？不是随机的，有规律可循。本文揭示 AI 引用内容的四大关键因素。</div>
@@ -269,7 +242,8 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="/blog/geo-optimization-guide-2026.html" class="article-card">
+
+    <a href="/blog/geo-optimization-guide-2026.html" class="article-card" data-category="geo">
       <span class="article-tag">GEO</span>
       <div class="article-title">GEO 优化是什么？2026年中国企业入门完全指南</div>
       <div class="article-excerpt">从零理解生成式引擎优化，掌握中小企业布局 AI 搜索的核心方法论。</div>
@@ -279,7 +253,10 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="/blog/seo-vs-geo-guide.html" class="article-card">
+
+    <a href="/blog/seo-vs-geo-guide.html" class="article-card"
+       data-category="seo geo" data-featured="true">
+      <span class="featured-badge">精选</span>
       <span class="article-tag">SEO, GEO</span>
       <div class="article-title">SEO 和 GEO 有什么区别？中小企业老板必须搞清楚这件事</div>
       <div class="article-excerpt">关键词排名、AI 引用、搜索流量——SEO 和 GEO 分别解决什么问题？本文给你一个清晰的决策框架。</div>
@@ -289,7 +266,8 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="#" class="article-card">
+
+    <a href="#" class="article-card" data-category="content">
       <span class="article-tag">内容运营</span>
       <div class="article-title">自媒体发了三个月没效果？可能是漏斗断了</div>
       <div class="article-excerpt">内容和业务之间需要有清晰的转化路径。大多数企业自媒体失效的原因不是内容质量，而是流量无处可去。</div>
@@ -299,7 +277,9 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="#" class="article-card">
+
+    <a href="#" class="article-card" data-category="growth" data-featured="true">
+      <span class="featured-badge">精选</span>
       <span class="article-tag">增长日志</span>
       <div class="article-title">Archbloc 增长日志 #01：网站上线第一个月的数据</div>
       <div class="article-excerpt">从零开始的真实记录：首月自然流量、关键词排名变化、GEO 引用情况。数据不好看，但真实。</div>
@@ -309,7 +289,8 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="#" class="article-card">
+
+    <a href="#" class="article-card" data-category="geo">
       <span class="article-tag">GEO 方法论</span>
       <div class="article-title">结构化内容为什么让 AI 更愿意引用你</div>
       <div class="article-excerpt">Schema 标注、FAQ 结构、权威数据引用——三种让文心、DeepSeek、Kimi 更倾向推荐你的内容写法。</div>
@@ -319,7 +300,8 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="#" class="article-card">
+
+    <a href="#" class="article-card" data-category="seo">
       <span class="article-tag">SEO 策略</span>
       <div class="article-title">中小企业关键词策略：从长尾词切入的实操方法</div>
       <div class="article-excerpt">大词竞争激烈、小词没流量？这个误区让很多企业网站迟迟出不了结果。正确的切入逻辑是什么。</div>
@@ -329,7 +311,8 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="#" class="article-card">
+
+    <a href="#" class="article-card" data-category="content">
       <span class="article-tag">内容运营</span>
       <div class="article-title">微信公众号 + 百家号 + 知乎：三平台内容分发节奏</div>
       <div class="article-excerpt">同一篇文章发到三个平台，格式不同、受众不同、算法逻辑也不同。用统一节奏做差异化分发的方法。</div>
@@ -339,7 +322,8 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
-    <a href="#" class="article-card">
+
+    <a href="#" class="article-card" data-category="geo">
       <span class="article-tag">GEO 方法论</span>
       <div class="article-title">媒体软文如何帮助提升 AI 引用率</div>
       <div class="article-excerpt">第三方权威来源是 GEO 的核心信号之一。一篇有价值的媒体软文，能显著提升品牌在 AI 推荐中出现的概率。</div>
@@ -349,6 +333,7 @@
         <span class="article-meta-read">阅读 →</span>
       </div>
     </a>
+
   </div>
 </div>
 
@@ -365,13 +350,11 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-
 <div id="footer-placeholder"></div>
 <div id="modals-placeholder"></div>
 
-
 <script>
+// ── 订阅弹窗（原有，保持不变）──
 function openNewsletterModalWithEmail() {
   var emailInput = document.querySelector('.newsletter-input');
   var iframe = document.querySelector('#modal-newsletter iframe');
@@ -379,19 +362,42 @@ function openNewsletterModalWithEmail() {
     openModal('modal-newsletter');
     return;
   }
-
   var baseSrc = 'https://tally.so/embed/PdlKob?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1';
   var email = emailInput ? emailInput.value.trim() : '';
-  var nextSrc = baseSrc;
-
-  if (email) {
-    nextSrc += '&email=' + encodeURIComponent(email);
-  }
-
+  var nextSrc = email ? baseSrc + '&email=' + encodeURIComponent(email) : baseSrc;
   iframe.dataset.tallySrc = nextSrc;
   iframe.removeAttribute('src');
   openModal('modal-newsletter');
 }
+
+// ── 分类筛选（新增）──
+(function () {
+  var btns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.article-card');
+  var featuredRow = document.querySelector('.blog-featured');
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var filter = btn.dataset.filter;
+
+      // 更新按钮高亮
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      // 显示/隐藏卡片
+      cards.forEach(function (card) {
+        var cats = (card.dataset.category || '').split(' ');
+        var show = filter === 'all' || cats.indexOf(filter) !== -1;
+        card.style.display = show ? '' : 'none';
+      });
+
+      // 筛选后精选区改为单列，避免只剩一张时出现空列
+      if (featuredRow) {
+        featuredRow.style.gridTemplateColumns = filter === 'all' ? '' : '1fr';
+      }
+    });
+  });
+})();
 </script>
 
 </body>
