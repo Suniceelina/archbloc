@@ -597,3 +597,40 @@
   padding: 3px 8px; border-radius: 10px;
   pointer-events: none;
 }
+
+
+/* =========================================================
+   [Blog Article 通用修复] — 按钮颜色 & FAQ 模块
+   说明：
+   - .article-body a 会覆盖 .sidebar-cta-btn 的白色文字，
+     需在此显式还原，优先级高于通用链接规则
+   - .faq-module 系列为文章内嵌 FAQ 区块的专属样式
+   ========================================================= */
+
+/* ── 修复：行内 CTA 按钮文字被 .article-body a 覆盖 ── */
+.article-body .sidebar-cta-btn {
+  color: #fff;
+  text-decoration: none;
+  text-decoration-color: transparent;
+}
+.article-body .sidebar-cta-btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── FAQ 模块 ── */
+.faq-module { margin: 32px 0; }
+.faq-item {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+}
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-question {
+  font-size: 15px; font-weight: 600;
+  color: var(--text); line-height: 1.5;
+  margin-bottom: 10px;
+}
+.faq-answer {
+  font-size: 14px; color: var(--muted);
+  line-height: 1.8;
+}
