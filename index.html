@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Archbloc — 让中小企业在搜索中被找到、被选择、被记住</title>
-<meta name="description" content="Archbloc 提供 SEO + GEO（生成式搜索优化）+ 自媒体矩阵 + 媒体软文发稿整合服务，帮助国内中小企业在传统搜索与AI推荐中同时获得曝光与转化。">
+<meta name="description" content="Archbloc 专为国内及澳洲华人企业提供 SEO × GEO 整合增长服务，让你在 Google、百度和 AI 搜索中同时被找到、被选择、被记住。">
 <meta name="keywords" content="SEO优化,GEO优化,生成式搜索优化,AI搜索可见度,自媒体矩阵,媒体软文发稿,整合营销,中小企业增长">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://archbloc.com/">
@@ -33,17 +33,17 @@
   "name": "Archbloc",
   "url": "https://archbloc.com",
   "logo": "https://archbloc.com/archbloc-logo-light.svg",
-  "description": "专注于SEO、GEO（生成式搜索优化）、自媒体矩阵与媒体软文发稿的整合营销服务机构",
+  "description": "专为国内及澳洲华人企业提供SEO、GEO（生成式搜索优化）、自媒体矩阵与媒体软文发稿的整合营销服务机构",
   "slogan": "让中小企业在搜索中被找到、被选择、被记住",
-  "areaServed": {"@type": "Country", "name": "China"},
+  "areaServed": [{"@type": "Country", "name": "China"}, {"@type": "Country", "name": "Australia"}],
   "serviceType": ["SEO优化", "GEO生成式搜索优化", "自媒体矩阵运营", "媒体软文发稿"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Archbloc 服务方案",
     "itemListElement": [
-      {"@type":"Offer","name":"Signal 入门方案","price":"3800","priceCurrency":"CNY"},
-      {"@type":"Offer","name":"Presence 主力方案","price":"8800","priceCurrency":"CNY"},
-      {"@type":"Offer","name":"Authority 旗舰方案","price":"18800","priceCurrency":"CNY"}
+      {"@type":"Offer","name":"Signal 入门方案"},
+      {"@type":"Offer","name":"Presence 主力方案"},
+      {"@type":"Offer","name":"Authority 旗舰方案"}
     ]
   }
 }
@@ -67,7 +67,7 @@
       "name": "Archbloc 的服务适合什么阶段的企业？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "适合有官网、有基本业务、希望通过搜索获客的中小企业。从¥3,800/月的Signal入门方案开始，到¥18,800/月的Authority旗舰方案，覆盖不同阶段的增长需求。"
+        "text": "适合有官网、有基本业务、希望通过搜索获客的中小企业。服务覆盖从基础可见度建设到全面行业权威布局的不同阶段需求，欢迎咨询后定制方案。"
       }
     }
   ]
@@ -84,7 +84,7 @@
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
   height: 40px;
-  margin-top: 60px;
+  margin-top: 62px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -99,39 +99,42 @@
 .ticker-track:hover { animation-play-state: paused; }
 .ticker-item {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; color: #555;
+  font-size: 11px; color: #555;
   white-space: nowrap; padding: 0 28px; flex-shrink: 0;
 }
-.ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border-mid); flex-shrink: 0; }
 @keyframes ticker-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 /* ── HERO ── */
-.hero { padding: 80px 40px 100px; max-width: 780px; margin: 0 auto; }
+.hero { padding: 96px 40px 104px; max-width: 860px; margin: 0 auto; text-align: center; }
 .hero-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aux); margin-bottom: 28px; }
-.hero-headline { font-size: 56px; font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; color: var(--text); margin-bottom: 28px; }
+.hero-headline { font-size: 56px; font-weight: 700; line-height: 1.1; letter-spacing: -0.028em; color: var(--text); margin-bottom: 24px; }
 .hero-headline em { font-style: normal; color: var(--accent); }
-.hero-sub { font-size: clamp(14px, 1.8vw, 16px); line-height: 1.75; color: var(--muted); max-width: 600px; margin-bottom: 44px; }
+.hero-sub { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.75; color: var(--muted); max-width: 580px; margin: 0 auto 44px; }
 .hero-sub strong { color: var(--text); font-weight: 500; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center; }
 .btn-cta { font-size: clamp(15px, 1.5vw, 16px); font-weight: 600; color: #fff; background: var(--accent); border: none; padding: 16px 36px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.18s, transform 0.18s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
 .btn-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-.btn-outline { font-size: 14px; font-weight: 500; color: var(--muted); background: none; border: 1.5px solid var(--border-mid); padding: 15px 28px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: border-color 0.18s, color 0.18s; text-decoration: none; display: inline-flex; align-items: center; }
+.btn-outline { font-size: 13px; font-weight: 500; color: var(--muted); background: none; border: 1.5px solid var(--border-mid); padding: 15px 28px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: border-color 0.18s, color 0.18s; text-decoration: none; display: inline-flex; align-items: center; }
 .btn-outline:hover { border-color: var(--accent); color: var(--text); }
+.hero-trust { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 36px; }
+.hero-trust-item { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--aux); }
+.hero-trust-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border-mid); flex-shrink: 0; }
 
 /* ── STATS BAND ── */
-.stats-band { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-band { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .stats-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(4, 1fr); }
 .stat-item { padding: 40px 32px; border-right: 1px solid var(--border); text-align: center; }
 .stat-item:last-child { border-right: none; }
-.stat-num { font-size: 38px; font-weight: 700; color: var(--accent); letter-spacing: -0.03em; display: block; margin-bottom: 8px; line-height: 1; }
+.stat-num { font-size: 38px; font-weight: 700; color: var(--text); letter-spacing: -0.03em; display: block; margin-bottom: 8px; line-height: 1; }
 .stat-label { font-size: 13px; color: var(--muted); line-height: 1.55; }
 .stat-source { font-size: 11px; color: var(--aux); margin-top: 6px; display: block; }
 
 /* ── MANIFESTO ── */
-.manifesto-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.manifesto-section { padding: 96px 0; border-bottom: 1px solid var(--border); background: var(--bg2); }
 .manifesto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
 .manifesto-left { padding-right: 24px; }
 .manifesto-quote { font-size: clamp(20px, 2.5vw, 26px); font-weight: 600; line-height: 1.45; color: var(--text); margin-bottom: 20px; padding-left: 20px; border-left: 3px solid var(--accent); }
@@ -148,25 +151,25 @@
 .signal-card:hover { border-color: var(--accent-border); box-shadow: 0 4px 20px rgba(249,115,22,0.07); }
 .signal-num { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--aux); display: block; margin-bottom: 16px; }
 .signal-problem { font-size: 19px; font-weight: 700; line-height: 1.35; color: var(--text); margin-bottom: 14px; }
-.signal-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-.signal-arrow { position: absolute; bottom: 24px; right: 24px; font-size: 16px; color: var(--aux); transition: color 0.2s, transform 0.2s; }
+.signal-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.signal-arrow { position: absolute; bottom: 24px; right: 24px; font-size: 15px; color: var(--aux); transition: color 0.2s, transform 0.2s; }
 .signal-card:hover .signal-arrow { color: var(--accent); transform: translate(2px, -2px); }
 
 /* ── SERVICES ── */
-.services-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.services-section { padding: 96px 0; border-bottom: 1px solid var(--border); background: var(--bg2); }
 .services-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; gap: 24px; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .service-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 36px 28px; transition: border-color 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: column; }
-.service-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
-.service-card.featured { border-color: var(--accent); background: linear-gradient(to bottom, var(--accent-light), var(--bg)); position: relative; }
-.service-badge { font-size: 11px; font-weight: 600; color: #fff; background: var(--accent); padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.04em; }
+.service-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.service-card.featured { border: 1.5px solid var(--accent); border-left: 4px solid var(--accent); background: #fff9f5; position: relative; box-shadow: 0 4px 20px rgba(249,115,22,0.10); }
+.service-card.featured:hover { box-shadow: 0 8px 28px rgba(249,115,22,0.15); }
+.service-badge { font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25); padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.04em; }
 .service-tier { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 10px; }
-.service-name { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.2; }
+.service-name { font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.2; }
 .service-tagline { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
 .service-includes { list-style: none; margin-bottom: 28px; flex: 1; }
 .service-includes li { font-size: 13px; color: var(--muted); padding: 9px 0; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
-.service-includes li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-.service-price { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 16px; }
+.service-includes li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--border-mid); flex-shrink: 0; }
 .service-link { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.18s; }
 .service-link:hover { gap: 8px; }
 
@@ -175,49 +178,50 @@
 .method-header { margin-bottom: 60px; }
 .method-steps { display: flex; flex-direction: column; }
 .method-step { display: grid; grid-template-columns: 60px 1fr 1fr; gap: 36px; padding: 40px 0; border-top: 1px solid var(--border); align-items: start; }
-.step-num { font-size: 32px; font-weight: 700; color: var(--border-mid); line-height: 1; padding-top: 4px; letter-spacing: -0.02em; }
-.step-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.step-num { font-size: clamp(24px,3vw,32px); font-weight: 700; color: var(--border-mid); line-height: 1; padding-top: 4px; letter-spacing: -0.02em; }
+.step-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 10px; }
 .step-title { font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
-.step-body { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.step-body { font-size: 13px; color: var(--muted); line-height: 1.75; }
 .step-output { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 24px; }
 .step-output-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 14px; }
 .step-output-items { list-style: none; }
 .step-output-items li { font-size: 13px; color: var(--text); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
 .step-output-items li:last-child { border-bottom: none; }
-.step-output-items li::before { content: '→'; color: var(--accent); font-size: 12px; flex-shrink: 0; }
+.step-output-items li::before { content: '→'; color: var(--muted); font-size: 11px; flex-shrink: 0; }
 
 /* ── TRUST ── */
-.trust-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.trust-section { padding: 96px 0; border-bottom: 1px solid var(--border); background: var(--bg2); }
 .trust-header { margin-bottom: 56px; }
 .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.trust-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px 24px; transition: border-color 0.2s; }
-.trust-card:hover { border-color: var(--border-mid); }
-.trust-icon { font-size: 20px; color: var(--accent); margin-bottom: 18px; display: block; }
-.trust-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35; }
-.trust-body { font-size: 13px; color: var(--muted); line-height: 1.75; }
+.trust-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px 28px; transition: border-color 0.2s, box-shadow 0.2s; }
+.trust-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.trust-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(249,115,22,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.trust-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.trust-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35; }
+.trust-body { font-size: 13px; color: var(--muted); line-height: 1.8; }
 
 /* ── DIAGNOSTIC CTA ── */
 .diag-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
 .diag-cta-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 60px; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
 .diag-headline { font-size: clamp(22px, 3vw, 32px); font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 12px; letter-spacing: -0.02em; }
 .diag-headline em { font-style: normal; color: var(--accent); }
-.diag-sub { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 480px; }
+.diag-sub { font-size: 13px; color: var(--muted); line-height: 1.75; max-width: 480px; }
 .diag-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0; }
 .diag-open-btn { font-size: 15px; font-weight: 600; color: #fff; background: var(--accent); border: none; padding: 16px 32px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.18s, transform 0.18s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
 .diag-open-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 .diag-cta-note { font-size: 11px; color: var(--aux); text-align: center; line-height: 1.5; padding-top: 4px; }
 
 /* ── CONTENT / ARTICLES ── */
-.content-section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+.content-section { padding: 96px 0; border-bottom: 1px solid var(--border); background: var(--bg2); }
 .content-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 44px; gap: 24px; }
 .content-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; }
 .article-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 28px; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
 .article-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
-.article-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
-.article-title { font-size: 17px; font-weight: 700; line-height: 1.4; color: var(--text); margin-bottom: 10px; }
-.article-card.featured .article-title { font-size: 20px; }
+.article-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 12px; display: block; }
+.article-title { font-size: 15px; font-weight: 700; line-height: 1.4; color: var(--text); margin-bottom: 10px; }
+.article-card.featured .article-title { font-size: 19px; }
 .article-excerpt { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
-.article-meta { font-size: 12px; color: var(--aux); display: flex; gap: 14px; }
+.article-meta { font-size: 11px; color: var(--aux); display: flex; gap: 14px; }
 
 /* ── BOOKING CTA ── */
 .booking-section { padding: 112px 0; border-bottom: 1px solid var(--border); }
@@ -225,7 +229,7 @@
 .booking-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
 .booking-headline { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #fff; margin-bottom: 12px; }
 .booking-headline em { font-style: normal; color: var(--accent); }
-.booking-sub { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; }
+.booking-sub { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.75; }
 .booking-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0; }
 .booking-open-btn { font-size: 15px; font-weight: 600; color: var(--dark); background: #fff; border: none; padding: 16px 32px; border-radius: var(--radius-cta); cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.18s, transform 0.18s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
 .booking-open-btn:hover { opacity: 0.9; transform: translateY(-1px); }
@@ -233,6 +237,18 @@
 .booking-alt { margin-top: 16px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); }
 .booking-alt a { color: rgba(255,255,255,0.5); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); transition: color 0.18s; }
 .booking-alt a:hover { color: rgba(255,255,255,0.8); }
+
+/* ── MARKET SPLIT ── */
+.mkt-section { border-bottom: 1px solid var(--border); }
+.mkt-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.mkt-card { padding: 40px 36px; border-right: 1px solid var(--border); text-decoration: none; display: block; transition: background 0.18s; position: relative; }
+.mkt-card:last-child { border-right: none; }
+.mkt-card:hover { background: var(--bg2); }
+.mkt-flag { font-size: 19px; margin-bottom: 16px; display: block; }
+.mkt-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
+.mkt-pain { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
+.mkt-link { font-size: 13px; font-weight: 500; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; transition: gap 0.18s; }
+.mkt-card:hover .mkt-link { gap: 8px; }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -243,6 +259,9 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  .mkt-grid { grid-template-columns: 1fr; }
+  .mkt-card { border-right: none; border-bottom: 1px solid var(--border); }
+  .mkt-card:last-child { border-bottom: none; }
   .nav-right { display: none; }
   .ticker-bar { padding: 0 20px; }
   .hero { padding: 64px 24px 80px; }
@@ -251,6 +270,9 @@
   .stat-item { padding: 28px 20px; }
   .manifesto-section,.signals-section,.services-section,.method-section,
   .trust-section,.diag-section,.content-section,.booking-section { padding: 48px 0; }
+  .hero { padding: 56px 24px 72px; text-align: center; }
+  .hero-trust { gap: 14px; }
+  .hero-trust-item { font-size: 11px; }
   .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
   .signals-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
@@ -275,7 +297,7 @@
   .nav-links.nav-open .has-dropdown.dd-open > a::after { transform: rotate(180deg); }
   .nav-links.nav-open .nav-dropdown .dd-sub { display: none; }
   .nav-links.nav-open .nav-dropdown a { padding: 8px 10px; }
-  .nav-links.nav-open .nav-dropdown .dd-title { font-size: 14px; }
+  .nav-links.nav-open .nav-dropdown .dd-title { font-size: 13px; }
   .nav-links.nav-open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(255,255,255,0.98); padding: 16px 20px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,0.07); gap: 2px; z-index: 190; max-height: calc(100vh - 60px); overflow-y: auto; }
   .nav-links.nav-open > li > a { padding: 10px 12px; font-size: 15px; }
 }
@@ -283,10 +305,10 @@
   .stats-inner { grid-template-columns: 1fr; }
   .stat-item { border-right: none !important; border-bottom: 1px solid var(--border); }
   .stat-item:last-child { border-bottom: none; }
-  .hero-headline { font-size: 36px; letter-spacing: -0.02em; }
+  .hero-headline { font-size: 34px; letter-spacing: -0.02em; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 0; }
   .hero-actions .btn-cta { width: 100%; justify-content: center; padding: 18px 24px; font-size: 15px; margin-bottom: 14px; }
-  .hero-actions .btn-outline { width: 100%; justify-content: center; padding: 16px 24px; font-size: 14px; }
+  .hero-actions .btn-outline { width: 100%; justify-content: center; padding: 16px 24px; font-size: 13px; }
 }
 @media (max-width: 600px) {
   .modal-overlay { padding: 0; align-items: flex-end; }
@@ -309,14 +331,16 @@
     <div class="ticker-item"><span class="ticker-dot"></span> AI 搜索可见度</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 自媒体矩阵</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 媒体软文发稿</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 搜索增长</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Google 本地排名</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 澳洲华人企业</div>
     <div class="ticker-item"><span class="ticker-dot"></span> GEO 可见度</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 品牌权威建设</div>
     <div class="ticker-item"><span class="ticker-dot"></span> SEO × GEO 整合</div>
     <div class="ticker-item"><span class="ticker-dot"></span> AI 搜索可见度</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 自媒体矩阵</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 媒体软文发稿</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 搜索增长</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Google 本地排名</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 澳洲华人企业</div>
     <div class="ticker-item"><span class="ticker-dot"></span> GEO 可见度</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 品牌权威建设</div>
   </div>
@@ -326,15 +350,44 @@
 <section class="hero">
   <div class="hero-tag">整合营销 · 搜索增长 · AI 可见度</div>
   <h1 class="hero-headline">
-    让中小企业<br>
-    <span style="white-space:nowrap">在搜索中被<em>找到</em>、</span><br>被选择、被记住
+    让中小企业在搜索中<br>被<em>找到</em>、被选择、被记住
   </h1>
   <p class="hero-sub">
-    专注中小企业的 <strong>SEO × GEO 整合增长服务</strong>（¥3,800起/月），帮助企业在百度和 AI 搜索中被找到。
+    专为国内及澳洲华人企业提供 <strong>SEO × GEO 整合增长服务</strong>——让你在 Google、百度和 AI 搜索中同时被找到。
   </p>
   <div class="hero-actions">
-    <a class="btn-cta" href="https://tally.so/r/ODLx5A" onclick="openModal('modal-geo-diagnostic');return false;">获取免费 GEO 诊断报告 →</a>
+    <a class="btn-cta" href="/geo-diagnostic.html">免费获取可见度诊断报告 →</a>
     <a class="btn-outline" href="#services">了解服务方案</a>
+  </div>
+  <div class="hero-trust">
+    <span class="hero-trust-item"><span class="hero-trust-dot"></span>48 小时内完成诊断</span>
+    <span class="hero-trust-item"><span class="hero-trust-dot"></span>中文沟通，专业交付</span>
+    <span class="hero-trust-item"><span class="hero-trust-dot"></span>国内 + 澳洲双市场</span>
+    <span class="hero-trust-item"><span class="hero-trust-dot"></span>Google × 百度 × AI 全覆盖</span>
+  </div>
+</section>
+
+<!-- MARKET SPLIT -->
+<section class="mkt-section">
+  <div class="mkt-grid">
+    <a href="/#services" class="mkt-card">
+      <span class="mkt-flag">🇨🇳</span>
+      <div class="mkt-title">国内中小企业</div>
+      <p class="mkt-pain">在百度、DeepSeek、Kimi 等 AI 搜索里，你的品牌还没被提到过？我们帮你系统性打通四条流量通道。</p>
+      <span class="mkt-link">查看服务方案 →</span>
+    </a>
+    <a href="/au.html" class="mkt-card">
+      <span class="mkt-flag">🇦🇺</span>
+      <div class="mkt-title">澳洲华人企业</div>
+      <p class="mkt-pain">本地机构不懂中文内容，国内机构不懂 Google 算法。我们是极少数同时懂两者的团队。</p>
+      <span class="mkt-link">了解澳洲服务 →</span>
+    </a>
+    <a href="/#contact" class="mkt-card" onclick="openModal('modal-booking');return false;">
+      <span class="mkt-flag">🔗</span>
+      <div class="mkt-title">跨境方向</div>
+      <p class="mkt-pain">澳洲客户想做中国市场？用小红书、微信、百度 SEO 把中国客户引流到你的生意上。</p>
+      <span class="mkt-link">咨询跨境方案 →</span>
+    </a>
   </div>
 </section>
 
@@ -344,22 +397,22 @@
     <div class="stat-item">
       <span class="stat-num">58%</span>
       <div class="stat-label">Google 搜索在 2024 年<br>以零点击结束</div>
-      <span class="stat-source">SparkToro 2024</span>
+      <span class="stat-source">SparkToro · 2024</span>
     </div>
     <div class="stat-item">
       <span class="stat-num">3.4×</span>
-      <div class="stat-label">有 GEO 策略的品牌<br>获得更多 AI 推荐流量</div>
-      <span class="stat-source">行业研究 2024–25</span>
+      <div class="stat-label">布局 GEO 策略的品牌<br>获得更多 AI 引用流量</div>
+      <span class="stat-source">Search Engine Journal · 2025</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">92%</span>
-      <div class="stat-label">品牌启动 AEO 策略后<br>搜索可见度提升</div>
-      <span class="stat-source">SEO 行业报告 2025</span>
+      <span class="stat-num">68%</span>
+      <div class="stat-label">B2B 买家在联系前<br>已完成独立搜索调研</div>
+      <span class="stat-source">Gartner · 2024</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">748%</span>
-      <div class="stat-label">SEO 投资的<br>三年平均 ROI</div>
-      <span class="stat-source">行业均值</span>
+      <span class="stat-num">14×</span>
+      <div class="stat-label">自然搜索流量转化率<br>高于付费广告</div>
+      <span class="stat-source">BrightEdge · 2024</span>
     </div>
   </div>
 </div>
@@ -440,7 +493,6 @@
           <li>基础 GEO 内容结构优化</li>
           <li>月度数据报告</li>
         </ul>
-        <div class="service-price">¥3,800 / 月</div>
         <a href="/signal.html" class="service-link">了解详情 →</a>
       </div>
       <div class="service-card featured">
@@ -456,7 +508,6 @@
           <li>媒体软文发稿（每月 2 篇）</li>
           <li>双周沟通 + 策略复盘</li>
         </ul>
-        <div class="service-price">¥8,800 / 月</div>
         <a href="/presence.html" class="service-link">了解详情 →</a>
       </div>
       <div class="service-card">
@@ -471,7 +522,6 @@
           <li>品牌知识图谱建设</li>
           <li>专属策略师 + 周会</li>
         </ul>
-        <div class="service-price">¥18,800 / 月</div>
         <a href="/authority.html" class="service-link">了解详情 →</a>
       </div>
     </div>
@@ -564,17 +614,23 @@
     </div>
     <div class="trust-grid">
       <div class="trust-card">
-        <span class="trust-icon">◈</span>
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
         <div class="trust-title">不卖排名，只做过程</div>
         <div class="trust-body">没有任何 SEO 服务商能保证排名——这是 Google 明确说过的。我们承诺的是可验证的执行过程：每月你能看到做了什么、改了什么、数据如何变化。</div>
       </div>
       <div class="trust-card">
-        <span class="trust-icon">∿</span>
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
         <div class="trust-title">增长过程公开记录</div>
         <div class="trust-body">每个月我们发布一篇"增长日志"，记录这个网站自身的 SEO/GEO 优化进程、实验结果和数据变化。真实过程比润色过的案例更有参考价值。</div>
       </div>
       <div class="trust-card">
-        <span class="trust-icon">◎</span>
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
         <div class="trust-title">专人负责，直接沟通</div>
         <div class="trust-body">你的项目由固定策略师全程跟进，不转包、不外包。策略、执行、报告保持一致，不需要反复交代背景，沟通成本极低。</div>
       </div>
@@ -592,7 +648,7 @@
         <p class="diag-sub" style="margin-top:14px">填入你的网址，免费获得一份 GEO 可见度初步评估——AI 引用情况、内容结构缺口、三条优先修复建议。24–48 小时内发到你邮箱。</p>
       </div>
       <div class="diag-cta-group">
-        <a class="diag-open-btn" href="https://tally.so/r/ODLx5A" onclick="openModal('modal-geo-diagnostic');return false;">
+        <a class="diag-open-btn" href="/geo-diagnostic.html">
           获取免费诊断报告 →
         </a>
         <div class="diag-cta-note">不会收到垃圾邮件 · 结果仅发给你一人</div>
@@ -649,8 +705,8 @@
     <div class="booking-cta-card">
       <div>
         <div class="booking-tag">开始合作</div>
-        <h2 class="booking-headline">留下电话，<br>我们<em>主动联系你</em></h2>
-        <p class="booking-sub">告诉我们你的网址和联系方式，我们会在 24–48 小时内回访——了解你的现状，判断是否适合合作，给出直接建议。</p>
+        <h2 class="booking-headline">不确定是否适合？<br>先聊聊，<em>我们来判断</em></h2>
+        <p class="booking-sub">告诉我们你的网址和目标市场，我们会在 24–48 小时内回访——了解你的现状，给出直接建议，不适合合作我们会直接说。</p>
         <div class="booking-alt" style="text-align:left;margin-top:20px">
           更习惯邮件？<a href="mailto:hello@archbloc.com">发邮件咨询</a>
         </div>

@@ -14,21 +14,28 @@
 - 本地仓库：D:\OpenClaw\workspace\archbloc
 - GitHub：github.com/Suniceelina/archbloc
 
-## 设计系统
+## 设计系统（2026年4月更新）
 - 背景色：#ffffff
+- --bg2: #f5f5f3
+- --border: #e8e8e8
+- --border-mid: #d8d8d8
+- --aux: #707070（对比度 4.95:1，WCAG AA 达标）
 - 强调色：#f97316（橙色）
+- 导航高度：62px（含顶部 2.5px 橙色品牌线）
+- 全站价格：已全部移除，引导免费诊断
+- 目标市场：国内中小企业 + 澳洲华人企业（双市场）
 - 字体：Inter
-- 重要：不修改 components/ 目录下的任何文件，除非明确说明
 
 ## 网站页面清单
 - / → 首页
-- /signal.html → 入门方案（¥3,800/月）
-- /presence.html → 主力方案（¥8,800/月）
-- /authority.html → 旗舰方案（¥18,800/月）
+- /au.html → 澳洲华人企业专属落地页（新增）
+- /signal.html → 入门方案（已移除价格）
+- /presence.html → 主力方案（已移除价格）
+- /authority.html → 旗舰方案（已移除价格）
 - /method.html → 方法论页
 - /blog.html → 博客列表
-- /blog/geo-visibility-guide.html → GEO指南（已发布）
-- /blog/seo-outdated-2025.html → SEO过时动作（已发布）
+- /blog/geo-visibility-guide.html → GEO指南
+- /blog/seo-outdated-2025.html → SEO过时动作
 - /geo-diagnostic.html → 诊断工具页
 
 ## SEO 审计基线（2026年3月）

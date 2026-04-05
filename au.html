@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澳洲华人企业 SEO & GEO 服务 — 让本地客户在 Google 上找到你 | Archbloc</title>
+<meta name="description" content="Archbloc 专为澳洲华人企业提供 Google SEO 和 AI 搜索优化服务——律师、移民顾问、诊所、装修、教育、会计。中文沟通，专业交付。">
+<meta name="keywords" content="澳洲华人SEO,澳洲Google优化,澳洲本地SEO,悉尼华人企业,墨尔本华人SEO,澳洲AI搜索">
+<link rel="canonical" href="https://archbloc.com/au">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://archbloc.com/au">
+<meta property="og:title" content="澳洲华人企业 SEO & GEO 服务 | Archbloc">
+<meta property="og:description" content="专为澳洲华人企业提供 Google SEO 和 AI 搜索优化，中文沟通，专业交付。">
+<meta property="og:locale" content="zh_CN">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "澳洲华人企业搜索增长服务",
+  "provider": {"@type": "Organization", "name": "Archbloc", "url": "https://archbloc.com"},
+  "areaServed": {"@type": "Country", "name": "Australia"},
+  "description": "专为澳洲华人企业提供Google SEO、本地搜索优化和AI搜索可见度服务",
+  "serviceType": ["Google SEO", "本地SEO", "GEO生成式搜索优化", "Google Business Profile优化"]
+}
+</script>
+
+<script src="/components/loader.js"></script>
+<link rel="stylesheet" href="/components/page-blocks.css">
+
+<style>
+/* ── AU PAGE HERO ── */
+.au-hero { padding: 80px 0 88px; border-bottom: 1px solid var(--border); }
+.au-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aux); background: var(--accent-light); padding: 6px 14px; border-radius: 20px; margin-bottom: 28px; }
+.au-eyebrow-flag { font-size: 13px; }
+.au-headline { font-size: clamp(34px, 5vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: 24px; }
+.au-headline em { font-style: normal; color: var(--accent); }
+.au-sub { font-size: clamp(14px, 1.8vw, 16px); line-height: 1.8; color: var(--muted); max-width: 580px; margin-bottom: 40px; }
+.au-sub strong { color: var(--text); font-weight: 500; }
+.au-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.au-trust-row { display: flex; gap: 24px; margin-top: 36px; flex-wrap: wrap; }
+.au-trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.au-trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+/* ── MOAT (护城河) ── */
+.moat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 44px; }
+.moat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px 28px; }
+.moat-num { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--aux); margin-bottom: 14px; display: block; }
+.moat-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
+.moat-body { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+/* ── INDUSTRIES ── */
+.ind-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 44px; }
+.ind-card { border: 1px solid var(--border); border-radius: var(--radius-card); padding: 28px 24px; transition: border-color 0.2s, box-shadow 0.2s; }
+.ind-card:hover { border-color: var(--accent-border); box-shadow: 0 4px 16px rgba(249,115,22,0.07); }
+.ind-icon { font-size: 19px; margin-bottom: 14px; display: block; }
+.ind-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.ind-pain { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ── WHAT WE DO FOR AU ── */
+.au-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 44px; }
+.au-svc { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px 28px; }
+.au-svc-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 12px; display: block; }
+.au-svc-title { font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
+.au-svc-body { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
+.au-svc-list { list-style: none; }
+.au-svc-list li { font-size: 13px; color: var(--text); padding: 7px 0; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.au-svc-list li::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; }
+
+/* ── PROCESS ── */
+.au-process { margin-top: 44px; }
+.au-step { display: grid; grid-template-columns: 52px 1fr; gap: 28px; padding: 36px 0; border-top: 1px solid var(--border); align-items: start; }
+.au-step-num { font-size: 19px; font-weight: 700; color: var(--border-mid); line-height: 1; padding-top: 2px; }
+.au-step-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aux); margin-bottom: 8px; }
+.au-step-title { font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+.au-step-body { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+/* ── DIFFERENCE QUOTE ── */
+.au-quote-block { background: var(--dark); border-radius: 16px; padding: 56px 60px; margin-top: 0; }
+.au-quote-text { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; line-height: 1.5; color: #fff; margin-bottom: 20px; }
+.au-quote-text em { font-style: normal; color: var(--accent); }
+.au-quote-sub { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.75; max-width: 560px; }
+
+/* ── CTA ── */
+.au-cta-card { background: var(--bg2); border: 1.5px solid var(--accent-border); border-radius: var(--radius-card); padding: 56px 60px; display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; }
+.au-cta-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.au-cta-headline { font-size: clamp(22px, 3vw, 32px); font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 12px; letter-spacing: -0.02em; }
+.au-cta-headline em { font-style: normal; color: var(--accent); }
+.au-cta-sub { font-size: 13px; color: var(--muted); line-height: 1.75; max-width: 480px; }
+.au-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0; }
+.au-cta-note { font-size: 11px; color: var(--aux); text-align: center; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .au-hero { padding: 56px 0 64px; }
+  .moat-grid { grid-template-columns: 1fr; }
+  .ind-grid { grid-template-columns: 1fr 1fr; }
+  .au-services-grid { grid-template-columns: 1fr; }
+  .au-quote-block { padding: 36px 28px; }
+  .au-cta-card { grid-template-columns: 1fr; gap: 32px; padding: 36px 28px; }
+  .au-cta-group { width: 100%; }
+  .au-cta-group .bp { width: 100%; justify-content: center; }
+}
+@media (max-width: 600px) {
+  .ind-grid { grid-template-columns: 1fr; }
+  .au-trust-row { gap: 16px; }
+}
+</style>
+</head>
+<body class="page-body">
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="au-hero">
+  <div class="w">
+    <div class="au-eyebrow"><span class="au-eyebrow-flag">🇦🇺</span> 澳洲华人企业专属服务</div>
+    <h1 class="au-headline">
+      让你的生意被<br>澳洲本地客户<br>在 <em>Google</em> 上找到
+    </h1>
+    <p class="au-sub">
+      本地机构不懂中文内容，国内机构不懂 Google 算法。<br>
+      我们是极少数<strong>同时懂两者</strong>的团队——<br>
+      用中文沟通，用英文交付，覆盖 Google 和 AI 搜索双入口。
+    </p>
+    <div class="au-actions">
+      <a class="bp" href="/geo-diagnostic.html">免费获取可见度诊断报告 →</a>
+      <a class="bg" href="#au-services">了解服务内容</a>
+    </div>
+    <div class="au-trust-row">
+      <div class="au-trust-item"><span class="au-trust-dot"></span> 中文沟通，全程无障碍</div>
+      <div class="au-trust-item"><span class="au-trust-dot"></span> 48小时内完成初步诊断</div>
+      <div class="au-trust-item"><span class="au-trust-dot"></span> 双市场双引擎，国内澳洲一手覆盖</div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心差异：三大护城河 -->
+<section class="sec">
+  <div class="w">
+    <div class="st">为什么选择我们</div>
+    <h2 class="sh">澳洲本地机构<em>做不到</em>的事，<br>我们能做</h2>
+    <div class="moat-grid">
+      <div class="moat-card">
+        <span class="moat-num">护城河 01</span>
+        <div class="moat-title">语言桥梁，无需妥协</div>
+        <p class="moat-body">用中文沟通策略、理解你的业务，用英文执行 SEO 和内容——这是澳洲本地机构永远复制不了的能力。你不需要在"能沟通"和"懂 Google"之间二选一。</p>
+      </div>
+      <div class="moat-card">
+        <span class="moat-num">护城河 02</span>
+        <div class="moat-title">双搜索引擎，双市场覆盖</div>
+        <p class="moat-body">我们同时懂 Google 算法和百度生态。如果你的客户同时来自澳洲本地和中国大陆，我们可以在一套服务框架里覆盖两个市场，而不是让你雇两家机构。</p>
+      </div>
+      <div class="moat-card">
+        <span class="moat-num">护城河 03</span>
+        <div class="moat-title">GEO 先发优势，AI 时代抢位</div>
+        <p class="moat-body">澳洲华人市场几乎没有人在做生成式搜索优化（GEO）。当 Google AI Overviews 和 Perplexity 开始主导搜索结果，率先布局的品牌将占据先发优势。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务行业 -->
+<section class="sec">
+  <div class="w">
+    <div class="st">我们服务的行业</div>
+    <h2 class="sh">你的同行，<em>正在被竞争对手</em>的 Google 排名抢走</h2>
+    <div class="ind-grid">
+      <div class="ind-card">
+        <span class="ind-icon">⚖️</span>
+        <div class="ind-name">律师事务所</div>
+        <p class="ind-pain">潜在客户 Google 搜索"华人律师"，你的网站排在第几页？本地 SEO 是最高性价比的获客方式。</p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-icon">🛂</span>
+        <div class="ind-name">移民顾问</div>
+        <p class="ind-pain">签证政策频繁变动，权威内容+关键词排名能让你在客户最需要帮助时第一个出现。</p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-icon">🏥</span>
+        <div class="ind-name">中医诊所 / 全科</div>
+        <p class="ind-pain">Google Business Profile 优化+评价管理+本地搜索排名，是诊所新客户最重要的来源之一。</p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-icon">🏗️</span>
+        <div class="ind-name">装修 / 建筑公司</div>
+        <p class="ind-pain">华人房主更倾向找华人装修商。中文内容+本地 SEO 让你精准触达目标客户群。</p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-icon">📚</span>
+        <div class="ind-name">教育机构 / 补习</div>
+        <p class="ind-pain">学期开始前的搜索高峰期，有 SEO 布局的机构比没有的多拿到 3–5 倍的询盘。</p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-icon">📊</span>
+        <div class="ind-name">会计 / 理财顾问</div>
+        <p class="ind-pain">在报税季前占据"华人会计师"等关键词排名，是全年最稳定的获客投资之一。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 我们做什么 -->
+<section id="au-services" class="sec">
+  <div class="w">
+    <div class="st">服务内容</div>
+    <h2 class="sh">针对澳洲市场的<em>四项核心服务</em></h2>
+    <div class="au-services-grid">
+      <div class="au-svc">
+        <span class="au-svc-tag">Google SEO</span>
+        <div class="au-svc-title">Google 本地搜索排名优化</div>
+        <p class="au-svc-body">从技术健康度到内容策略，帮你的网站在悉尼、墨尔本等目标城市的 Google 搜索中稳定出现。</p>
+        <ul class="au-svc-list">
+          <li>网站技术 SEO 审计与修复</li>
+          <li>本地关键词研究与内容规划</li>
+          <li>Google Business Profile 全面优化</li>
+          <li>行业专属内容（中英双语可选）</li>
+          <li>月度排名数据报告</li>
+        </ul>
+      </div>
+      <div class="au-svc">
+        <span class="au-svc-tag">GEO 生成式搜索</span>
+        <div class="au-svc-title">AI 搜索可见度优化</div>
+        <p class="au-svc-body">当客户向 Google AI Overviews 或 Perplexity 询问"推荐悉尼华人律师"，确保你的品牌出现在答案里。</p>
+        <ul class="au-svc-list">
+          <li>AI 引用内容结构优化</li>
+          <li>Schema 标注与权威信号建设</li>
+          <li>E-E-A-T 专业度内容策略</li>
+          <li>竞争对手 AI 可见度对比分析</li>
+        </ul>
+      </div>
+      <div class="au-svc">
+        <span class="au-svc-tag">自媒体矩阵</span>
+        <div class="au-svc-title">华人社区内容触达</div>
+        <p class="au-svc-body">小红书、微信公众号等平台，精准触达在澳华人群体——让你的品牌在客户做决策前就已经被认识。</p>
+        <ul class="au-svc-list">
+          <li>小红书账号运营（澳洲场景）</li>
+          <li>微信公众号内容策划</li>
+          <li>内容与 SEO 协同，流量互导</li>
+        </ul>
+      </div>
+      <div class="au-svc">
+        <span class="au-svc-tag">跨境方向</span>
+        <div class="au-svc-title">把中国客户引流到澳洲</div>
+        <p class="au-svc-body">如果你的生意依赖中国游客、留学生、移民群体，我们用百度 SEO + 小红书内容 + 微信生态帮你在中国市场建立存在感。</p>
+        <ul class="au-svc-list">
+          <li>百度 SEO 基础建设</li>
+          <li>小红书种草内容策略</li>
+          <li>中文 GEO 优化（DeepSeek/Kimi）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 我们如何合作 -->
+<section class="sec">
+  <div class="w">
+    <div class="st">合作流程</div>
+    <h2 class="sh">从诊断到落地，<em>四步开始</em></h2>
+    <div class="au-process">
+      <div class="au-step">
+        <div class="au-step-num">01</div>
+        <div>
+          <div class="au-step-tag">免费诊断</div>
+          <div class="au-step-title">先看清楚你现在的位置</div>
+          <p class="au-step-body">提交你的网址和目标市场，我们在 48 小时内出具一份可见度诊断报告——Google 排名现状、AI 搜索引用情况、三个优先改进方向。免费，没有销售话术。</p>
+        </div>
+      </div>
+      <div class="au-step">
+        <div class="au-step-num">02</div>
+        <div>
+          <div class="au-step-tag">策略沟通</div>
+          <div class="au-step-title">30 分钟，确认是否适合合作</div>
+          <p class="au-step-body">基于诊断结果，我们用中文沟通你的业务目标、竞争情况和预算范围，给出直接建议。不适合合作，我们会直接说。</p>
+        </div>
+      </div>
+      <div class="au-step">
+        <div class="au-step-num">03</div>
+        <div>
+          <div class="au-step-tag">定制方案</div>
+          <div class="au-step-title">按你的行业和目标定制执行计划</div>
+          <p class="au-step-body">没有套餐式服务。我们根据你的行业、竞争环境和增长阶段，设计最优先的动作组合，合同签订后进入执行。</p>
+        </div>
+      </div>
+      <div class="au-step">
+        <div class="au-step-num">04</div>
+        <div>
+          <div class="au-step-tag">持续执行</div>
+          <div class="au-step-title">月度报告，数据透明，过程可验证</div>
+          <p class="au-step-body">每月你会收到一份执行报告：做了什么、数据如何变化、下个月的优先任务。不需要猜测，不需要追问，过程完全透明。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 立场陈述 -->
+<section class="sec">
+  <div class="w">
+    <div class="au-quote-block">
+      <p class="au-quote-text">
+        "澳洲华人老板面对的是一个<em>双重困境</em>：<br>
+        本地机构无法用中文深入理解你的业务，<br>
+        国内机构完全不懂 Google 的运作逻辑。<br>
+        我们存在的意义，就是填补这个空白。"
+      </p>
+      <p class="au-quote-sub">我们不是翻译公司，也不是传统 SEO 外包。我们是同时生活在两个市场语境里的搜索增长团队——这是我们唯一的专注，也是我们最核心的能力。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="border-bottom:none">
+  <div class="w">
+    <div class="au-cta-card">
+      <div>
+        <div class="au-cta-tag">开始你的澳洲搜索增长</div>
+        <h2 class="au-cta-headline">先获取一份<em>免费诊断报告</em></h2>
+        <p class="au-cta-sub">填入你的网址，48 小时内收到 Google 可见度分析报告。没有销售电话，没有套路，只有真实的搜索数据。</p>
+      </div>
+      <div class="au-cta-group">
+        <a class="bp" href="/geo-diagnostic.html">免费获取诊断报告 →</a>
+        <div class="au-cta-note">中文沟通 · 48小时内回复 · 不适合会直接说</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="modals-placeholder"></div>
+</body>
+</html>
