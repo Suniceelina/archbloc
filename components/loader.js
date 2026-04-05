@@ -71,7 +71,9 @@
 
     nav.querySelectorAll('.has-dropdown > a').forEach(function (a) {
       a.addEventListener('click', function (e) {
-        if (window.matchMedia('(hover:hover)').matches) return;
+        // 只在移动菜单展开状态（nav-open）时拦截点击，处理下拉
+        // 避免用 (hover:hover) 判断——国产安卓系统会误报导致下拉永远打不开
+        if (!nav.classList.contains('nav-open')) return;
         e.preventDefault();
         e.stopPropagation();
         var li = a.parentElement;
