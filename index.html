@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Archbloc — 让中小企业在搜索中被找到、被选择、被记住</title>
+<title>Archbloc — 帮中小企业被 AI 主动推荐，GEO 增长执行服务</title>
 <meta name="description" content="Archbloc 专为国内及澳洲华人企业提供 SEO × GEO 整合增长服务，让你在 Google、百度和 AI 搜索中同时被找到、被选择、被记住。">
 <meta name="keywords" content="SEO优化,GEO优化,生成式搜索优化,AI搜索可见度,自媒体矩阵,媒体软文发稿,整合营销,中小企业增长">
 <meta name="robots" content="index, follow">
@@ -12,14 +12,14 @@
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://archbloc.com/">
-<meta property="og:title" content="Archbloc — 让中小企业在搜索中被找到、被选择、被记住">
+<meta property="og:title" content="Archbloc — 帮中小企业被 AI 主动推荐，GEO 增长执行服务">
 <meta property="og:description" content="SEO + GEO + 自媒体矩阵 + 媒体发稿整合服务。帮助国内中小企业在传统搜索和AI推荐中同时建立可见度。">
 <meta property="og:image" content="https://archbloc.com/og-image.png">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="Archbloc">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Archbloc — 让中小企业在搜索中被找到、被选择、被记住">
+<meta name="twitter:title" content="Archbloc — 帮中小企业被 AI 主动推荐，GEO 增长执行服务">
 <meta name="twitter:description" content="SEO + GEO + 自媒体矩阵 + 媒体发稿整合服务。帮助国内中小企业在传统搜索和AI推荐中同时建立可见度。">
 <meta name="twitter:image" content="https://archbloc.com/og-image.png">
 
@@ -34,7 +34,7 @@
   "url": "https://archbloc.com",
   "logo": "https://archbloc.com/archbloc-logo-light.svg",
   "description": "专为国内及澳洲华人企业提供SEO、GEO（生成式搜索优化）、自媒体矩阵与媒体软文发稿的整合营销服务机构",
-  "slogan": "让中小企业在搜索中被找到、被选择、被记住",
+  "slogan": "帮中小企业被 AI 主动推荐，全程执行，你只看结果",
   "areaServed": [{"@type": "Country", "name": "China"}, {"@type": "Country", "name": "Australia"}],
   "serviceType": ["SEO优化", "GEO生成式搜索优化", "自媒体矩阵运营", "媒体软文发稿"],
   "hasOfferCatalog": {
@@ -84,7 +84,7 @@
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
   height: 40px;
-  margin-top: 62px;
+  margin-top: 0;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -113,6 +113,7 @@
 .hero-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aux); margin-bottom: 28px; }
 .hero-headline { font-size: clamp(28px, 8vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -0.028em; color: var(--text); margin-bottom: 24px; }
 .hero-headline em { font-style: normal; color: var(--accent); }
+.desktop-br { display: inline; }
 .hero-sub { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.75; color: var(--muted); max-width: 580px; margin: 0 auto 44px; }
 .hero-sub strong { color: var(--text); font-weight: 500; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center; }
@@ -263,7 +264,7 @@
   .mkt-card { border-right: none; border-bottom: 1px solid var(--border); }
   .mkt-card:last-child { border-bottom: none; }
   .nav-right { display: none; }
-  .ticker-bar { padding: 0 20px; margin-top: 58px; }
+  .ticker-bar { padding: 0 20px; margin-top: 0; }
   .hero { padding: 64px 24px 80px; }
   .stats-inner { grid-template-columns: repeat(2,1fr); padding: 0 20px; }
   .stat-item:nth-child(2) { border-right: none; }
@@ -305,9 +306,15 @@
   .stats-inner { grid-template-columns: 1fr; }
   .stat-item { border-right: none !important; border-bottom: 1px solid var(--border); }
   .stat-item:last-child { border-bottom: none; }
-  .hero-actions { flex-direction: column; align-items: stretch; gap: 0; }
-  .hero-actions .btn-cta { width: 100%; justify-content: center; padding: 18px 24px; font-size: 15px; margin-bottom: 14px; }
-  .hero-actions .btn-outline { width: 100%; justify-content: center; padding: 16px 24px; font-size: 13px; }
+  .hero { padding: 44px 20px 56px; }
+  .hero-headline { font-size: clamp(28px, 9.5vw, 44px); letter-spacing: -0.022em; line-height: 1.12; }
+  .hero-sub { font-size: 15px; margin-bottom: 32px; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-actions .btn-cta { width: 100%; justify-content: center; padding: 17px 24px; font-size: 16px; }
+  .hero-actions .btn-outline { width: 100%; justify-content: center; padding: 14px 24px; font-size: 14px; }
+  .hero-trust { gap: 10px; margin-top: 24px; }
+  .hero-trust-item { font-size: 11px; }
+  .desktop-br { display: none; }
 }
 @media (max-width: 600px) {
   .modal-overlay { padding: 0; align-items: flex-end; }
@@ -318,7 +325,7 @@
 }
 </style>
 </head>
-<body>
+<body class="page-body">
 
 <!-- ██ 导航栏（由组件加载器注入）██ -->
 <div id="nav-placeholder"></div>
@@ -326,43 +333,43 @@
 <!-- TICKER -->
 <div class="ticker-bar">
   <div class="ticker-track">
-    <div class="ticker-item"><span class="ticker-dot"></span> SEO × GEO 整合</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> AI 搜索可见度</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 自媒体矩阵</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 媒体软文发稿</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 让 AI 主动提到你</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> GEO 信源建设</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 全包执行服务</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 媒体背书发稿</div>
     <div class="ticker-item"><span class="ticker-dot"></span> Google 本地排名</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 澳洲华人企业</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> GEO 可见度</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 品牌权威建设</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> SEO × GEO 整合</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> AI 搜索可见度</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 自媒体矩阵</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 媒体软文发稿</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> DeepSeek · Kimi · 文心</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 48 小时出诊断报告</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 让 AI 主动提到你</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> GEO 信源建设</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 全包执行服务</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 媒体背书发稿</div>
     <div class="ticker-item"><span class="ticker-dot"></span> Google 本地排名</div>
     <div class="ticker-item"><span class="ticker-dot"></span> 澳洲华人企业</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> GEO 可见度</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 品牌权威建设</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> DeepSeek · Kimi · 文心</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> 48 小时出诊断报告</div>
   </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">整合营销 · 搜索增长 · AI 可见度</div>
+  <div class="hero-tag">GEO 增长执行服务 · 国内及澳洲华人企业</div>
   <h1 class="hero-headline">
-    让中小企业在搜索中<br>被<em>找到</em>、被选择、被记住
+    你的客户在用 AI 找服务商<br class="desktop-br">——你的名字<em>出现了吗</em>？
   </h1>
   <p class="hero-sub">
-    专为国内及澳洲华人企业提供 <strong>SEO × GEO 整合增长服务</strong>——让你在 Google、百度和 AI 搜索中同时被找到。
+    85% 的中小企业在 DeepSeek、Kimi、文心一言里是透明人。Archbloc 替你从零建立 GEO 信源——<strong>内容、发稿、信源建设，全程我们执行，你只看结果。</strong>
   </p>
   <div class="hero-actions">
-    <a class="btn-cta" href="/geo-diagnostic.html">免费获取可见度诊断报告 →</a>
-    <a class="btn-outline" href="#services">了解服务方案</a>
+    <a class="btn-cta" href="/geo-diagnostic.html">免费 GEO 诊断 →</a>
+    <a class="btn-outline" href="#services">查看服务方案</a>
   </div>
   <div class="hero-trust">
-    <span class="hero-trust-item"><span class="hero-trust-dot"></span>48 小时内完成诊断</span>
+    <span class="hero-trust-item"><span class="hero-trust-dot"></span>全程我们执行，你看结果</span>
     <span class="hero-trust-item"><span class="hero-trust-dot"></span>中文沟通，专业交付</span>
     <span class="hero-trust-item"><span class="hero-trust-dot"></span>国内 + 澳洲双市场</span>
-    <span class="hero-trust-item"><span class="hero-trust-dot"></span>Google × 百度 × AI 全覆盖</span>
+    <span class="hero-trust-item"><span class="hero-trust-dot"></span>不适合合作直接说</span>
   </div>
 </section>
 
@@ -423,18 +430,18 @@
       <div class="manifesto-left">
         <div class="section-tag" style="margin-bottom:24px">我们的看法</div>
         <div class="manifesto-quote">
-          "大多数企业官网对 AI 搜索来说是隐形的。这不是算法问题，是方法论问题。"
+          "大多数中小企业在 AI 搜索里根本不存在。不是算法问题，是没有人替他们做过这件事。"
         </div>
-        <div class="manifesto-attr" style="margin-top:16px">— Archbloc 核心方法论</div>
+        <div class="manifesto-attr" style="margin-top:16px">— Archbloc 核心判断</div>
       </div>
       <div class="manifesto-right">
         <p class="manifesto-body">
-          当文心一言、DeepSeek、Kimi 等 AI 回答你潜在客户的问题时，它引用的是<strong>有结构、有权威感、可被验证的内容</strong>。大多数企业官网达不到这个标准，所以永远不会被 AI 提到。
+          当 DeepSeek、Kimi、文心一言回答你潜在客户的问题时，它引用的是<strong>有来源、有权威背书、可以被验证的公开内容</strong>。大多数中小企业从来没有在这个维度做过任何事，所以 AI 根本不知道他们存在。
         </p>
         <p class="manifesto-body">
-          GEO（生成式搜索引擎优化）不是 SEO 的对立面，是它的升维。当你同时在<strong>传统搜索排名、AI 引用频率、自媒体声量、媒体公信力</strong>四个维度建立存在感，流量才真正稳健。
+          Archbloc 做的不是工具，不是模板，不是顾问报告——而是<strong>直接帮你执行</strong>：写内容、选媒体、发稿、建信源，形成 AI 在回答你行业问题时主动引用你的结构。做完的结果是可以直接用 AI 搜索验证的。
         </p>
-        <a href="/method.html" class="link-arrow">了解我们的方法论 →</a>
+        <a href="/method.html" class="link-arrow">了解我们怎么做 →</a>
       </div>
     </div>
   </div>
@@ -704,17 +711,17 @@
     <div class="booking-cta-card">
       <div>
         <div class="booking-tag">开始合作</div>
-        <h2 class="booking-headline">不确定是否适合？<br>先聊聊，<em>我们来判断</em></h2>
-        <p class="booking-sub">告诉我们你的网址和目标市场，我们会在 24–48 小时内回访——了解你的现状，给出直接建议，不适合合作我们会直接说。</p>
+        <h2 class="booking-headline">不知道从哪开始？<br><em>先做免费诊断</em></h2>
+        <p class="booking-sub">告诉我们你的网址和所在行业，48 小时内我们出一份 GEO 可见度诊断报告——你现在在 AI 里的状态、最关键的三个问题、具体的修复建议。看完再决定要不要合作。</p>
         <div class="booking-alt" style="text-align:left;margin-top:20px">
           更习惯邮件？<a href="mailto:hello@archbloc.com">发邮件咨询</a>
         </div>
       </div>
       <div class="booking-cta-group">
-        <a class="booking-open-btn" href="https://tally.so/r/lbL8N6" onclick="openModal('modal-booking');return false;">
-          留下联系方式 →
+        <a class="booking-open-btn" href="/geo-diagnostic.html">
+          免费 GEO 诊断 →
         </a>
-        <div class="booking-cta-note">24–48 小时内联系 · 不适合合作我们会直接说</div>
+        <div class="booking-cta-note">48 小时内出报告 · 看完再决定要不要合作</div>
       </div>
     </div>
   </div>

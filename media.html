@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>媒体背书方法论 — 如何为 GEO 选对媒体 | Archbloc</title>
+<meta name="description" content="不是所有媒体发稿都能帮你被 AI 引用。Archbloc 解释我们如何判断一个媒体资源是否真正适合 GEO 信源建设——以及为什么选对比选多更重要。">
+<link rel="canonical" href="https://archbloc.com/media.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script src="/components/loader.js"></script>
+<link rel="stylesheet" href="/components/page-blocks.css">
+<style>
+.media-hero{padding:80px 0 88px;border-bottom:1px solid var(--border)}
+.media-hero-inner{max-width:760px;margin:0 auto;padding:0 40px}
+.media-hero-h1{font-size:clamp(30px,4vw,46px);font-weight:700;line-height:1.12;letter-spacing:-.025em;color:var(--text);margin-bottom:20px;margin-top:16px}
+.media-hero-h1 em{font-style:normal;color:var(--accent)}
+.media-hero-sub{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:36px}
+.media-hero-sub strong{color:var(--text);font-weight:500}
+.fq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px}
+.fq-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-card);padding:28px 26px}
+.fq-num{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--aux);margin-bottom:12px}
+.fq-q{font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.35}
+.fq-q em{font-style:normal;color:var(--accent)}
+.fq-a{font-size:13px;color:var(--muted);line-height:1.8}
+.fq-a strong{color:var(--text);font-weight:500}
+.plat-list{display:flex;flex-direction:column;gap:0;margin-top:44px}
+.plat-row{display:grid;grid-template-columns:160px 1fr 200px;gap:32px;padding:32px 0;border-top:1px solid var(--border);align-items:start}
+.plat-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+.plat-examples{font-size:12px;color:var(--aux);line-height:1.6}
+.plat-role-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--aux);margin-bottom:8px}
+.plat-role-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px}
+.plat-role-body{font-size:13px;color:var(--muted);line-height:1.75}
+.plat-role-body strong{color:var(--text);font-weight:500}
+.plat-geo-block{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.plat-geo-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--aux);margin-bottom:10px}
+.plat-geo-dots{display:flex;gap:4px;margin-bottom:8px}
+.geo-dot{width:8px;height:8px;border-radius:50%;background:var(--border)}
+.geo-dot.h{background:var(--accent)}
+.geo-dot.m{background:#60a5fa}
+.plat-geo-text{font-size:12px;color:var(--muted);line-height:1.6}
+.plat-geo-text strong{color:var(--text);font-weight:500;display:block;margin-bottom:3px}
+.process-steps{display:flex;flex-direction:column;gap:0;margin-top:44px}
+.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:32px 0;border-top:1px solid var(--border);align-items:start}
+.ps-num{font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--border-mid);line-height:1;letter-spacing:-.02em;padding-top:2px}
+.ps-title{font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px}
+.ps-body{font-size:13px;color:var(--muted);line-height:1.8}
+.ps-body strong{color:var(--text);font-weight:500}
+.contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;margin-top:44px}
+.contrast-col{padding:32px 28px}
+.contrast-col:first-child{border-right:1px solid var(--border);background:var(--bg2)}
+.contrast-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.contrast-label.wrong{color:var(--aux)}
+.contrast-label.right{color:var(--accent)}
+.contrast-items{list-style:none;display:flex;flex-direction:column;gap:12px}
+.contrast-item{font-size:13px;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.ci-icon{flex-shrink:0;margin-top:1px;font-style:normal}
+.media-cta-sec{padding:88px 0;background:var(--bg2);border-top:1px solid var(--border)}
+.media-cta-inner{max-width:720px;margin:0 auto;padding:0 40px}
+.media-cta-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:52px 56px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta-tag{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--aux);margin-bottom:12px}
+.cta-h{font-size:clamp(20px,2.8vw,28px);font-weight:700;line-height:1.2;color:var(--text);margin-bottom:10px;letter-spacing:-.02em}
+.cta-h em{font-style:normal;color:var(--accent)}
+.cta-sub{font-size:13px;color:var(--muted);line-height:1.75}
+.cta-actions{display:flex;flex-direction:column;gap:10px;align-items:center;flex-shrink:0}
+.cta-note{font-size:11px;color:var(--aux);text-align:center;line-height:1.5}
+@media(max-width:900px){
+  .media-hero{padding:56px 0 64px}
+  .media-hero-inner{padding:0 20px}
+  .fq-grid{grid-template-columns:1fr;gap:12px}
+  .plat-row{grid-template-columns:1fr;gap:16px}
+  .plat-geo-block{max-width:280px}
+  .contrast-grid{grid-template-columns:1fr}
+  .contrast-col:first-child{border-right:none;border-bottom:1px solid var(--border)}
+  .media-cta-inner{padding:0 20px}
+  .media-cta-card{grid-template-columns:1fr;gap:28px;padding:36px 28px}
+  .cta-actions{align-items:stretch}
+}
+@media(max-width:520px){
+  .process-step{grid-template-columns:36px 1fr;gap:16px}
+}
+</style>
+</head>
+<body class="page-body">
+<div id="nav-placeholder"></div>
+
+<section class="media-hero">
+  <div class="media-hero-inner">
+    <div class="st">媒体背书 · 选择方法论</div>
+    <h1 class="media-hero-h1">不是所有发稿都能<br>让 <em>AI 引用你</em></h1>
+    <p class="media-hero-sub">
+      在 AI 搜索时代，媒体发稿的价值不再只是曝光——它决定了 AI 在回答用户问题时，有没有理由提到你。<strong>选错平台，发再多也是浪费。</strong>这页解释我们怎么判断一个媒体是否真正值得投。
+    </p>
+    <a class="bp" href="/geo-diagnostic.html">告诉我们你的情况，我们来推荐 →</a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="st">选媒体之前</div>
+    <h2 class="sh">四个问题，<em>先于</em>任何媒体清单</h2>
+    <p style="margin-top:16px;font-size:15px;color:var(--muted);line-height:1.8;max-width:680px">我们在给客户推荐任何媒体之前，先回答这四个问题。答案决定了「发这里有没有意义」，跟媒体本身的知名度无关。</p>
+    <div class="fq-grid">
+      <div class="fq-card">
+        <div class="fq-num">问题 01</div>
+        <div class="fq-q">这条内容会被<em> AI 收录</em>吗？</div>
+        <div class="fq-a">DeepSeek、Kimi、文心一言的内容抓取逻辑不同于搜索引擎。<strong>文字内容、可归档、有结构</strong>的平台更容易被 AI 系统引用——短视频平台、强封闭生态的平台则几乎不被 AI 直接引用，无论粉丝量多大。</div>
+      </div>
+      <div class="fq-card">
+        <div class="fq-num">问题 02</div>
+        <div class="fq-q">内容能在线<em>留存多久</em>？</div>
+        <div class="fq-a">GEO 信源的价值是持续的。<strong>发了三个月就下架、或带免责声明「文章不代表本站立场」的媒体</strong>，AI 对它的可信度判断会大打折扣。我们优先选择承诺留存 3 个月以上、无免责条款的平台。</div>
+      </div>
+      <div class="fq-card">
+        <div class="fq-num">问题 03</div>
+        <div class="fq-q">这家媒体的<em>公信力信号</em>够强吗？</div>
+        <div class="fq-a">AI 系统判断来源可信度有自己的逻辑——官方认证账号、国家级媒体主办、有长期稳定内容的平台，会比新注册的垂直小站信号更强。<strong>门槛不是规模，而是可验证性。</strong></div>
+      </div>
+      <div class="fq-card">
+        <div class="fq-num">问题 04</div>
+        <div class="fq-q">它解决的是<em>哪一段</em>问题？</div>
+        <div class="fq-a">没有一个媒体能同时做「建立可信度 + 解释品牌 + 扩大社交声量 + 承接本地需求」。<strong>每个媒体只负责其中一两段。</strong>选媒体的第一步是搞清楚你现在最缺哪一段，而不是挑知名度最高的那个。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bg2)">
+  <div class="w">
+    <div class="st">平台角色解析</div>
+    <h2 class="sh">不同平台，<em>解决不同问题</em></h2>
+    <p style="margin-top:16px;font-size:15px;color:var(--muted);line-height:1.8;max-width:680px">这不是排名，是对每类平台在 GEO 信源建设中真实角色的描述。了解这个，才能决定你的预算该往哪里放。</p>
+    <div class="plat-list">
+
+      <div class="plat-row">
+        <div>
+          <div class="plat-name">传统门户媒体</div>
+          <div class="plat-examples">人民网、网易、腾讯、中国网等</div>
+        </div>
+        <div>
+          <div class="plat-role-label">核心作用</div>
+          <div class="plat-role-title">建立公开可验证的可信锚点</div>
+          <div class="plat-role-body">当 AI 系统要判断一个品牌是否可信，它会优先查有没有权威来源引用过你。门户媒体的发稿在这里起的是「公证」的作用——<strong>不是曝光，而是「这家公司是真实存在且可验证的」的证明。</strong>这是 GEO 组合里最先要解决的一层。</div>
+        </div>
+        <div class="plat-geo-block">
+          <div class="plat-geo-label">GEO 适配</div>
+          <div class="plat-geo-dots"><div class="geo-dot h"></div><div class="geo-dot h"></div><div class="geo-dot h"></div></div>
+          <div class="plat-geo-text"><strong>高适配</strong>文字内容稳定归档，AI 引用频次高，是建立公开信源的首选层。</div>
+        </div>
+      </div>
+
+      <div class="plat-row">
+        <div>
+          <div class="plat-name">知乎 · 专栏</div>
+          <div class="plat-examples">知乎机构号、行业专栏</div>
+        </div>
+        <div>
+          <div class="plat-role-label">核心作用</div>
+          <div class="plat-role-title">在用户真实问题里解释你是谁</div>
+          <div class="plat-role-body">知乎是国内 AI 引用频次最高的平台之一。DeepSeek、Kimi 在回答专业问题时大量引用知乎专栏内容。<strong>在你行业的高频问题下发布高质量解答，是让 AI「理解你擅长什么」最直接的方式。</strong>这比门户发稿更解决「解释层」的问题。</div>
+        </div>
+        <div class="plat-geo-block">
+          <div class="plat-geo-label">GEO 适配</div>
+          <div class="plat-geo-dots"><div class="geo-dot h"></div><div class="geo-dot h"></div><div class="geo-dot h"></div></div>
+          <div class="plat-geo-text"><strong>高适配</strong>问答结构天然匹配 AI 引用逻辑，内容长期可检索，是解释层的核心阵地。</div>
+        </div>
+      </div>
+
+      <div class="plat-row">
+        <div>
+          <div class="plat-name">微信公众号</div>
+          <div class="plat-examples">行业认证号、垂直领域头部号</div>
+        </div>
+        <div>
+          <div class="plat-role-label">核心作用</div>
+          <div class="plat-role-title">沉淀品牌自有叙事，建立行业认知</div>
+          <div class="plat-role-body">公众号内容被 DeepSeek、文心一言引用的情况越来越普遍，尤其是认证主体明确的账号。<strong>它更适合做品牌叙事沉淀——「我们是谁、我们怎么做、我们服务过谁」这类内容</strong>，形成可被 AI 抓取的品牌知识库。</div>
+        </div>
+        <div class="plat-geo-block">
+          <div class="plat-geo-label">GEO 适配</div>
+          <div class="plat-geo-dots"><div class="geo-dot h"></div><div class="geo-dot h"></div><div class="geo-dot h"></div></div>
+          <div class="plat-geo-text"><strong>高适配</strong>认证公众号内容可归档，适合品牌叙事沉淀，AI 引用情况持续上升。</div>
+        </div>
+      </div>
+
+      <div class="plat-row">
+        <div>
+          <div class="plat-name">小红书 · 微博</div>
+          <div class="plat-examples">行业达人、认证大 V</div>
+        </div>
+        <div>
+          <div class="plat-role-label">核心作用</div>
+          <div class="plat-role-title">放大社交讨论，影响消费感知</div>
+          <div class="plat-role-body">这两个平台的 AI 引用能力相对较低，但它们解决的是另一个问题：<strong>「这个品牌有没有人在讨论、有没有真实的用户反馈」。</strong>这不是 GEO 信源的主力层，但对完整信任建立很重要。适合在门户和知乎铺好后，作为第二层补强。</div>
+        </div>
+        <div class="plat-geo-block">
+          <div class="plat-geo-label">GEO 适配</div>
+          <div class="plat-geo-dots"><div class="geo-dot m"></div><div class="geo-dot m"></div><div class="geo-dot"></div></div>
+          <div class="plat-geo-text"><strong>中适配</strong>社交扩散价值高，但不宜作为 GEO 信源建设的主力投入，适合作为第二层。</div>
+        </div>
+      </div>
+
+      <div class="plat-row">
+        <div>
+          <div class="plat-name">抖音 · 快手</div>
+          <div class="plat-examples">行业博主、品牌官方号</div>
+        </div>
+        <div>
+          <div class="plat-role-label">核心作用</div>
+          <div class="plat-role-title">触达与曝光，不做信源建设</div>
+          <div class="plat-role-body">短视频内容目前几乎不被主流 AI 系统直接引用。<strong>如果预算有限，短视频投入对 GEO 的直接贡献接近零。</strong>它的价值在于品牌曝光和流量承接，应该放在 GEO 信源已经搭好之后，作为放大层，而不是第一步。</div>
+        </div>
+        <div class="plat-geo-block">
+          <div class="plat-geo-label">GEO 适配</div>
+          <div class="plat-geo-dots"><div class="geo-dot m"></div><div class="geo-dot"></div><div class="geo-dot"></div></div>
+          <div class="plat-geo-text"><strong>低适配</strong>短视频 AI 引用几乎为零，适合做曝光，但不应占 GEO 预算主要部分。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="st">常见误区</div>
+    <h2 class="sh">「资源越多越好」<em>是错的</em></h2>
+    <p style="margin-top:16px;font-size:15px;color:var(--muted);line-height:1.8;max-width:680px">很多客户在找媒体发稿服务时，第一个问题是「你有多少家媒体」。这个问题问错了。</p>
+    <div class="contrast-grid">
+      <div class="contrast-col">
+        <div class="contrast-label wrong">资源量驱动的逻辑</div>
+        <ul class="contrast-items">
+          <li class="contrast-item"><em class="ci-icon">×</em>「我们有 1 万家媒体，你随便选」——选择权给了客户，但客户不知道该怎么选</li>
+          <li class="contrast-item"><em class="ci-icon">×</em>低价铺量，发 50 家小媒体，对 AI 可见度的贡献几乎为零</li>
+          <li class="contrast-item"><em class="ci-icon">×</em>同质化资源堆砌，AI 系统不会因为同一类来源出现 50 次就提高可信度</li>
+          <li class="contrast-item"><em class="ci-icon">×</em>价格驱动选择，忽视「这个媒体的内容会不会被 AI 收录」这个根本问题</li>
+        </ul>
+      </div>
+      <div class="contrast-col">
+        <div class="contrast-label right">Archbloc 的判断方式</div>
+        <ul class="contrast-items">
+          <li class="contrast-item"><em class="ci-icon" style="color:var(--accent)">✓</em>先问「你现在最缺哪一层」——是可信锚点、解释内容、社交声量，还是本地覆盖</li>
+          <li class="contrast-item"><em class="ci-icon" style="color:var(--accent)">✓</em>一个 A 级门户的稿件，AI 引用价值高于 20 个低质垂直站</li>
+          <li class="contrast-item"><em class="ci-icon" style="color:var(--accent)">✓</em>来源多样性比来源数量重要——门户 + 知乎 + 公众号的组合比 30 家同类媒体有效</li>
+          <li class="contrast-item"><em class="ci-icon" style="color:var(--accent)">✓</em>每篇内容都写给「AI 如何理解它」，不只是写给人看</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bg2)">
+  <div class="w">
+    <div class="st">我们怎么做</div>
+    <h2 class="sh">接到需求后，<em>实际发生什么</em></h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <div>
+          <div class="ps-title">先做 GEO 诊断，搞清楚你现在的状态</div>
+          <div class="ps-body">在你告诉我们行业和网址之后，我们先测试你在 DeepSeek、Kimi、文心一言里的当前可见度。很多客户在这一步发现自己完全不存在——这比任何数据都有说服力，也让后续的媒体组合选择有了明确的起点。</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <div>
+          <div class="ps-title">根据缺口决定组合，不是根据价格决定</div>
+          <div class="ps-body">如果你的问题是「AI 根本不知道你是谁」，我们优先推权威证明层（门户 + 知乎）；如果你的问题是「AI 知道你但叙事不对」，我们优先推解释层（知乎深度内容 + 公众号）。<strong>不同的问题，媒体组合完全不同。</strong>价格在方向确定之后才有意义。</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <div>
+          <div class="ps-title">内容和发稿都由我们执行，你只做最终确认</div>
+          <div class="ps-body">选好媒体只是开始。稿件要写成 AI 愿意引用的结构（有明确事实、有来源、有逻辑链）——这和普通软文的写法不同。我们负责从内容到发稿的完整执行，你做最终确认，不用自己跟各个平台对接。</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">04</div>
+        <div>
+          <div class="ps-title">发完之后，用 AI 搜索验收</div>
+          <div class="ps-body">我们提供的不只是发稿链接——而是在发稿后的 2–4 周内，用实际的 AI 查询截图来验证「这篇内容有没有被 AI 引用」。<strong>这是可以直接看到的结果，</strong>而不是抽象的曝光数据。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="media-cta-sec">
+  <div class="media-cta-inner">
+    <div class="media-cta-card">
+      <div>
+        <div class="cta-tag">下一步</div>
+        <h2 class="cta-h">告诉我们你的情况，<br>我们来<em>推荐组合</em></h2>
+        <p class="cta-sub">你的行业、当前 AI 可见度状态、想解决的问题——这些信息足够我们给出一个具体的媒体组合建议和预算区间。不适合合作我们会直接说。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="bp" href="/geo-diagnostic.html" style="justify-content:center;white-space:nowrap">免费 GEO 诊断开始 →</a>
+        <div class="cta-note">48 小时内出报告<br>看完再决定要不要合作</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="modals-placeholder"></div>
+</body>
+</html>

@@ -9,6 +9,20 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script src="/components/loader.js"></script>
 <link rel="stylesheet" href="/components/page-blocks.css">
+<style>
+.hbench{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px}
+.hbench-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--aux);margin-bottom:12px}
+.hbench-rows{display:flex;flex-direction:column;gap:7px}
+.hbench-row{display:grid;grid-template-columns:90px 1fr 32px;gap:8px;align-items:center}
+.hbench-cat{font-size:12px;color:var(--muted)}
+.hbench-bar-wrap{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.hbench-bar{height:100%;background:var(--border-mid);border-radius:3px;transition:width .4s ease}
+.hbench-bar-hl{background:var(--accent)}
+.hbench-val{font-size:12px;font-weight:600;color:var(--muted);text-align:right}
+.hbench-val-hl{color:var(--accent)}
+.hbench-row-hl .hbench-cat{color:var(--accent);font-weight:600}
+.hbench-note{font-size:10px;color:var(--aux);margin-top:10px}
+</style>
 </head>
 <body class="page-body">
 
@@ -20,8 +34,19 @@
     <h1 class="hh geo-hero-title">你的网站在<br><em>AI 搜索</em>里存在吗？</h1>
     <p class="geo-hero-copy">当你的潜在客户向文心一言、Kimi、DeepSeek 提问“有没有好的 XX 服务商”——<strong>你的名字出现了吗？</strong><br><br>填入你的网址，免费获得一份 GEO 可见度初步评估报告。</p>
     <div class="hstats">
-      <div class="hstat"><div class="hsn">78%</div><div class="hsl">企业网站 AI 引用率为零</div></div>
+      <div class="hstat"><div class="hsn">85%</div><div class="hsl">中小企业在主流 AI 里引用率为零</div></div>
       <div class="hstat"><div class="hsn">48h</div><div class="hsl">填表后 24–48 小时内发报告</div></div>
+    </div>
+    <div class="hbench">
+      <div class="hbench-label">你所在行业的平均 AI 可见度</div>
+      <div class="hbench-rows">
+        <div class="hbench-row"><span class="hbench-cat">法律 / 会计</span><div class="hbench-bar-wrap"><div class="hbench-bar" style="width:8%"></div></div><span class="hbench-val">8%</span></div>
+        <div class="hbench-row"><span class="hbench-cat">本地服务</span><div class="hbench-bar-wrap"><div class="hbench-bar" style="width:12%"></div></div><span class="hbench-val">12%</span></div>
+        <div class="hbench-row"><span class="hbench-cat">B2B 服务</span><div class="hbench-bar-wrap"><div class="hbench-bar" style="width:15%"></div></div><span class="hbench-val">15%</span></div>
+        <div class="hbench-row"><span class="hbench-cat">电商 / 零售</span><div class="hbench-bar-wrap"><div class="hbench-bar" style="width:11%"></div></div><span class="hbench-val">11%</span></div>
+        <div class="hbench-row hbench-row-hl"><span class="hbench-cat">已做 GEO</span><div class="hbench-bar-wrap"><div class="hbench-bar hbench-bar-hl" style="width:74%"></div></div><span class="hbench-val hbench-val-hl">74%</span></div>
+      </div>
+      <div class="hbench-note">数据来源：Archbloc 内部评估样本，仅供参考</div>
     </div>
   </div>
   <div id="form">
