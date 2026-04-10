@@ -1,82 +1,114 @@
-# Archbloc 项目上下文 — 小太阳专用
+# Archbloc · Claude Code 工作手册
 
 ## 项目基本信息
-- 品牌名：Archbloc
-- 网站：https://archbloc.com
-- 定位：帮助国内中小企业做 SEO + GEO 整合增长
-- 目标客户：国内中小企业，预算敏感，决策者通常是老板本人
-- 核心差异化：方法论公开透明，以自身网站作为案例实战
 
-## 技术栈
-- 托管：腾讯云 EdgeOne Pages（GitHub 自动部署）
-- CMS：Decap CMS（/static/admin/）
-- 表单：Tally
+- 品牌：Archbloc
+- 域名：archbloc.com
 - 本地仓库：D:\OpenClaw\workspace\archbloc
 - GitHub：github.com/Suniceelina/archbloc
+- 托管：腾讯云 EdgeOne Pages（GitHub push 后自动部署）
+- CMS后台：archbloc.com/static/admin/（Decap CMS）
+- 表单：Tally
 
-## 设计系统（2026年4月更新）
-- 背景色：#ffffff
-- --bg2: #f5f5f3
-- --border: #e8e8e8
-- --border-mid: #d8d8d8
-- --aux: #707070（对比度 4.95:1，WCAG AA 达标）
-- 强调色：#f97316（橙色）
-- 导航高度：62px（含顶部 2.5px 橙色品牌线）
-- 全站价格：已全部移除，引导免费诊断
-- 目标市场：国内中小企业 + 澳洲华人企业（双市场）
-- 承诺性语言：全站无结果承诺，无退款承诺，所有时间预期均有限定语（通常/因行业竞争度而异/对于竞争较低的行业）
-- 字体：Inter
+## 目录结构
 
-## 网站页面清单
-- / → 首页
-- /au.html → 澳洲华人企业专属落地页（新增）
-- /signal.html → 入门方案（已移除价格）
-- /presence.html → 主力方案（已移除价格）
-- /authority.html → 旗舰方案（已移除价格）
-- /method.html → 方法论页
-- /blog.html → 博客列表
-- /blog/geo-visibility-guide.html → GEO指南
-- /blog/seo-outdated-2025.html → SEO过时动作
-- /geo-diagnostic.html → 诊断工具页
+```
+archbloc/
+├─ blog/                    ← 博客文章（每篇独立 .html）
+│  └─ post-template.html    ← 新文章必须参考此模板
+├─ components/              ← ⚠️ 禁止修改（见下方规则）
+│  ├─ head.html
+│  ├─ nav.html
+│  ├─ footer.html
+│  ├─ modals.html
+│  ├─ loader.js
+│  ├─ page-blocks.css
+│  └─ RULES.md
+├─ static/admin/            ← Decap CMS，不动
+├─ functions/api/           ← GitHub OAuth，不动
+├─ index.html
+├─ blog.html                ← 博客列表页，新文章需在此添加卡片
+├─ signal.html
+├─ presence.html
+├─ authority.html
+├─ method.html
+└─ geo-diagnostic.html
+```
 
-## SEO 审计基线（2026年3月）
-- 综合分：45/100（冷启动阶段）
-- 技术健康：62/100
-- 内容质量：71/100
-- 关键词覆盖：45/100
-- GEO可见度：30/100
-- 外链权威：15/100
-- 已知问题：首页 CTA 死链（# → 需改为 Tally 表单链接）
-- 博客文章：2篇（体量不足）
-- 百度统计：未接入
+## ⚠️ 最重要的规则
 
-## 搜索生态重点
-- 主战场：百度（国内目标客户）
-- 次要：Google（内容质量背书）
-- GEO 目标平台：文心一言、DeepSeek、Kimi、豆包
-- 已接入：Google Search Console
-- 待接入：百度搜索资源平台、百度统计
+**不得修改 components/ 目录下任何文件**，除非用户明确说"修改 components/"。
 
-## 竞争对手（已知）
-- 筋斗云SEO（翼果科技）：seo.yiguotech.com
-- 云点SEO：yundianseo.com
-- 鸭老师SEO：ylsseo.com
+唯一例外：
+- 接入百度统计 → 只改 `head.html`
+- 接入在线咨询工具 → 只改 `footer.html`
 
-## 内容规范
-- 语言：简体中文
-- 语气：专业但不卖弄，直接，有观点
-- 不承诺排名，强调过程可验证
-- 数据引用要标注精确来源（机构名+年份）
-- 博客文章结构：问题定义 → 原因分析 → 可执行框架 → 总结
+违反此规则会破坏全站样式和结构。
 
-## 审计报告输出规范
-- 格式：Markdown
-- 必含：总体评分表、分维度评分、问题优先级清单（高/中/低）、90天行动建议
-- 存档位置：D:\OpenClaw\workspace\archbloc\reports\
-- 命名规范：SEO-audit-YYYY-MM.md
+## 设计系统
 
-## 执行原则
-1. 先读本文件，再执行任务
-2. 技术审计结果存档后再输出摘要
-3. 每次跑完记录基线变化，便于月度对比
-4. 国内平台（百度/文心/DeepSeek）测试优先于国际平台
+| 项目 | 值 |
+|---|---|
+| 背景色 | #ffffff |
+| 强调色 | #f97316（橙色） |
+| 字体 | Inter |
+
+**CSS 三层分工：**
+1. `components/head.html` → 全站基础样式（不动）
+2. `components/page-blocks.css` → 公共模块样式（不动）
+3. 各页面 `<style>` 块 → 页面私有样式（可改）
+
+新增样式只写在对应页面的 `<style>` 块里，不写到 components。
+
+## Git 工作流
+
+每次修改完成后：
+
+```bash
+cd D:\OpenClaw\workspace\archbloc
+git add .
+git commit -m "描述本次改动"
+git push
+```
+
+push 后 EdgeOne Pages 自动部署，约 1-2 分钟生效。
+
+## 发布新博客文章流程
+
+1. 参考 `blog/post-template.html` 在 `blog/` 目录新建文章文件
+2. 在 `blog.html` 列表页添加对应卡片（标题、描述、链接）
+3. git push
+
+文章文件命名规则：`关键词-关键词.html`（英文，用连字符）
+
+## SEO/GEO 基础设施
+
+每个页面需包含：
+- `<title>` 和 `<meta description>`
+- OG 标签（og:title / og:description / og:url）
+- 适当的 Schema（Organization / Article / FAQ）
+
+sitemap 和 robots.txt 已配置，新页面记得加进 sitemap。
+
+## 业务背景（理解上下文用）
+
+三个服务产品：
+- 官网增长诊断：¥4800，交付 SEO+GEO 审计报告
+- 整合增长月度合作：¥12000/月
+- 全域声量打造：¥28000/月
+
+当前策略：以 archbloc.com 自身作为执行案例，记录过程和数据，用于冷启动获客。
+
+## 常见任务快速参考
+
+**更新博客文章**
+→ 新建 `blog/文章名.html` + 更新 `blog.html` + git push
+
+**修改某个服务页内容**
+→ 直接编辑对应 .html 页面的内容区域，不动 components
+
+**添加新页面**
+→ 复制最近的页面作为模板，修改内容，更新 sitemap.xml
+
+**修复样式问题**
+→ 先确认是页面私有样式问题，在页面 `<style>` 块内修改，不动 page-blocks.css
