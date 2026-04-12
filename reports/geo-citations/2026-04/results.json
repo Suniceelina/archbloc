@@ -1,0 +1,97 @@
+{
+  "monitor_date": "2026-04-09",
+  "brand": "Archbloc",
+  "url": "https://archbloc.com",
+  "method": "火山 Coding Plan API 自动测试",
+  "script_path": "scripts/geo_citation_monitor.py",
+  "results": [
+    {
+      "platform": "豆包",
+      "model": "Doubao-Seed-2.0-pro",
+      "q1_recommend": "否",
+      "q2_benchmark": "否",
+      "q3_brand": "是",
+      "q4_keyword": "否",
+      "status": "部分命中"
+    },
+    {
+      "platform": "DeepSeek",
+      "model": "DeepSeek-V3.2",
+      "q1_recommend": "否",
+      "q2_benchmark": "否",
+      "q3_brand": "是",
+      "q4_keyword": "否",
+      "status": "部分命中"
+    },
+    {
+      "platform": "Kimi",
+      "model": "Kimi-K2.5",
+      "q1_recommend": "否",
+      "q2_benchmark": "否",
+      "q3_brand": "是",
+      "q4_keyword": "否",
+      "status": "部分命中"
+    },
+    {
+      "platform": "智谱GLM",
+      "model": "GLM-4.7",
+      "q1_recommend": "否",
+      "q2_benchmark": "否",
+      "q3_brand": "是",
+      "q4_keyword": "否",
+      "status": "部分命中"
+    },
+    {
+      "platform": "MiniMax",
+      "model": "MiniMax-M2.5",
+      "q1_recommend": "否",
+      "q2_benchmark": "否",
+      "q3_brand": "否",
+      "q4_keyword": "否",
+      "status": "未命中",
+      "note": "Q3 未命中，需关注"
+    },
+    {
+      "platform": "通义千问",
+      "model": "qwen-plus",
+      "q1_recommend": "待手动",
+      "q2_benchmark": "待手动",
+      "q3_brand": "待手动",
+      "q4_keyword": "待手动",
+      "status": "手动测试"
+    },
+    {
+      "platform": "文心一言",
+      "model": "N/A",
+      "q1_recommend": "待手动",
+      "q2_benchmark": "待手动",
+      "q3_brand": "待手动",
+      "q4_keyword": "待手动",
+      "status": "手动测试"
+    },
+    {
+      "platform": "夸克",
+      "model": "N/A",
+      "q1_recommend": "待手动",
+      "q2_benchmark": "待手动",
+      "q3_brand": "待手动",
+      "q4_keyword": "待手动",
+      "status": "手动测试"
+    }
+  ],
+  "summary": {
+    "total_platforms": 8,
+    "tested_auto": 5,
+    "tested_manual": 0,
+    "pending": 3,
+    "q3_brand_hits": 4,
+    "q3_total_tested": 5
+  },
+  "key_findings": [
+    "Q3（品牌认知）在 5 个测试平台中 4 个命中",
+    "MiniMax 未命中 Q3（需关注）",
+    "Q1/Q2/Q4 均为 0 命中，服务推荐场景未建立"
+  ],
+  "baseline_established": true,
+  "next_test": "2026-05-02"
+}
