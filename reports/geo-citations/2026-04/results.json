@@ -63,29 +63,31 @@
     {
       "platform": "文心一言",
       "model": "N/A",
-      "q1_recommend": "待手动",
-      "q2_benchmark": "待手动",
-      "q3_brand": "待手动",
-      "q4_keyword": "待手动",
-      "status": "手动测试"
+      "q1_recommend": "否",
+      "q2_benchmark": "否",
+      "q3_brand": "否",
+      "q4_keyword": "否",
+      "status": "未命中",
+      "note": "Q1/Q2 推荐竞品（泓动数据、增长超人等），Q3 回答「没有权威信息表明 Archbloc 实际存在」"
     },
     {
       "platform": "夸克",
       "model": "N/A",
-      "q1_recommend": "待手动",
-      "q2_benchmark": "待手动",
-      "q3_brand": "待手动",
-      "q4_keyword": "待手动",
-      "status": "手动测试"
+      "q1_recommend": "否",
+      "q2_benchmark": "否",
+      "q3_brand": "否",
+      "q4_keyword": "否",
+      "status": "未命中",
+      "note": "Q3 误认为区块链公司 ArcBlock"
     }
   ],
   "summary": {
     "total_platforms": 8,
     "tested_auto": 5,
-    "tested_manual": 0,
-    "pending": 3,
+    "tested_manual": 3,
+    "pending": 0,
     "q3_brand_hits": 4,
-    "q3_total_tested": 5
+    "q3_total_tested": 8
   },
   "key_findings": [
     "Q3（品牌认知）在 5 个测试平台中 4 个命中",
