@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<!-- Google Tag Manager -->
+<!-- @owner: 观测体 -->
+<!-- @purpose: 全站埋点基础设施,通过 GTM 管理所有追踪事件 -->
+<!-- @created: 2026-04-17 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K635RFCV');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -326,6 +336,11 @@
 </style>
 </head>
 <body class="page-body">
+<!-- Google Tag Manager (noscript) -->
+<!-- @owner: 观测体 -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K635RFCV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ██ 导航栏（由组件加载器注入）██ -->
 <div id="nav-placeholder"></div>
@@ -362,7 +377,11 @@
     85% 的中小企业在 DeepSeek、Kimi、文心一言里是透明人。Archbloc 替你从零建立 GEO 信源——<strong>内容、发稿、信源建设，全程我们执行，你只看结果。</strong>
   </p>
   <div class="hero-actions">
-    <a class="btn-cta" href="/geo-diagnostic.html">免费 GEO 诊断 →</a>
+    <a href="/geo-diagnostic.html" class="btn-cta" data-track="cta_click" data-cta-name="free_geo_diagnostic" data-cta-location="hero">免费 GEO 诊断 →</a>
+    <!-- TODO: @owner 观测体 - 下一批埋点待装
+     触发动作:查看服务方案按钮点击
+     标记方式:data-track="cta_click" data-cta-name="view_service_plan"
+     位置线索:class 含有 "btn-outline" 或文案"查看服务方案" -->
     <a class="btn-outline" href="#services">查看服务方案</a>
   </div>
   <div class="hero-trust">
@@ -654,7 +673,7 @@
         <p class="diag-sub" style="margin-top:14px">填入你的网址，免费获得一份 GEO 可见度初步评估——AI 引用情况、内容结构缺口、三条优先修复建议。24–48 小时内发到你邮箱。</p>
       </div>
       <div class="diag-cta-group">
-        <a class="diag-open-btn" href="/geo-diagnostic.html">
+        <a class="diag-open-btn" href="/geo-diagnostic.html" data-track="cta_click" data-cta-name="free_geo_diagnostic" data-cta-location="diagnostic">
           获取免费诊断报告 →
         </a>
         <div class="diag-cta-note">不会收到垃圾邮件 · 结果仅发给你一人</div>
@@ -718,7 +737,7 @@
         </div>
       </div>
       <div class="booking-cta-group">
-        <a class="booking-open-btn" href="/geo-diagnostic.html">
+        <a class="booking-open-btn" href="/geo-diagnostic.html" data-track="cta_click" data-cta-name="free_geo_diagnostic" data-cta-location="booking">
           免费 GEO 诊断 →
         </a>
         <div class="booking-cta-note">48 小时内出报告 · 看完再决定要不要合作</div>
