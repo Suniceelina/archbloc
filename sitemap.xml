@@ -79,12 +79,20 @@
   </url>
 
   <url>
+    <loc>https://archbloc.com/blog/traffic-diagnosis-seo-vs-market.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://archbloc.com/blog/ai-friendly-writing.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
     <loc>https://archbloc.com/blog/ai-citation-logic.html</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
