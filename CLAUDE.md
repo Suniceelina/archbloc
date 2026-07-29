@@ -91,11 +91,137 @@ push 后 EdgeOne Pages 自动部署，约 1-2 分钟生效。
 
 ## 发布新博客文章流程
 
-1. 参考 `blog/post-template.html` 在 `blog/` 目录新建文章文件
-2. 在 `blog.html` 列表页添加对应卡片（标题、描述、链接）
-3. git push
+1. 参考 `blog/post-template.html`，在 `blog/` 目录中创建新的文章 HTML 文件。
 
-文章文件命名规则：`关键词-关键词.html`（英文，用连字符）
+文章文件命名规则：`关键词-关键词.html`（英文，用连字符）。
+
+2. 检查文章必须包含：
+ - `<title>`
+ - `meta description`
+ - canonical
+ - Open Graph 标签
+ - Article Schema
+ - 文章需要 FAQ 时添加 FAQPage Schema
+ - 导航、页脚及公共组件加载
+ - 页面专属样式只能写在当前文章自己的 `<style>` 中
+
+3. 封面图保存到：
+
+ `static/images/uploads/`
+
+ 文件名应清晰、稳定，页面引用路径必须与实际文件一致。
+
+4. 在 `blog.html` 添加文章卡片：
+ - 填写正确链接、分类、标题、摘要、日期和阅读时间
+ - 根据文章重要程度决定放入精选区还是普通列表
+ - 精选区卡片数量必须符合当前页面结构
+ - 确保同一篇文章在 `blog.html` 中只出现一次
+ - 不得只增加 `data-featured="true"`，却仍把卡片放在普通列表中
+
+5. 检查并更新 `index.html` 的“最新洞察”区域：
+ - 新文章需要进入首页时，将其放到第一张
+ - 首页固定保留 3 篇合适文章
+ - 其余两张选择近期或业务价值较高的旧文章
+ - 三张卡片必须使用真实文章链接
+ - 不得继续保留指向 `#` 或仅指向 `/blog.html` 的占位链接
+
+6. 更新 `sitemap.xml`：
+ - 新增文章 URL
+ - 不得创建重复 URL
+ - 填写或更新文章的 `lastmod`
+ - 修改了首页文章区时，同步更新首页 `/` 的 `lastmod`
+ - 修改了博客列表时，同步更新 `/blog.html` 的 `lastmod`
+
+7. 提交前必须检查：
+ - `git diff --check`
+ - `git status --short`
+ - `git diff --stat`
+ - 检查本次涉及文件的完整 diff
+ - Article Schema 可以正常解析
+ - FAQPage Schema 可以正常解析（如有）
+ - 新文章链接在 `blog.html` 中出现次数正确
+ - `index.html` 中的文章链接有效
+ - `sitemap.xml` 没有重复 URL
+ - `components/` 没有任何意外修改
+ - 中文标点、标题、摘要、日期和阅读时间均已检查
+
+8. 只暂存本次明确修改的文件：
+ - 禁止默认使用 `git add .`
+ - 使用 `git add <明确文件路径>`
+ - 提交前再次检查暂存范围
+
+9. commit 后，通过 Windows PowerShell访问 GitHub：
+ - 先执行 `ls-remote` 测试网络
+ - 测试成功后再 push
+ - 使用 Windows 本地代理：
+ `http://127.0.0.1:7890`
+ - 不要在 WSL 中长时间等待 GnuTLS 或网络超时
+
+10. EdgeOne Pages 自动部署后，等待约 1–3 分钟，并验证：
+ - 文章页返回 HTTP 200
+ - `blog.html` 已出现新文章
+ - 首页“最新洞察”已按计划更新
+ - 封面图片返回 HTTP 200
+ - `sitemap.xml` 已出现新文章 URL
+ - 页面标题、正文、表格、FAQ、CTA 和封面显示正常
+ - 桌面端和移动端都要在真实浏览器中检查
+
+11. 缓存判断：
+ - 可使用随机查询参数检查新版内容
+ - 若带查询参数显示新版、普通网址显示旧版，优先判断为 CDN 或浏览器缓存
+ - 可先使用 `Ctrl+F5` 或浏览器禁用缓存重新检查
+ - 必要时在 EdgeOne 控制台刷新精确 URL
+ - 不得因为缓存问题反复 commit 或 push
+
+12. 完成线上验证后：
+ - 更新发布台账
+ - 更新草稿 frontmatter
+ - 记录发布日期、正式网址和 Git 提交 hash
+ - 确认任务完整闭环
+
+简化链路：
+
+```text
+文章 HTML
+→ 封面图
+→ blog.html
+→ index.html 最新洞察
+→ sitemap.xml
+→ 本地检查
+→ 精确暂存
+→ commit
+→ push
+→ 线上验证
+→ 发布台账
+```
+
+## 新文章发布检查清单
+
+- [ ] 文章参考 `blog/post-template.html`
+- [ ] 文件名和 slug 正确
+- [ ] `title` 和 `meta description` 已填写
+- [ ] canonical 与正式网址一致
+- [ ] Open Graph 标签已填写
+- [ ] Article Schema 可以解析
+- [ ] FAQPage Schema 可以解析（如有）
+- [ ] 封面图路径、格式和文件名正确
+- [ ] 页面专属样式没有重写公共组件
+- [ ] `blog.html` 卡片已添加
+- [ ] `blog.html` 中同一文章没有重复
+- [ ] 精选区与普通列表位置正确
+- [ ] `index.html` 最新洞察已评估并更新
+- [ ] 首页三张卡片都使用真实文章链接
+- [ ] `sitemap.xml` 已更新
+- [ ] sitemap URL 没有重复
+- [ ] 首页、博客页和文章的 `lastmod` 已按实际修改更新
+- [ ] 中文标点、标题、摘要和正文已检查
+- [ ] `components/` 零修改
+- [ ] 只暂存本任务明确修改的文件
+- [ ] 未使用 `git add .`
+- [ ] 文章、博客列表、首页、封面均已在线验证
+- [ ] 桌面端已进行真实浏览器检查
+- [ ] 移动端已进行真实浏览器检查
+- [ ] 发布台账与草稿状态已回填
 
 ## SEO/GEO 基础设施
 
