@@ -62,13 +62,29 @@ archbloc/
 
 ## Git 工作流
 
-每次修改完成后：
+每次修改完成后，按以下顺序提交：
+
+1. 每次只暂存本任务明确修改的文件
+2. 禁止默认使用 `git add .`
+3. 提交前必须执行：
+   - `git status --short`
+   - `git diff --check`
+   - `git diff --stat`
+   - `git diff -- <本次文件>`
+4. 使用 `git add <明确文件路径>`
+5. 确认没有修改 `components/` 等禁区后再提交
+
+示例：
 
 ```bash
 cd D:\OpenClaw\workspace\archbloc
-git add .
+git status --short
+git diff --check
+git diff --stat
+git diff -- path/to/file1 path/to/file2
+
+git add path/to/file1 path/to/file2
 git commit -m "描述本次改动"
-git push
 ```
 
 push 后 EdgeOne Pages 自动部署，约 1-2 分钟生效。
