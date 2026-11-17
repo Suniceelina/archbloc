@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google Tag Manager -->
+<!-- @owner: 观测体 -->
+<!-- @purpose: 全站埋点基础设施,通过 GTM 管理所有追踪事件 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K635RFCV');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI把公司业务说错了？品牌信息准确性自查清单｜Archbloc</title>
+<meta name="description" content="AI能找到公司却把名称、业务、地区或旧信息说错时，先保存错误答案和来源，再核对官网、结构化数据与第三方资料，并按相同条件记录修复前后变化。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://archbloc.com/blog/ai-brand-information-accuracy-checklist.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://archbloc.com/blog/ai-brand-information-accuracy-checklist.html">
+<meta property="og:title" content="AI把公司业务说错了？品牌信息准确性自查清单｜Archbloc">
+<meta property="og:description" content="AI能找到公司却把名称、业务、地区或旧信息说错时，先保存错误答案和来源，再核对官网、结构化数据与第三方资料，并按相同条件记录修复前后变化。">
+<meta property="og:image" content="https://archbloc.com/static/images/uploads/ai-brand-information-accuracy-share.jpg">
+<meta property="og:site_name" content="Archbloc">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- ██ 组件加载器（blog/ 子目录）██ -->
+<script src="../components/loader.js"></script>
+<link rel="stylesheet" href="../components/page-blocks.css">
+
+<!-- Schema: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI 能找到你的公司，却把业务说错：一份品牌信息准确性自查清单",
+  "description": "AI能找到公司却把名称、业务、地区或旧信息说错时，先保存错误答案和来源，再核对官网、结构化数据与第三方资料，并按相同条件记录修复前后变化。",
+  "author": {
+    "@type": "Organization",
+    "name": "Archbloc",
+    "url": "https://archbloc.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Archbloc",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://archbloc.com/archbloc-logo-light.svg"
+    }
+  },
+  "datePublished": "2026-11-17",
+  "dateModified": "2026-11-17",
+  "image": "https://archbloc.com/static/images/uploads/ai-brand-information-accuracy-share.jpg",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://archbloc.com/blog/ai-brand-information-accuracy-checklist.html"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "加上Organization Schema，AI就会纠正公司信息吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不能保证。Google说明Organization结构化数据可帮助其理解和区分组织信息，但不保证抓取、索引或展示，更不能代表其他AI产品会采用相同信息。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "官网和第三方资料冲突，应该先改哪一个？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先改企业能够控制的可见正文和对应结构化数据。如果错误答案实际引用某个第三方页面，再优先联系或更新该来源。没有引用证据时，把它列为待核线索，不直接认定因果。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "修改后多久能看到变化？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "没有统一固定周期。记录改动日期，等相关页面被重新处理后，再按同一产品、模式和问题复测；实际结果是什么就记录什么。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "同时测试多个AI产品，可以合并成一个准确率吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不建议。不同产品、模式、时间和地区的条件不同。应分别保存答案、来源和错误字段，除非事先定义了样本、分母和计算方法。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI写对了公司名，但来源链接不支持它的说法，算准确吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不能只看名称。应同时检查业务、地区等字段是否正确，以及来源页面能否支持对应断言。名称正确、依据错误，仍然需要单独记录。"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* 本页私有样式：七字段表 + 640px 以下转逐字段卡片。仅用于本页，不改公共组件。 */
+.brand-table-wrap { margin: 1.5em 0; overflow-x: auto; }
+.brand-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.9em; }
+.brand-table th, .brand-table td { border: 1px solid var(--border-strong, #e2e2e2); padding: 0.55em 0.6em; text-align: left; vertical-align: top; word-break: break-word; overflow-wrap: anywhere; }
+.brand-table th { background: var(--elevated, #fafafa); font-weight: 600; }
+.brand-table th:nth-child(1), .brand-table td:nth-child(1) { width: 10%; }
+.brand-table th:nth-child(2), .brand-table td:nth-child(2) { width: 16%; }
+.brand-table th:nth-child(3), .brand-table td:nth-child(3) { width: 14%; }
+.brand-table th:nth-child(4), .brand-table td:nth-child(4) { width: 17%; }
+.brand-table th:nth-child(5), .brand-table td:nth-child(5) { width: 15%; }
+.brand-table th:nth-child(6), .brand-table td:nth-child(6) { width: 17%; }
+.brand-table th:nth-child(7), .brand-table td:nth-child(7) { width: 11%; }
+.brand-fig { margin: 1.5em 0; text-align: center; }
+.brand-fig img { max-width: 100%; height: auto; border-radius: 8px; }
+.brand-fig figcaption { margin-top: 0.6em; font-size: 0.85em; color: var(--muted, #888); }
+@media (max-width: 640px) {
+  .brand-table-wrap { overflow-x: visible; }
+  .brand-table { display: block; border: 0; font-size: 0.95em; }
+  .brand-table thead { display: none; }
+  .brand-table tbody, .brand-table tr, .brand-table td { display: block; width: 100%; }
+  .brand-table tr { margin-bottom: 1em; border: 1px solid var(--border-strong, #e2e2e2); border-radius: 8px; padding: 0.5em 0.8em 0.8em; }
+  .brand-table td { border: 0; padding: 0.4em 0; width: auto !important; }
+  .brand-table td::before { content: attr(data-label); display: block; margin-bottom: 0.15em; font-weight: 600; font-size: 0.8em; color: var(--muted, #888); }
+}
+</style>
+</head>
+
+<body class="page-body">
+<!-- Google Tag Manager (noscript) -->
+<!-- @owner: 观测体 -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K635RFCV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="nav-placeholder"></div>
+
+<div class="breadcrumb">
+  <a href="/">首页</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="/blog.html">洞察</a>
+  <span class="breadcrumb-sep">›</span>
+  <span>AI 能找到你的公司，却把业务说错</span>
+</div>
+
+<div class="article-layout">
+
+  <article>
+    <header class="article-header">
+      <span class="article-category">GEO 实操</span>
+      <h1 class="article-headline">AI 能找到你的公司，却把业务说错：一份品牌信息准确性自查清单</h1>
+      <p class="article-deck">AI已经写出你的公司名，却把主营业务、服务地区或旧产品说错。先别继续堆文章，也别把希望全押在Schema上。</p>
+      <div class="article-byline">
+        <span class="byline-author">Archbloc 策略团队</span>
+        <span class="byline-dot">·</span>
+        <span>2026-11-17</span>
+        <span class="byline-dot">·</span>
+        <span>9 分钟阅读</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <p><strong>AI已经写出你的公司名，却把主营业务、服务地区或旧产品说错。先别继续堆文章，也别把希望全押在Schema上。</strong></p>
+
+      <p>你现在可以做五件事：保存错误答案和来源；写一张品牌事实底表；核对自有页面；处理真正冲突的公开资料；用同一问题复测。</p>
+
+      <p>这套方法只能帮助你找到并减少信息冲突，不能控制任何AI产品按期纠正答案。</p>
+
+      <p>Archbloc是GEO服务提供方。同一套核对标准也适用于我们自己。</p>
+
+      <h2 id="section-1">先判断：找不到，还是找到了但说错</h2>
+
+      <p>如果客户式提问里完全没有你的品牌，先排查抓取、索引和内容覆盖。可参考<a href="https://archbloc.com/blog/why-chatgpt-cant-find-your-business.html">为什么 ChatGPT 搜不到你的公司</a>。</p>
+
+      <p>本篇处理的是另一种情况：品牌出现了，但至少一个事实字段不对。</p>
+
+      <p>常见错误有六类：</p>
+
+      <ul>
+        <li><strong>实体错误：</strong>把你的公司和同名品牌、产品或其他主体混在一起；</li>
+        <li><strong>名称错误：</strong>公司全称、品牌名、旧称或英文名不一致；</li>
+        <li><strong>业务错误：</strong>把旧业务、项目经历或产品演示写成当前主营业务；</li>
+        <li><strong>地域错误：</strong>把注册地、总部、服务范围和案例所在地混用；</li>
+        <li><strong>时间错误：</strong>继续使用已经失效的产品、价格、团队或服务说明；</li>
+        <li><strong>来源错误：</strong>答案看似具体，引用页面却不能支持对应说法。</li>
+      </ul>
+
+      <p>先圈出一个错误字段。一次同时改十处，后面很难判断变化与哪项改动相邻。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-2">第一步：把错误答案完整保存下来</h2>
+
+      <p>不要只截一句错话。至少记录：</p>
+
+      <ol>
+        <li>产品和模式，例如是否开启网页搜索；</li>
+        <li>测试日期与地区、语言；</li>
+        <li>完整问题，不只记关键词；</li>
+        <li>答案原文；</li>
+        <li>页面引用或Sources链接；</li>
+        <li>错误字段，以及你依据什么判定它错。</li>
+      </ol>
+
+      <p>不同产品、不同模式和不同日期的结果要分开保存。它们不能直接合并成一个没有定义的“AI准确率”。</p>
+
+      <p>OpenAI也提醒，ChatGPT网页搜索的结果和引用可能不完整、过时或错误；重要事实仍应打开原始来源核对。<a href="https://help.openai.com/en/articles/9237897-searching-the-web-with-chatgpt">查看OpenAI说明</a></p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-3">第二步：建立一张品牌事实底表</h2>
+
+      <p>“事实底表”是企业内部确认的核对基线。它不要求平台只采用某一个页面，也不代表你能控制AI答案。</p>
+
+      <p>先填当前事实，再给每项事实指定一个自有权威页。这里的“权威页”只指你准备长期维护、让外部读者可以公开核对的页面。</p>
+
+      <p>下表全部是<strong>假设示例</strong>，不是Archbloc客户案例：</p>
+
+      <div class="brand-table-wrap">
+        <table class="article-table brand-table">
+          <thead>
+            <tr>
+              <th>字段</th>
+              <th>正确事实</th>
+              <th>自有权威页</th>
+              <th>第三方来源</th>
+              <th>当前冲突</th>
+              <th>修复动作</th>
+              <th>复测日期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="字段">品牌名称</td>
+              <td data-label="正确事实">示例：星河设计</td>
+              <td data-label="自有权威页">示例：关于页</td>
+              <td data-label="第三方来源">示例：行业目录仍写旧称</td>
+              <td data-label="当前冲突">旧称与现名并存</td>
+              <td data-label="修复动作">更新目录；关于页注明旧称关系</td>
+              <td data-label="复测日期">待定</td>
+            </tr>
+            <tr>
+              <td data-label="字段">公司主体</td>
+              <td data-label="正确事实">示例：星河设计（深圳）有限公司</td>
+              <td data-label="自有权威页">示例：关于页／法律信息页</td>
+              <td data-label="第三方来源">示例：合作伙伴页只写品牌名</td>
+              <td data-label="当前冲突">品牌与主体关系不清</td>
+              <td data-label="修复动作">在可见正文说明主体关系</td>
+              <td data-label="复测日期">待定</td>
+            </tr>
+            <tr>
+              <td data-label="字段">核心业务</td>
+              <td data-label="正确事实">示例：工业产品设计</td>
+              <td data-label="自有权威页">示例：服务页</td>
+              <td data-label="第三方来源">示例：旧报道写“品牌策划”</td>
+              <td data-label="当前冲突">旧业务被当成主营</td>
+              <td data-label="修复动作">更新服务页；为旧报道补充当前说明</td>
+              <td data-label="复测日期">待定</td>
+            </tr>
+            <tr>
+              <td data-label="字段">服务地区</td>
+              <td data-label="正确事实">示例：中国大陆与澳洲</td>
+              <td data-label="自有权威页">示例：服务范围页</td>
+              <td data-label="第三方来源">示例：案例页只有项目所在地</td>
+              <td data-label="当前冲突">项目所在地被当成总部</td>
+              <td data-label="修复动作">分开写总部、服务范围和案例地点</td>
+              <td data-label="复测日期">待定</td>
+            </tr>
+            <tr>
+              <td data-label="字段">联系方式</td>
+              <td data-label="正确事实">示例：contact@example.com</td>
+              <td data-label="自有权威页">示例：联系页</td>
+              <td data-label="第三方来源">示例：旧目录留有旧电话</td>
+              <td data-label="当前冲突">联系方式过期</td>
+              <td data-label="修复动作">更新高可见目录和联系页</td>
+              <td data-label="复测日期">待定</td>
+            </tr>
+            <tr>
+              <td data-label="字段">有效日期</td>
+              <td data-label="正确事实">示例：截至2026年11月</td>
+              <td data-label="自有权威页">各权威页更新时间</td>
+              <td data-label="第三方来源">第三方页面发布日期</td>
+              <td data-label="当前冲突">不清楚哪个版本更新</td>
+              <td data-label="修复动作">标注更新日期并保留变更记录</td>
+              <td data-label="复测日期">待定</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>生产页面必须保留这七个字段。桌面端显示为表格；640px以下转成逐字段卡片，不能用图片替代正文表格。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-4">第三步：先把自有页面说一致</h2>
+
+      <p>先查读者能看到的正文，再查代码。</p>
+
+      <p>按这个顺序核对：</p>
+
+      <ul>
+        <li>首页的一句话定位；</li>
+        <li>关于页的品牌名、公司主体和旧称关系；</li>
+        <li>服务页的当前业务、服务对象与地区；</li>
+        <li>联系页和法律信息页；</li>
+        <li>仍能访问的旧文章、PDF和下载资料；</li>
+        <li>页面标题、Meta和结构化数据。</li>
+      </ul>
+
+      <p>旧文章不一定要删除。仍有历史价值的内容，可以保留发布日期，并在显眼位置说明哪些信息已经变化、当前说明在哪里。</p>
+
+      <p>如果首页说“品牌咨询”，服务页说“工业设计”，结构化数据又写成“软件公司”，先把这些自有信息对齐，再讨论更多外部曝光。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-5">第四步：结构化数据要与可见事实一致</h2>
+
+      <p>Google说明，在首页添加Organization结构化数据，可以帮助Google理解组织的管理信息，并在搜索结果中区分同名组织。可填写的字段包括名称、URL、标志、联系方式和<code>sameAs</code>资料页等。<a href="https://developers.google.com/search/docs/appearance/structured-data/organization">查看Google Organization文档</a></p>
+
+      <p>它的作用是提供机器可读的组织信息，不是覆盖错误答案的指令。</p>
+
+      <p>对Google Search的AI功能而言，也不存在必须新增的“AI专用Schema”。页面即使满足技术要求，也不保证一定被抓取、索引或展示。<a href="https://developers.google.com/search/docs/appearance/ai-features">查看Google AI功能说明</a></p>
+
+      <p>因此核对顺序应该是：</p>
+
+      <ol>
+        <li>可见正文是否准确；</li>
+        <li>结构化数据是否描述同一事实；</li>
+        <li>代码能否正常解析；</li>
+        <li>页面是否可访问、可索引；</li>
+        <li>改动日期是否已经记录。</li>
+      </ol>
+
+      <p>本地企业还可以核对已验证的Google Business Profile中的地址、联系方式、业务类型和照片。这个入口只影响Google相关资料，不能代表其他AI产品会同步更新。<a href="https://developers.google.com/search/docs/appearance/establish-business-details">查看Google企业资料说明</a></p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-6">第五步：只处理真正相关的第三方冲突</h2>
+
+      <p>第三方公开资料很多，不需要见一条旧信息就全部重做。</p>
+
+      <p>先看错误答案实际引用或关联了什么：</p>
+
+      <ul>
+        <li>如果来源就是一篇旧媒体报道，优先判断能否补充更正或更新说明；</li>
+        <li>如果是行业目录或合作伙伴页，核对品牌名、主体、业务和联系方式；</li>
+        <li>如果是社交资料，先处理仍由企业控制且持续公开的账号；</li>
+        <li>如果没有来源链接，只能把第三方冲突列为待核线索，不能直接认定它是错误答案的原因。</li>
+      </ul>
+
+      <p><code>sameAs</code>可以告诉Google哪些外部资料页与组织有关，但不能保证平台采纳，也不能把内容不一致的外部页面“变正确”。</p>
+
+      <p>多发几篇同样的品牌软文、批量购买外链或堆叠品牌名，不是通用纠错方案。你需要的是可核对的一致事实，而不是更多重复噪音。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-7">第六步：一次修一类冲突，再留下改动记录</h2>
+
+      <p>建议按下面的顺序执行：</p>
+
+      <ol>
+        <li>选一个错误字段；</li>
+        <li>指定当前正确事实与自有权威页；</li>
+        <li>修正自有页面的可见正文；</li>
+        <li>同步对应结构化数据；</li>
+        <li>处理被实际引用或高相关的第三方冲突；</li>
+        <li>记录改动URL、改动日期和负责人。</li>
+      </ol>
+
+      <p>“一次修一类”是Archbloc建议的变更控制方法，不是平台规则。它不能证明因果，但能减少多项同时修改带来的判断混乱。</p>
+
+      <figure class="brand-fig">
+        <img src="https://archbloc.com/static/images/uploads/ai-brand-information-accuracy-flow.png" alt="品牌信息准确性自查流程，从正确事实、自有页面、结构化数据和第三方资料，到AI或搜索答案与复测记录" loading="lazy">
+        <figcaption>图：品牌信息准确性核对流程示意。它不是平台统一算法，也不保证答案按期纠正。</figcaption>
+      </figure>
+
+      <hr class="article-divider">
+
+      <h2 id="section-8">第七步：按同一问题复测，不承诺固定周期</h2>
+
+      <p>来源更新后，继续使用原来的产品、模式、问题、地区和语言复测。把新答案单独保存，再逐字段比较：</p>
+
+      <ul>
+        <li>品牌名是否正确；</li>
+        <li>主体关系是否正确；</li>
+        <li>当前业务是否正确；</li>
+        <li>地区含义是否正确；</li>
+        <li>引用页面是否支持相应断言；</li>
+        <li>旧错误是否仍出现。</li>
+      </ul>
+
+      <p>不要把“页面已经修改”写成“AI已经纠正”。抓取、索引、检索和答案生成是不同环节；<a href="https://archbloc.com/blog/ai-citation-logic.html">AI引用机制页</a>解释了为什么任何前置条件都不能保证最终展示。</p>
+
+      <p>也不要承诺三天、两周或一个月生效。不同产品和来源更新速度不同。最诚实的做法是记录实际复测日期；没有变化，也如实保留。</p>
+
+      <p>如需设计完整问题集和复测记录，可继续看<a href="https://archbloc.com/blog/geo-results-measurement.html">GEO效果验收方法</a>。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-9">今天可以直接做的五步</h2>
+
+      <ol>
+        <li>保存一条错误答案及全部来源；</li>
+        <li>只圈出一个错误字段；</li>
+        <li>写下正确事实和自有权威页；</li>
+        <li>找出自有页面与第三方资料中的冲突；</li>
+        <li>修一类冲突，记录改动，等待来源更新后按同一问题复测。</li>
+      </ol>
+
+      <p>品牌信息准确性不是靠一个开关解决的。它更像一项持续的信息治理工作：先定义事实，再让公开页面尽量一致，最后用可比较的记录观察变化。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-faq">FAQ</h2>
+
+      <div class="faq-module">
+        <div class="faq-item">
+          <div class="faq-question">加上Organization Schema，AI就会纠正公司信息吗？</div>
+          <div class="faq-answer">不能保证。Google说明Organization结构化数据可帮助其理解和区分组织信息，但不保证抓取、索引或展示，更不能代表其他AI产品会采用相同信息。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">官网和第三方资料冲突，应该先改哪一个？</div>
+          <div class="faq-answer">先改企业能够控制的可见正文和对应结构化数据。如果错误答案实际引用某个第三方页面，再优先联系或更新该来源。没有引用证据时，把它列为待核线索，不直接认定因果。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">修改后多久能看到变化？</div>
+          <div class="faq-answer">没有统一固定周期。记录改动日期，等相关页面被重新处理后，再按同一产品、模式和问题复测；实际结果是什么就记录什么。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">同时测试多个AI产品，可以合并成一个准确率吗？</div>
+          <div class="faq-answer">不建议。不同产品、模式、时间和地区的条件不同。应分别保存答案、来源和错误字段，除非事先定义了样本、分母和计算方法。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">AI写对了公司名，但来源链接不支持它的说法，算准确吗？</div>
+          <div class="faq-answer">不能只看名称。应同时检查业务、地区等字段是否正确，以及来源页面能否支持对应断言。名称正确、依据错误，仍然需要单独记录。</div>
+        </div>
+      </div>
+
+      <hr class="article-divider">
+
+      <h2 id="section-sources">本文依据</h2>
+
+      <ul>
+        <li><a href="https://developers.google.com/search/docs/appearance/structured-data/organization">Google：Organization结构化数据</a></li>
+        <li><a href="https://developers.google.com/search/docs/appearance/ai-features">Google：AI功能与网站</a></li>
+        <li><a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide">Google：生成式搜索优化指南</a></li>
+        <li><a href="https://developers.google.com/search/docs/appearance/establish-business-details">Google：建立企业资料</a></li>
+        <li><a href="https://help.openai.com/en/articles/9237897-searching-the-web-with-chatgpt">OpenAI：ChatGPT网页搜索</a></li>
+        <li><a href="https://developers.openai.com/api/docs/bots">OpenAI：爬虫用途说明</a></li>
+      </ul>
+
+      <p>官方页面核查日期：2026年11月17日。平台文档可能更新，发布前应再次检查链接和适用范围。</p>
+
+    </div>
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">目录</div>
+      <ul class="toc-list">
+        <li><a href="#section-1">先判断：找不到，还是找到了但说错</a></li>
+        <li><a href="#section-2">第一步：把错误答案完整保存下来</a></li>
+        <li><a href="#section-3">第二步：建立一张品牌事实底表</a></li>
+        <li><a href="#section-4">第三步：先把自有页面说一致</a></li>
+        <li><a href="#section-5">第四步：结构化数据要与可见事实一致</a></li>
+        <li><a href="#section-6">第五步：只处理真正相关的第三方冲突</a></li>
+        <li><a href="#section-7">第六步：一次修一类冲突，再留下改动记录</a></li>
+        <li><a href="#section-8">第七步：按同一问题复测，不承诺固定周期</a></li>
+        <li><a href="#section-9">今天可以直接做的五步</a></li>
+        <li><a href="#section-faq">FAQ</a></li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<div class="related-section">
+  <div class="related-heading">继续阅读</div>
+  <div class="related-grid">
+    <a href="/blog/why-chatgpt-cant-find-your-business.html" class="related-card">
+      <span class="related-tag">GEO</span>
+      <div class="related-title">为什么 ChatGPT 搜不到你的公司？先排查这 6 个问题</div>
+      <div class="related-meta">2026-08-20 · 12 分钟阅读</div>
+    </a>
+    <a href="/blog/ai-citation-logic.html" class="related-card">
+      <span class="related-tag">GEO</span>
+      <div class="related-title">一篇文章被 AI 引用，背后的逻辑是什么</div>
+      <div class="related-meta">2026-09-28 · 11 分钟阅读</div>
+    </a>
+    <a href="/blog/geo-results-measurement.html" class="related-card">
+      <span class="related-tag">GEO 实操</span>
+      <div class="related-title">GEO 效果怎么验收？先分清提及、推荐和引用</div>
+      <div class="related-meta">2026-09-10 · 10 分钟阅读</div>
+    </a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<div id="modals-placeholder"></div>
+</body>
+</html>
