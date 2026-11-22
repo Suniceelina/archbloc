@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google Tag Manager -->
+<!-- @owner: 观测体 -->
+<!-- @purpose: 全站埋点基础设施,通过 GTM 管理所有追踪事件 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K635RFCV');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GEO项目怎么安全开工？企业资料与权限交接清单｜Archbloc</title>
+<meta name="description" content="企业启动GEO项目前，先整理品牌事实、页面清单、证据授权和测量基线，再按Search Console、GA4与Business Profile的实际任务分级授权，不直接共享主密码。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://archbloc.com/blog/geo-project-handover-checklist.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://archbloc.com/blog/geo-project-handover-checklist.html">
+<meta property="og:title" content="GEO项目怎么安全开工？企业资料与权限交接清单｜Archbloc">
+<meta property="og:description" content="企业启动GEO项目前，先整理品牌事实、页面清单、证据授权和测量基线，再按Search Console、GA4与Business Profile的实际任务分级授权，不直接共享主密码。">
+<meta property="og:image" content="https://archbloc.com/static/images/uploads/geo-project-handover-share.jpg">
+<meta property="og:site_name" content="Archbloc">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- ██ 组件加载器（blog/ 子目录）██ -->
+<script src="../components/loader.js"></script>
+<link rel="stylesheet" href="../components/page-blocks.css">
+
+<!-- Schema: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GEO项目怎么安全开工？企业资料与权限交接清单",
+  "description": "企业启动GEO项目前，先整理品牌事实、页面清单、证据授权和测量基线，再按Search Console、GA4与Business Profile的实际任务分级授权，不直接共享主密码。",
+  "author": {
+    "@type": "Organization",
+    "name": "Archbloc",
+    "url": "https://archbloc.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Archbloc",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://archbloc.com/archbloc-logo-light.svg"
+    }
+  },
+  "datePublished": "2026-11-22",
+  "dateModified": "2026-11-22",
+  "image": "https://archbloc.com/static/images/uploads/geo-project-handover-share.jpg",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://archbloc.com/blog/geo-project-handover-checklist.html"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "做GEO必须把官网后台交给服务商吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。研究、诊断和资料核对往往可以先用公开页面、导出文件和只读数据完成。只有明确需要修改官网，并约定审批和回滚方式后，才考虑开放受限编辑权限。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以直接把Google主账号和密码发给服务商吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不建议。Search Console、GA4和Business Profile都提供用户或角色管理方式。尤其Business Profile明确支持每人使用自己的Google账号，无需共享密码。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Search Console和GA4都给只读就够了吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "取决于任务。诊断和建立基线通常先从只读开始；如果需要配置或修改，双方应写清具体动作，再临时增加相应权限。不要为了省一次沟通长期开放更高权限。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "客户案例材料可以全部交给内容团队吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不能默认可以。先确认素材归属、客户授权、是否需要脱敏、可以公开到什么范围。没有授权的合同、联系人和内部数据不应作为公开内容素材。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "项目结束后删除服务商账号就完成了吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "还不够。应逐系统检查外部用户、验证令牌、共享链接、临时账号和素材留存范围，并保存最终变更与验收记录。不同系统的回收方式不同。"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* 本页私有样式：五字段权限表 + 640px 以下转逐对象卡片。仅用于本页，不改公共组件。 */
+.handover-table-wrap { margin: 1.5em 0; overflow-x: auto; }
+.handover-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.9em; }
+.handover-table th, .handover-table td { border: 1px solid var(--border-strong, #e2e2e2); padding: 0.55em 0.6em; text-align: left; vertical-align: top; word-break: break-word; overflow-wrap: anywhere; }
+.handover-table th { background: var(--elevated, #fafafa); font-weight: 600; }
+.handover-table th:nth-child(1), .handover-table td:nth-child(1) { width: 14%; }
+.handover-table th:nth-child(2), .handover-table td:nth-child(2) { width: 20%; }
+.handover-table th:nth-child(3), .handover-table td:nth-child(3) { width: 18%; }
+.handover-table th:nth-child(4), .handover-table td:nth-child(4) { width: 24%; }
+.handover-table th:nth-child(5), .handover-table td:nth-child(5) { width: 24%; }
+.handover-fig { margin: 1.5em 0; text-align: center; }
+.handover-fig img { max-width: 100%; height: auto; border-radius: 8px; }
+.handover-fig figcaption { margin-top: 0.6em; font-size: 0.85em; color: var(--muted, #888); }
+@media (max-width: 640px) {
+  .handover-table-wrap { overflow-x: visible; }
+  .handover-table { display: block; border: 0; font-size: 0.95em; }
+  .handover-table thead { display: none; }
+  .handover-table tbody, .handover-table tr, .handover-table td { display: block; width: 100%; }
+  .handover-table tr { margin-bottom: 1em; border: 1px solid var(--border-strong, #e2e2e2); border-radius: 8px; padding: 0.5em 0.8em 0.8em; }
+  .handover-table td { border: 0; padding: 0.4em 0; width: auto !important; }
+  .handover-table td::before { content: attr(data-label); display: block; margin-bottom: 0.15em; font-weight: 600; font-size: 0.8em; color: var(--muted, #888); }
+}
+</style>
+</head>
+
+<body class="page-body">
+<!-- Google Tag Manager (noscript) -->
+<!-- @owner: 观测体 -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K635RFCV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="nav-placeholder"></div>
+
+<div class="breadcrumb">
+  <a href="/">首页</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="/blog.html">洞察</a>
+  <span class="breadcrumb-sep">›</span>
+  <span>GEO项目怎么安全开工</span>
+</div>
+
+<div class="article-layout">
+
+  <article>
+    <header class="article-header">
+      <span class="article-category">GEO 实操</span>
+      <h1 class="article-headline">GEO项目怎么安全开工？企业资料与权限交接清单</h1>
+      <div class="article-byline">
+        <span class="byline-author">Archbloc 策略团队</span>
+        <span class="byline-dot">·</span>
+        <span>2026-11-22</span>
+        <span class="byline-dot">·</span>
+        <span>8 分钟阅读</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <p>服务商刚进群，就让你把官网后台、主账号密码和验证码一起发过去。先暂停：项目要开工，不等于企业要交出全部控制权。</p>
+
+      <p>更稳妥的做法是把交接拆成两件事：先交可核对的资料，再按具体任务开放最小必要权限。资料不全，项目会反复猜；权限过大，企业会失去不必要的控制。</p>
+
+      <p>这份清单适用于准备启动SEO、GEO或官网内容项目的企业。它是项目管理建议，不代替企业自身的信息安全、隐私或法律审查。</p>
+
+      <p>如果你还没有选定服务商，先看<a href="https://archbloc.com/blog/how-to-choose-geo-provider.html">选GEO服务商前的六项采购问题</a>。本文从服务商已选定、项目准备开工的下一步开始。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-1">先分清：资料交接，不等于账号交接</h2>
+
+      <p>项目开始前，服务商通常需要知道企业是谁、当前提供什么、哪些页面可以改、怎样判断变化。但这些信息大多可以先用文档、链接和导出数据提供，并不要求立即开放后台。</p>
+
+      <p>建议按三个层次推进：</p>
+
+      <ol>
+        <li><strong>无需系统权限：</strong>企业事实、页面清单、已授权素材、历史记录；</li>
+        <li><strong>只读权限：</strong>查看搜索、流量和现有配置，用于诊断与建立基线；</li>
+        <li><strong>编辑权限：</strong>只有明确要执行修改，并约定审批和回滚方式后才开放。</li>
+      </ol>
+
+      <p>所有者、主账号、域名、支付和恢复邮箱是否需要变更，应由企业单独决定。不要把“合作方便”直接等同于“转移所有权”。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-2">第一包：先交一张企业事实底表</h2>
+
+      <p>第一包不是营销文案，而是企业已经确认、愿意长期维护的事实。</p>
+
+      <p>至少包括：</p>
+
+      <ul>
+        <li>品牌名称、公司主体、曾用名和英文名；</li>
+        <li>当前主营业务与明确不再提供的旧业务；</li>
+        <li>总部、服务地区、门店或项目所在地的区别；</li>
+        <li>官方网址、联系邮箱、电话和社交资料页；</li>
+        <li>每项事实对应的企业自有权威页；</li>
+        <li>事实负责人和最近确认日期。</li>
+      </ul>
+
+      <p>如果首页、服务页和对外简介写法不一致，先由企业确认哪个版本是当前事实。服务商不能替企业决定主营业务、服务范围或公司主体。</p>
+
+      <p>详细的字段整理方法可参考<a href="https://archbloc.com/blog/ai-brand-information-accuracy-checklist.html">品牌信息准确性自查清单</a>。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-3">第二包：页面、内容和证据清单</h2>
+
+      <p>第二包回答“现在有什么可以用”，而不是把整个网盘开放给外部人员。</p>
+
+      <p>可以先整理：</p>
+
+      <ul>
+        <li>官网主要页面及用途；</li>
+        <li>仍在使用的服务介绍、PDF和下载资料；</li>
+        <li>已发表文章、新闻、访谈和公开目录；</li>
+        <li>可以公开的客户评价、项目材料或媒体提及；</li>
+        <li>素材的来源、使用授权和必须隐去的信息；</li>
+        <li>已知的旧页面、错误资料和待更新内容。</li>
+      </ul>
+
+      <p>客户名称、合同、后台截图和内部数据不能因为“做案例”就自动公开。先标明：能否对外使用、能否匿名、可使用到什么范围、由谁批准。</p>
+
+      <p>如果材料只能证明“企业公开展示了某项内容”，就不要扩写成已经验证了客户关系、效果或因果。可继续参考<a href="https://archbloc.com/blog/geo-public-evidence-review.html">公开案例证据核对方法</a>。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-4">第三包：先建立测量基线</h2>
+
+      <p>没有开工前的记录，项目结束时很容易只剩一句“感觉变好了”。</p>
+
+      <p>至少保存：</p>
+
+      <ul>
+        <li>要观察的产品、模式、地区和语言；</li>
+        <li>固定问题及测试日期；</li>
+        <li>当前答案原文和来源链接；</li>
+        <li>品牌是否被提及、描述是否准确、是否被推荐、是否有可点击引用；</li>
+        <li>官网当前的搜索与访问基线；</li>
+        <li>咨询表单、电话或其他转化入口的记录方式。</li>
+      </ul>
+
+      <p>这些维度不能随意合成一个没有定义的“AI排名”。如果没有同条件历史记录，就从本次项目建立前瞻基线，不补造过去数据。</p>
+
+      <p>完整记录方式见<a href="https://archbloc.com/blog/geo-results-measurement.html">GEO效果验收方法</a>。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-5">第四包：按系统和任务分级授权</h2>
+
+      <p>不是每个项目都需要下表中的全部系统。先写清任务，再决定是否授权；只读能完成的诊断，不要默认开编辑权限。</p>
+
+      <div class="handover-table-wrap">
+        <table class="article-table handover-table">
+          <thead>
+            <tr>
+              <th>对象</th>
+              <th>先给什么</th>
+              <th>默认权限建议</th>
+              <th>用途</th>
+              <th>项目结束处理</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="对象">官网与CMS</td>
+              <td data-label="先给什么">页面清单、测试环境或导出文件</td>
+              <td data-label="默认权限建议">先无权限；确需修改时再给受限编辑</td>
+              <td data-label="用途">核对和修改可见内容、Meta或结构</td>
+              <td data-label="项目结束处理">导出变更记录，撤销临时账号</td>
+            </tr>
+            <tr>
+              <td data-label="对象">Search Console</td>
+              <td data-label="先给什么">目标资源和当前报告导出</td>
+              <td data-label="默认权限建议">诊断阶段用可查看数据的权限</td>
+              <td data-label="用途">查看查询、页面、索引与抓取相关信息</td>
+              <td data-label="项目结束处理">检查用户列表和遗留验证令牌</td>
+            </tr>
+            <tr>
+              <td data-label="对象">GA4</td>
+              <td data-label="先给什么">指定属性、时间范围和所需报告</td>
+              <td data-label="默认权限建议">优先属性级只读</td>
+              <td data-label="用途">建立访问与转化基线</td>
+              <td data-label="项目结束处理">移除外部用户或降回只读</td>
+            </tr>
+            <tr>
+              <td data-label="对象">Business Profile</td>
+              <td data-label="先给什么">对应门店或服务区域资料</td>
+              <td data-label="默认权限建议">确需维护时邀请Manager</td>
+              <td data-label="用途">核对并更新Google中的企业资料</td>
+              <td data-label="项目结束处理">在People and access中移除人员</td>
+            </tr>
+            <tr>
+              <td data-label="对象">域名与DNS</td>
+              <td data-label="先给什么">由企业执行的记录清单</td>
+              <td data-label="默认权限建议">默认不转移所有权</td>
+              <td data-label="用途">验证站点或配置必要记录</td>
+              <td data-label="项目结束处理">删除不再需要的临时验证记录</td>
+            </tr>
+            <tr>
+              <td data-label="对象">素材与客户资料</td>
+              <td data-label="先给什么">经过筛选、脱敏和授权的副本</td>
+              <td data-label="默认权限建议">只访问指定文件夹</td>
+              <td data-label="用途">制作内容和核对证据</td>
+              <td data-label="项目结束处理">回收共享链接并确认留存范围</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>这张表是Archbloc的项目交接建议，不是Google或其他平台的统一规则。生产页面应保留五个字段；桌面端使用HTML表格，640px以下转逐对象卡片，不能用图片替代表格。</p>
+
+      <p>Google的三个系统也不能混为一个权限入口：</p>
+
+      <ul>
+        <li>Search Console由所有者在“Users and permissions”中查看和调整用户权限；删除所有者后，还应检查是否留下可重新验证的令牌。<a href="https://support.google.com/webmasters/answer/7687615">查看Search Console说明</a></li>
+        <li>GA4可以在账号级或属性级添加用户，添加层级会影响访问范围，权限之后可以调整或移除。<a href="https://support.google.com/analytics/answer/9305788">查看GA4说明</a></li>
+        <li>Business Profile可以邀请Owner或Manager。Google明确建议每个用户使用自己的Google账号，不需要共享密码。<a href="https://support.google.com/business/answer/3403100">查看Business Profile说明</a></li>
+      </ul>
+
+      <hr class="article-divider">
+
+      <h2 id="section-6">任何时候都不要直接发进群的内容</h2>
+
+      <p>下面这些内容不应因为项目开工就直接贴进聊天群：</p>
+
+      <ul>
+        <li>主账号密码、邮箱密码和即时验证码；</li>
+        <li>域名、支付或云平台的最高权限凭据；</li>
+        <li>未脱敏的客户名单、联系方式和合同；</li>
+        <li>未经授权的案例素材、报价和内部报表；</li>
+        <li>与本项目无关的整个网盘或全量后台；</li>
+        <li>无法确认归属的图片、报告和第三方数据。</li>
+      </ul>
+
+      <p>如果平台支持邀请用户和角色权限，就使用独立账号授权。若某个系统只能共享凭据，应由企业先评估风险、限定使用环境，并在项目后更换或撤销；不要把临时便利变成长期访问。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-7">开工前十分钟，双方核对这六件事</h2>
+
+      <ol>
+        <li>本阶段要完成什么，不做什么；</li>
+        <li>哪些事实已经由企业确认；</li>
+        <li>哪些素材允许公开、匿名或仅内部使用；</li>
+        <li>每个系统需要查看还是修改；</li>
+        <li>谁审批改动，失败时如何回滚；</li>
+        <li>何时复测、验收和回收权限。</li>
+      </ol>
+
+      <p>如果其中任何一项没人负责，先补负责人，不要用更多权限掩盖职责不清。</p>
+
+      <figure class="handover-fig">
+        <img src="https://archbloc.com/static/images/uploads/geo-project-handover-flow.png" alt="GEO项目安全交接流程，从资料确认、分级授权、变更记录和验收交付，到权限回收" loading="lazy">
+        <figcaption>图：GEO项目安全交接五步。企业保留主所有权，权限只为具体任务开放。</figcaption>
+      </figure>
+
+      <hr class="article-divider">
+
+      <h2 id="section-8">项目结束后，交付不只是一份报告</h2>
+
+      <p>项目结束时，企业至少应拿回：</p>
+
+      <ul>
+        <li>已发布和已修改URL清单；</li>
+        <li>修改日期、修改内容和审批记录；</li>
+        <li>使用过的素材与授权记录；</li>
+        <li>测试问题、原始答案和复测结果；</li>
+        <li>未完成项与后续维护责任；</li>
+        <li>仍在生效的外部账号、令牌和共享链接清单。</li>
+      </ul>
+
+      <p>然后按实际需要撤销外部用户、降级权限、清理临时验证方式和关闭共享链接。权限回收要逐系统检查，不能只删一个联系人名字；Search Console验证令牌的具体提醒已在上方权限说明中列出。</p>
+
+      <p>权限只是项目执行条件，不是效果保证。即使页面和结构化数据都正确，也不能保证搜索或AI产品一定抓取、索引、展示、引用或推荐。Google也明确说明，正确的结构化数据不保证一定显示为搜索功能。<a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies">查看结构化数据规则</a></p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-9">今天可以直接建立的交接包</h2>
+
+      <p>新建一个项目文件夹，只放六份文件：</p>
+
+      <ol>
+        <li><strong>企业事实底表：</strong>事实字段、当前值、自有权威页、负责人、确认日期；</li>
+        <li><strong>页面与内容清单：</strong>URL、用途、当前状态、是否允许修改、负责人；</li>
+        <li><strong>证据与授权说明：</strong>素材名称、来源、公开范围、脱敏要求、批准人；</li>
+        <li><strong>测量基线：</strong>产品、模式、问题、日期、答案、来源和判断字段；</li>
+        <li><strong>权限矩阵：</strong>系统、具体任务、授权角色、开始日期、结束日期、企业审批人；</li>
+        <li><strong>变更与回收记录：</strong>修改对象、变更内容、审批、验收结果、权限回收日期。</li>
+      </ol>
+
+      <p>先把这六份文件补齐，再决定开放哪个后台。这样做不会自动带来排名或引用，但能减少猜测、重复索要资料和不必要的账号暴露。</p>
+
+      <hr class="article-divider">
+
+      <h2 id="section-faq">FAQ</h2>
+
+      <div class="faq-module">
+        <div class="faq-item">
+          <div class="faq-question">做GEO必须把官网后台交给服务商吗？</div>
+          <div class="faq-answer">不一定。研究、诊断和资料核对往往可以先用公开页面、导出文件和只读数据完成。只有明确需要修改官网，并约定审批和回滚方式后，才考虑开放受限编辑权限。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">可以直接把Google主账号和密码发给服务商吗？</div>
+          <div class="faq-answer">不建议。Search Console、GA4和Business Profile都提供用户或角色管理方式。尤其Business Profile明确支持每人使用自己的Google账号，无需共享密码。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Search Console和GA4都给只读就够了吗？</div>
+          <div class="faq-answer">取决于任务。诊断和建立基线通常先从只读开始；如果需要配置或修改，双方应写清具体动作，再临时增加相应权限。不要为了省一次沟通长期开放更高权限。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">客户案例材料可以全部交给内容团队吗？</div>
+          <div class="faq-answer">不能默认可以。先确认素材归属、客户授权、是否需要脱敏、可以公开到什么范围。没有授权的合同、联系人和内部数据不应作为公开内容素材。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">项目结束后删除服务商账号就完成了吗？</div>
+          <div class="faq-answer">还不够。应逐系统检查外部用户、验证令牌、共享链接、临时账号和素材留存范围，并保存最终变更与验收记录。不同系统的回收方式不同。</div>
+        </div>
+      </div>
+
+      <hr class="article-divider">
+
+      <h2 id="section-sources">本文依据</h2>
+
+      <ul>
+        <li><a href="https://support.google.com/webmasters/answer/7687615">Google Search Console：管理所有者、用户和权限</a></li>
+        <li><a href="https://support.google.com/analytics/answer/9305788">Google Analytics：添加、编辑和删除用户</a></li>
+        <li><a href="https://support.google.com/business/answer/3403100">Google Business Profile：管理所有者和管理员</a></li>
+        <li><a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies">Google Search Central：结构化数据通用规则</a></li>
+      </ul>
+
+      <p>官方页面核查日期：2026年11月19日。平台界面和权限规则可能更新，发布前应再次检查链接与适用范围。</p>
+
+    </div>
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">目录</div>
+      <ul class="toc-list">
+        <li><a href="#section-1">先分清：资料交接，不等于账号交接</a></li>
+        <li><a href="#section-2">第一包：先交一张企业事实底表</a></li>
+        <li><a href="#section-3">第二包：页面、内容和证据清单</a></li>
+        <li><a href="#section-4">第三包：先建立测量基线</a></li>
+        <li><a href="#section-5">第四包：按系统和任务分级授权</a></li>
+        <li><a href="#section-6">任何时候都不要直接发进群的内容</a></li>
+        <li><a href="#section-7">开工前十分钟，双方核对这六件事</a></li>
+        <li><a href="#section-8">项目结束后，交付不只是一份报告</a></li>
+        <li><a href="#section-9">今天可以直接建立的交接包</a></li>
+        <li><a href="#section-faq">FAQ</a></li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<div class="related-section">
+  <div class="related-heading">继续阅读</div>
+  <div class="related-grid">
+    <a href="/blog/how-to-choose-geo-provider.html" class="related-card">
+      <span class="related-tag">GEO 决策</span>
+      <div class="related-title">选 GEO 服务商前，先问清这六件事</div>
+      <div class="related-meta">2026-09-12 · 8 分钟阅读</div>
+    </a>
+    <a href="/blog/ai-brand-information-accuracy-checklist.html" class="related-card">
+      <span class="related-tag">GEO 实操</span>
+      <div class="related-title">AI 能找到你的公司，却把业务说错：一份品牌信息准确性自查清单</div>
+      <div class="related-meta">2026-11-17 · 9 分钟阅读</div>
+    </a>
+    <a href="/blog/geo-results-measurement.html" class="related-card">
+      <span class="related-tag">GEO 实操</span>
+      <div class="related-title">GEO 效果怎么验收？先分清提及、推荐和引用</div>
+      <div class="related-meta">2026-09-10 · 10 分钟阅读</div>
+    </a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<div id="modals-placeholder"></div>
+</body>
+</html>
